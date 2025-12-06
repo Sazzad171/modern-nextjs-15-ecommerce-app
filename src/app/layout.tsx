@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/layout/header";
+import { Toaster } from "sonner";
+import Footer from "@/components/layout/footer";
+import CategoryNav from "@/components/layout/category-nav";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -8,7 +12,7 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Modern Ecommerce",
+  title: "IT Bazar | Modern Ecommerce",
   description: "A modern ecommerce app built with nextjs",
 };
 
@@ -22,7 +26,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} antialiased`}
       >
-        {children}
+        <Header />
+        <CategoryNav />
+        <main>
+          {children}
+        </main>
+        <Footer />
+        <Toaster position="top-right" />
       </body>
     </html>
   );
