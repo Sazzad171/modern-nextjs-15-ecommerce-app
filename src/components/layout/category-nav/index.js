@@ -1,13 +1,13 @@
-'use client'
+'use client';
 
-import React, { useState } from 'react'
-import Link from 'next/link'
-import { ChevronDown, Menu } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
+import { Button } from '@/components/ui/button';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { ChevronDown, Menu } from 'lucide-react';
+import Link from 'next/link';
+import { useState } from 'react';
 
 const CategoryNav = () => {
-  const [activeCategory, setActiveCategory] = useState(null)
+  const [activeCategory, setActiveCategory] = useState(null);
 
   const categories = [
     {
@@ -19,7 +19,7 @@ const CategoryNav = () => {
         { id: 'tablets', name: 'Tablets', href: '/category/electronics/tablets' },
         { id: 'headphones', name: 'Headphones', href: '/category/electronics/headphones' },
         { id: 'gaming', name: 'Gaming', href: '/category/electronics/gaming' },
-      ]
+      ],
     },
     {
       id: 'fashion',
@@ -30,39 +30,41 @@ const CategoryNav = () => {
         { id: 'kids', name: "Kids'", href: '/category/fashion/kids' },
         { id: 'shoes', name: 'Shoes', href: '/category/fashion/shoes' },
         { id: 'accessories', name: 'Accessories', href: '/category/fashion/accessories' },
-      ]
+      ],
     },
-  ]
+  ];
 
   return (
-    <nav className="bg-gray-900 text-white border-b border-gray-800">
+    <nav className="bg-red-800 text-white">
       <div className="container mx-auto">
         {/* Desktop */}
         <div className="hidden md:block">
           <div className="flex items-center">
-            <div className="px-4 py-3 border-r border-gray-800">
-              <Button 
-                variant="ghost" 
+            <div className="border-r border-gray-800 px-4 py-3">
+              <Button
+                variant="ghost"
                 className="flex items-center gap-2 hover:bg-gray-800"
-                onClick={() => {/* Open all categories */}}
+                onClick={() => {
+                  /* Open all categories */
+                }}
               >
                 <Menu className="h-5 w-5" />
                 <span>All Categories</span>
               </Button>
             </div>
-            
+
             <div className="flex-1">
               <ul className="flex items-center">
                 {categories.map((category) => (
-                  <li 
+                  <li
                     key={category.id}
-                    className="relative group"
+                    className="group relative"
                     onMouseEnter={() => setActiveCategory(category.id)}
                     onMouseLeave={() => setActiveCategory(null)}
                   >
                     <Link
                       href={`/category/${category.id}`}
-                      className="flex items-center px-6 py-3 hover:bg-gray-800 transition-colors"
+                      className="flex items-center px-6 py-3 transition-colors hover:bg-gray-800"
                     >
                       <span>{category.name}</span>
                       <ChevronDown className="ml-2 h-4 w-4" />
@@ -70,16 +72,16 @@ const CategoryNav = () => {
 
                     {/* Mega Dropdown */}
                     {activeCategory === category.id && (
-                      <div className="absolute left-0 top-full z-50 w-screen max-w-4xl bg-black border border-gray-700 rounded-b-lg shadow-2xl">
+                      <div className="absolute top-full left-0 z-50 w-screen max-w-4xl rounded-b-lg border border-gray-700 bg-black shadow-2xl">
                         <div className="p-6">
-                          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                          <div className="grid grid-cols-2 gap-6 md:grid-cols-3">
                             {category.subcategories.map((subcategory) => (
                               <div key={subcategory.id}>
                                 <Link
                                   href={subcategory.href}
-                                  className="group/sub block p-3 rounded-lg hover:bg-gray-800 transition-all"
+                                  className="group/sub block rounded-lg p-3 transition-all hover:bg-gray-800"
                                 >
-                                  <div className="font-medium mb-1">{subcategory.name}</div>
+                                  <div className="mb-1 font-medium">{subcategory.name}</div>
                                   <div className="text-sm text-gray-400">
                                     Shop the latest collection
                                   </div>
@@ -87,20 +89,22 @@ const CategoryNav = () => {
                               </div>
                             ))}
                           </div>
-                          
+
                           {/* Featured Section */}
-                          <div className="mt-6 pt-6 border-t border-gray-800">
-                            <h4 className="text-lg font-semibold mb-3">Featured in {category.name}</h4>
+                          <div className="mt-6 border-t border-gray-800 pt-6">
+                            <h4 className="mb-3 text-lg font-semibold">
+                              Featured in {category.name}
+                            </h4>
                             <div className="flex gap-4">
-                              <Link 
-                                href="/sale" 
-                                className="px-4 py-2 bg-red-600 hover:bg-red-700 rounded-md text-sm font-medium"
+                              <Link
+                                href="/sale"
+                                className="rounded-md bg-red-600 px-4 py-2 text-sm font-medium hover:bg-red-700"
                               >
                                 Sale Up to 50% Off
                               </Link>
-                              <Link 
-                                href="/new-arrivals" 
-                                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-md text-sm font-medium"
+                              <Link
+                                href="/new-arrivals"
+                                className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium hover:bg-blue-700"
                               >
                                 New Arrivals
                               </Link>
@@ -125,27 +129,34 @@ const CategoryNav = () => {
                   <Menu className="h-5 w-5" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="left" className="w-[300px] bg-gray-900 border-gray-800 text-white">
+              <SheetContent
+                side="left"
+                className="w-[300px] border-gray-800 bg-gray-900 text-white"
+              >
                 <div className="mt-6">
-                  <h3 className="text-lg font-semibold mb-4 px-2">Categories</h3>
+                  <h3 className="mb-4 px-2 text-lg font-semibold">Categories</h3>
                   <div className="space-y-1">
                     {categories.map((category) => (
                       <div key={category.id} className="border-b border-gray-800 last:border-b-0">
                         <button
-                          onClick={() => setActiveCategory(activeCategory === category.id ? null : category.id)}
-                          className="w-full flex items-center justify-between px-2 py-3 hover:bg-gray-800 rounded-md"
+                          onClick={() =>
+                            setActiveCategory(activeCategory === category.id ? null : category.id)
+                          }
+                          className="flex w-full items-center justify-between rounded-md px-2 py-3 hover:bg-gray-800"
                         >
                           <span>{category.name}</span>
-                          <ChevronDown className={`h-4 w-4 transition-transform ${activeCategory === category.id ? 'rotate-180' : ''}`} />
+                          <ChevronDown
+                            className={`h-4 w-4 transition-transform ${activeCategory === category.id ? 'rotate-180' : ''}`}
+                          />
                         </button>
-                        
+
                         {activeCategory === category.id && (
-                          <div className="ml-4 mt-1 mb-2 space-y-1">
+                          <div className="mt-1 mb-2 ml-4 space-y-1">
                             {category.subcategories.map((subcategory) => (
                               <Link
                                 key={subcategory.id}
                                 href={subcategory.href}
-                                className="block px-2 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800 rounded-md"
+                                className="block rounded-md px-2 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white"
                               >
                                 {subcategory.name}
                               </Link>
@@ -158,9 +169,9 @@ const CategoryNav = () => {
                 </div>
               </SheetContent>
             </Sheet>
-            
+
             <div className="text-lg font-medium">Categories</div>
-            
+
             <Button variant="ghost" size="icon" className="invisible">
               <Menu className="h-5 w-5" />
             </Button>
@@ -168,7 +179,7 @@ const CategoryNav = () => {
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default CategoryNav
+export default CategoryNav;
