@@ -112,7 +112,7 @@ const ProductDetailsPage = ({
                 </div>
               </div>
             </div>
-            <div className="col-span-3 lg:pl-8">
+            <div className="col-span-3 lg:pt-6 lg:pl-8">
               {/* Title */}
               <div>
                 <h1 className="text-2xl font-semibold">{name}</h1>
