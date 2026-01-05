@@ -12,7 +12,7 @@ const Footer = () => {
           <div className="space-y-6">
             {/* Logo */}
             <Link href="/" className="inline-block">
-              <Image src={'/images/logo-red.png'} alt="Company Logo" width={60} height={60} />
+              <Image src={'/images/logo-red.png'} alt="Company Logo" width={80} height={80} />
             </Link>
 
             {/* Contact Info */}
@@ -22,7 +22,7 @@ const Footer = () => {
                 <div>
                   <p className="text-sm text-gray-400">Phone</p>
                   <a href="tel:+1234567890" className="transition-colors hover:text-white">
-                    +1 (234) 567-890
+                    +8801578993323
                   </a>
                 </div>
               </div>
@@ -71,18 +71,14 @@ const Footer = () => {
           </div>
 
           {/* Middle Column - Location & Details */}
-          <div className="space-y-6">
+          <div>
             <div className="flex items-start space-x-3">
               <MapPin className="mt-1 h-5 w-5 text-gray-400" />
               <div className="space-y-4">
                 <div>
                   <h3 className="mb-2 text-lg font-semibold">Main Office</h3>
                   <p className="text-gray-300">
-                    123 Business Street
-                    <br />
-                    Suite 100
-                    <br />
-                    Dhaka
+                    123 Banani, Dhaka
                     <br />
                     Bangladesh
                   </p>
@@ -106,7 +102,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <Link
-                  href="/privacy-policy"
+                  href="/"
                   className="inline-block text-gray-300 transition-colors hover:text-white"
                 >
                   Privacy Policy
@@ -114,7 +110,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/terms-of-service"
+                  href="/"
                   className="inline-block text-gray-300 transition-colors hover:text-white"
                 >
                   Terms of Service
@@ -122,7 +118,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/cookie-policy"
+                  href="/"
                   className="inline-block text-gray-300 transition-colors hover:text-white"
                 >
                   Cookie Policy
@@ -130,7 +126,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/refund-policy"
+                  href="/"
                   className="inline-block text-gray-300 transition-colors hover:text-white"
                 >
                   Refund Policy
@@ -138,7 +134,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/shipping-policy"
+                  href="/"
                   className="inline-block text-gray-300 transition-colors hover:text-white"
                 >
                   Shipping Policy
@@ -152,7 +148,7 @@ const Footer = () => {
               <ul className="space-y-2">
                 <li>
                   <Link
-                    href="/about"
+                    href="/"
                     className="text-sm text-gray-300 transition-colors hover:text-white"
                   >
                     About Us
@@ -160,7 +156,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    href="/contact"
+                    href="/"
                     className="text-sm text-gray-300 transition-colors hover:text-white"
                   >
                     Contact Us
@@ -168,7 +164,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    href="/faq"
+                    href="/"
                     className="text-sm text-gray-300 transition-colors hover:text-white"
                   >
                     FAQ
@@ -176,7 +172,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    href="/support"
+                    href="/"
                     className="text-sm text-gray-300 transition-colors hover:text-white"
                   >
                     Support
@@ -193,20 +189,16 @@ const Footer = () => {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0">
             <div className="text-center text-sm text-gray-400 md:text-left">
-              © {new Date().getFullYear()} ITBazar. All rights reserved.
+              &copy; {new Date().getFullYear()} ITBazar. All rights reserved.
             </div>
 
             <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
-              <Link href="/sitemap" className="transition-colors hover:text-white">
+              <Link href="/" className="transition-colors hover:text-white">
                 Sitemap
               </Link>
               <span className="text-gray-600">•</span>
-              <Link href="/accessibility" className="transition-colors hover:text-white">
+              <Link href="/" className="transition-colors hover:text-white">
                 Accessibility
-              </Link>
-              <span className="text-gray-600">•</span>
-              <Link href="/legal" className="transition-colors hover:text-white">
-                Legal Notice
               </Link>
             </div>
           </div>

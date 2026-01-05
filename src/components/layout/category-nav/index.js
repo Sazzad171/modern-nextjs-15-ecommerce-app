@@ -89,27 +89,6 @@ const CategoryNav = () => {
                               </div>
                             ))}
                           </div>
-
-                          {/* Featured Section */}
-                          <div className="mt-6 border-t border-gray-800 pt-6">
-                            <h4 className="mb-3 text-lg font-semibold">
-                              Featured in {category.name}
-                            </h4>
-                            <div className="flex gap-4">
-                              <Link
-                                href="/sale"
-                                className="rounded-md bg-red-600 px-4 py-2 text-sm font-medium hover:bg-red-700"
-                              >
-                                Sale Up to 50% Off
-                              </Link>
-                              <Link
-                                href="/new-arrivals"
-                                className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium hover:bg-blue-700"
-                              >
-                                New Arrivals
-                              </Link>
-                            </div>
-                          </div>
                         </div>
                       </div>
                     )}

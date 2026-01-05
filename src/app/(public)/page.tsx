@@ -100,7 +100,7 @@ export default function Home() {
                 className="group rounded-xl border-2 border-red-500 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl dark:bg-gray-800"
               >
                 {/* Product Image */}
-                <div className="relative h-48 w-full overflow-hidden rounded-t-lg">
+                <div className="relative h-58 w-full overflow-hidden rounded-t-lg">
                   <Image
                     src={product.image}
                     alt={product.name}
@@ -125,25 +125,13 @@ export default function Home() {
                   {/* Price */}
                   <div className="flex items-center justify-between">
                     <div>
-                      <span className="text-2xl font-bold text-red-600">${product.price}</span>
-                      <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">Free Shipping</p>
+                      <span className="text-xl font-bold text-red-600">${product.price}</span>
                     </div>
 
                     {/* Add to Cart Button */}
-                    <button className="rounded-lg bg-red-600 px-4 py-2 font-medium text-white transition-colors duration-200 hover:bg-red-700">
+                    <button className="rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white transition-colors duration-200 hover:bg-red-700">
                       Add to Cart
                     </button>
-                  </div>
-
-                  {/* Rating */}
-                  <div className="mt-4 flex items-center">
-                    <div className="flex text-yellow-400">
-                      {'★'.repeat(4)}
-                      <span className="text-gray-300">★</span>
-                    </div>
-                    <span className="ml-2 text-sm text-gray-600 dark:text-gray-400">
-                      (128 reviews)
-                    </span>
                   </div>
                 </div>
               </div>
@@ -165,7 +153,7 @@ export default function Home() {
                 className="group rounded-xl border-2 border-red-500 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl dark:bg-gray-800"
               >
                 {/* Product Image */}
-                <div className="relative h-48 w-full overflow-hidden rounded-t-lg">
+                <div className="relative h-58 w-full overflow-hidden rounded-t-lg">
                   <Image
                     src={product.image}
                     alt={product.name}
@@ -190,25 +178,13 @@ export default function Home() {
                   {/* Price */}
                   <div className="flex items-center justify-between">
                     <div>
-                      <span className="text-2xl font-bold text-red-600">${product.price}</span>
-                      <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">Free Shipping</p>
+                      <span className="text-xl font-bold text-red-600">${product.price}</span>
                     </div>
 
                     {/* Add to Cart Button */}
-                    <button className="rounded-lg bg-red-600 px-4 py-2 font-medium text-white transition-colors duration-200 hover:bg-red-700">
+                    <button className="rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white transition-colors duration-200 hover:bg-red-700">
                       Add to Cart
                     </button>
-                  </div>
-
-                  {/* Rating */}
-                  <div className="mt-4 flex items-center">
-                    <div className="flex text-yellow-400">
-                      {'★'.repeat(4)}
-                      <span className="text-gray-300">★</span>
-                    </div>
-                    <span className="ml-2 text-sm text-gray-600 dark:text-gray-400">
-                      (128 reviews)
-                    </span>
                   </div>
                 </div>
               </div>
