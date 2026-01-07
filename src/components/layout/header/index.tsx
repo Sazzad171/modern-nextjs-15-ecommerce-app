@@ -372,12 +372,6 @@ const Header = () => {
                               <div className="text-sm font-medium text-white">{result.title}</div>
                               <div className="mt-1 flex items-center gap-2">
                                 <span className="text-xs text-green-400">{result.price}</span>
-                                <div className="flex items-center">
-                                  <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
-                                  <span className="ml-1 text-xs text-gray-400">
-                                    {result.rating}
-                                  </span>
-                                </div>
                               </div>
                             </div>
                             <ChevronRight className="h-4 w-4 text-gray-500" />
