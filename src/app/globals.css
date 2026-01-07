@@ -1,20 +1,18 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-
+  --container-max-width: 1320px;
+  --container-padding: 1rem;
 }
 
 :root {
-
 }
 
 .dark {
-
 }
 
 @layer base {
-  
 }
