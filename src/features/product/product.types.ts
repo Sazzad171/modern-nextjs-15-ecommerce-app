@@ -13,4 +13,5 @@ export interface ProductItemProps {
   product: ProductItemTypes;
   className?: string;
   showCategory?: boolean;
+  imageHeightClass?: string;
 }

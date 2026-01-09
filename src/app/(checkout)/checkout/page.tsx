@@ -120,24 +120,22 @@ export default function CheckoutPage() {
             {/* Left Column - Checkout Forms */}
             <div className="space-y-8 lg:col-span-2">
               {/* Contact Information */}
-              <Card className="border-gray-800 bg-gray-900">
+              <Card className="bg-gray-50">
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-white">
+                  <CardTitle className="flex items-center gap-2">
                     <ShoppingBag className="h-5 w-5 text-red-600" />
                     Contact Information
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
-                    <Label htmlFor="email" className="text-gray-300">
+                    <Label htmlFor="email" className="text-gray-700">
                       Email *
                     </Label>
                     <Input
                       id="email"
                       type="email"
-                      className={`mt-1 border-gray-700 bg-gray-800 text-white ${
-                        errors.email ? 'border-red-500' : ''
-                      }`}
+                      className={`mt-1 border-gray-700 ${errors.email ? 'border-red-500' : ''}`}
                       {...register('email')}
                     />
                     {errors.email && (
@@ -148,9 +146,9 @@ export default function CheckoutPage() {
               </Card>
 
               {/* Shipping Address */}
-              <Card className="border-gray-800 bg-gray-900">
+              <Card className="bg-gray-50">
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-white">
+                  <CardTitle className="flex items-center gap-2">
                     <Truck className="h-5 w-5 text-red-600" />
                     Shipping Address
                   </CardTitle>
@@ -158,12 +156,12 @@ export default function CheckoutPage() {
                 <CardContent className="space-y-4">
                   <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                     <div>
-                      <Label htmlFor="firstName" className="text-gray-300">
+                      <Label htmlFor="firstName" className="text-gray-700">
                         First Name *
                       </Label>
                       <Input
                         id="firstName"
-                        className={`mt-1 border-gray-700 bg-gray-800 text-white ${
+                        className={`mt-1 border-gray-700 ${
                           errors.firstName ? 'border-red-500' : ''
                         }`}
                         {...register('firstName')}
@@ -173,12 +171,12 @@ export default function CheckoutPage() {
                       )}
                     </div>
                     <div>
-                      <Label htmlFor="lastName" className="text-gray-300">
+                      <Label htmlFor="lastName" className="text-gray-700">
                         Last Name *
                       </Label>
                       <Input
                         id="lastName"
-                        className={`mt-1 border-gray-700 bg-gray-800 text-white ${
+                        className={`mt-1 border-gray-700 ${
                           errors.lastName ? 'border-red-500' : ''
                         }`}
                         {...register('lastName')}
@@ -190,14 +188,12 @@ export default function CheckoutPage() {
                   </div>
 
                   <div>
-                    <Label htmlFor="address" className="text-gray-300">
+                    <Label htmlFor="address" className="text-gray-700">
                       Address *
                     </Label>
                     <Input
                       id="address"
-                      className={`mt-1 border-gray-700 bg-gray-800 text-white ${
-                        errors.address ? 'border-red-500' : ''
-                      }`}
+                      className={`mt-1 border-gray-700 ${errors.address ? 'border-red-500' : ''}`}
                       {...register('address')}
                     />
                     {errors.address && (
@@ -207,14 +203,12 @@ export default function CheckoutPage() {
 
                   <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
                     <div>
-                      <Label htmlFor="city" className="text-gray-300">
+                      <Label htmlFor="city" className="text-gray-700">
                         City *
                       </Label>
                       <Input
                         id="city"
-                        className={`mt-1 border-gray-700 bg-gray-800 text-white ${
-                          errors.city ? 'border-red-500' : ''
-                        }`}
+                        className={`mt-1 border-gray-700 ${errors.city ? 'border-red-500' : ''}`}
                         {...register('city')}
                       />
                       {errors.city && (
@@ -222,14 +216,12 @@ export default function CheckoutPage() {
                       )}
                     </div>
                     <div>
-                      <Label htmlFor="country" className="text-gray-300">
+                      <Label htmlFor="country" className="text-gray-700">
                         Country *
                       </Label>
                       <Input
                         id="country"
-                        className={`mt-1 border-gray-700 bg-gray-800 text-white ${
-                          errors.country ? 'border-red-500' : ''
-                        }`}
+                        className={`mt-1 border-gray-700 ${errors.country ? 'border-red-500' : ''}`}
                         {...register('country')}
                       />
                       {errors.country && (
@@ -237,14 +229,12 @@ export default function CheckoutPage() {
                       )}
                     </div>
                     <div>
-                      <Label htmlFor="zipCode" className="text-gray-300">
+                      <Label htmlFor="zipCode" className="text-gray-700">
                         ZIP Code *
                       </Label>
                       <Input
                         id="zipCode"
-                        className={`mt-1 border-gray-700 bg-gray-800 text-white ${
-                          errors.zipCode ? 'border-red-500' : ''
-                        }`}
+                        className={`mt-1 border-gray-700 ${errors.zipCode ? 'border-red-500' : ''}`}
                         {...register('zipCode')}
                       />
                       {errors.zipCode && (
@@ -254,15 +244,13 @@ export default function CheckoutPage() {
                   </div>
 
                   <div>
-                    <Label htmlFor="phone" className="text-gray-300">
+                    <Label htmlFor="phone" className="text-gray-700">
                       Phone *
                     </Label>
                     <Input
                       id="phone"
                       type="tel"
-                      className={`mt-1 border-gray-700 bg-gray-800 text-white ${
-                        errors.phone ? 'border-red-500' : ''
-                      }`}
+                      className={`mt-1 border-gray-700 ${errors.phone ? 'border-red-500' : ''}`}
                       {...register('phone')}
                     />
                     {errors.phone && (
@@ -276,7 +264,7 @@ export default function CheckoutPage() {
                       checked={saveInfo}
                       onCheckedChange={(checked) => setValue('saveInfo', checked as boolean)}
                     />
-                    <Label htmlFor="saveInfo" className="text-gray-300">
+                    <Label htmlFor="saveInfo" className="text-gray-700">
                       Save this information for next time
                     </Label>
                   </div>
@@ -284,9 +272,9 @@ export default function CheckoutPage() {
               </Card>
 
               {/* Payment Method */}
-              <Card className="border-gray-800 bg-gray-900">
+              <Card className="bg-gray-50">
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-white">
+                  <CardTitle className="flex items-center gap-2">
                     <CreditCard className="h-5 w-5 text-red-600" />
                     Payment Method
                   </CardTitle>
@@ -307,8 +295,8 @@ export default function CheckoutPage() {
                         onClick={() => setPaymentMethod(method.id)}
                       >
                         <div className="flex items-center gap-3">
-                          <method.icon className="h-5 w-5 text-gray-400" />
-                          <span className="text-white">{method.label}</span>
+                          <method.icon className="h-5 w-5 text-gray-800" />
+                          <span>{method.label}</span>
                         </div>
                         <div
                           className={`h-4 w-4 rounded-full border ${

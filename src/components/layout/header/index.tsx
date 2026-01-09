@@ -324,11 +324,15 @@ const Header = () => {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              <DropdownMenuItem>
-                <Link href={PAGE_ROUTES.PROFILE}>Profile</Link>
+              <DropdownMenuItem asChild>
+                <Link href={PAGE_ROUTES.PROFILE} className="cursor-pointer">
+                  Profile
+                </Link>
               </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link href={PAGE_ROUTES.LOGOUT}>Logout</Link>
+              <DropdownMenuItem asChild>
+                <Link href={PAGE_ROUTES.LOGOUT} className="cursor-pointer">
+                  Logout
+                </Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

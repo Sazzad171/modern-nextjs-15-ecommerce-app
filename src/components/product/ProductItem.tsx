@@ -1,8 +1,15 @@
 import { ProductItemProps } from '@/features/product/product.types';
+import { PAGE_ROUTES } from '@/lib/constants/page-routes';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
+import Link from 'next/link';
 
-export function ProductItemCard({ product, className, showCategory = true }: ProductItemProps) {
+export function ProductItemCard({
+  product,
+  className,
+  showCategory = true,
+  imageHeightClass = 'h-58',
+}: ProductItemProps) {
   return (
     <div
       className={cn(
@@ -11,14 +18,16 @@ export function ProductItemCard({ product, className, showCategory = true }: Pro
       )}
     >
       {/* Product Image */}
-      <div className="relative h-58 w-full overflow-hidden rounded-t-lg">
-        <Image
-          src={product.image}
-          alt={product.name}
-          fill
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-        />
+      <div className={cn('relative w-full overflow-hidden rounded-t-lg', imageHeightClass)}>
+        <Link href={PAGE_ROUTES?.PRODUCT_DETAILS}>
+          <Image
+            src={product.image}
+            alt={product.name}
+            fill
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          />
+        </Link>
 
         {/* Category Badge */}
         {showCategory && (
@@ -41,9 +50,11 @@ export function ProductItemCard({ product, className, showCategory = true }: Pro
 
       {/* Product Info */}
       <div className="p-5">
-        <h3 className="mb-2 line-clamp-2 text-lg font-semibold text-gray-800 dark:text-white">
-          {product.name}
-        </h3>
+        <Link href={PAGE_ROUTES?.PRODUCT_DETAILS}>
+          <h3 className="mb-2 line-clamp-2 text-lg font-semibold text-gray-800 dark:text-white">
+            {product.name}
+          </h3>
+        </Link>
 
         {/* Price */}
         <div className="flex items-center justify-between gap-2">

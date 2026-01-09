@@ -78,7 +78,7 @@ export default function Home() {
 
           {/* Grid Layout */}
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
-            {productsData.map((product) => (
+            {productsData?.slice(3, 8)?.map((product) => (
               <ProductItemCard product={product} key={product.id} />
             ))}
           </div>
@@ -116,7 +116,7 @@ export default function Home() {
 
           {/* Grid Layout */}
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
-            {productsData.map((product) => (
+            {productsData?.slice(3, 8)?.map((product) => (
               <ProductItemCard product={product} key={product.id} />
             ))}
           </div>
@@ -153,7 +153,7 @@ export default function Home() {
 
           {/* Grid Layout */}
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
-            {productsData.map((product) => (
+            {productsData?.slice(4, 9)?.map((product) => (
               <ProductItemCard product={product} key={product.id} />
             ))}
           </div>

@@ -64,9 +64,9 @@ export default function CartSection() {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           {/* Left Column - Cart Items */}
           <div className="lg:col-span-2">
-            <Card className="border-gray-800 bg-gray-900">
+            <Card className="bg-gray-50">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-white">
+                <CardTitle className="flex items-center gap-2">
                   <ShoppingBag className="h-5 w-5 text-red-600" />
                   Cart Items ({cartItems.length})
                 </CardTitle>
@@ -82,10 +82,10 @@ export default function CartSection() {
                     {cartItems.map((item) => (
                       <div
                         key={item.id}
-                        className="flex flex-col gap-4 rounded-lg border border-gray-700 bg-gray-800/50 p-4 sm:flex-row"
+                        className="flex flex-col gap-4 rounded-lg border border-gray-200 bg-gray-200/50 p-4 sm:flex-row"
                       >
                         {/* Product Image */}
-                        <div className="relative flex h-24 w-full items-center justify-center rounded-md bg-gray-700 sm:w-24">
+                        <div className="relative flex h-24 w-full items-center justify-center overflow-hidden rounded-md bg-gray-700 sm:w-24">
                           <Image src={item.image ?? ''} alt={item.name ?? 'product image'} fill />
                         </div>
 
@@ -93,7 +93,7 @@ export default function CartSection() {
                         <div className="flex-1">
                           <div className="flex items-start justify-between">
                             <div>
-                              <h3 className="text-lg font-semibold text-white">{item.name}</h3>
+                              <h3 className="text-lg font-semibold">{item.name}</h3>
                               <p className="mt-2 text-xl font-bold text-red-600">
                                 ${item.price.toFixed(2)}
                               </p>
@@ -102,7 +102,7 @@ export default function CartSection() {
                               variant="ghost"
                               size="icon"
                               onClick={() => removeItem(item.id)}
-                              className="text-gray-400 hover:bg-red-600/10 hover:text-red-600"
+                              className="bg-red-600/10 text-red-600"
                             >
                               <Trash2 className="h-4 w-4" />
                             </Button>
@@ -115,25 +115,23 @@ export default function CartSection() {
                                 variant="outline"
                                 size="icon"
                                 onClick={() => updateQuantity(item.id, -1)}
-                                className="border-gray-700 text-gray-400 hover:border-red-600 hover:bg-red-600 hover:text-white"
+                                className="border-gray-700 hover:border-red-600 hover:bg-red-600 hover:text-white"
                               >
                                 <Minus className="h-4 w-4" />
                               </Button>
-                              <span className="w-12 rounded bg-gray-900 py-1.5 text-center font-medium text-white">
+                              <span className="w-12 rounded-md bg-gray-900 py-1.5 text-center font-medium text-white">
                                 {item.quantity}
                               </span>
                               <Button
                                 variant="outline"
                                 size="icon"
                                 onClick={() => updateQuantity(item.id, 1)}
-                                className="border-gray-700 text-gray-400 hover:border-red-600 hover:bg-red-600 hover:text-white"
+                                className="border-gray-700 hover:border-red-600 hover:bg-red-600 hover:text-white"
                               >
                                 <Plus className="h-4 w-4" />
                               </Button>
                             </div>
-                            <p className="font-bold text-white">
-                              ${(item.price * item.quantity).toFixed(2)}
-                            </p>
+                            <p className="font-bold">${(item.price * item.quantity).toFixed(2)}</p>
                           </div>
                         </div>
                       </div>

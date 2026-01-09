@@ -33,6 +33,14 @@ const CategoryNav = () => {
         { id: 'accessories', name: 'Accessories', href: PAGE_ROUTES.PRODUCTS },
       ],
     },
+    {
+      id: 'Gadget',
+      name: 'Gadget',
+      subcategories: [
+        { id: 'MobileCase', name: 'Mobile Case', href: PAGE_ROUTES.PRODUCTS },
+        { id: 'Cable', name: 'Cable', href: PAGE_ROUTES.PRODUCTS },
+      ],
+    },
   ];
 
   return (
@@ -73,7 +81,7 @@ const CategoryNav = () => {
 
                     {/* Mega Dropdown */}
                     {activeCategory === category.id && (
-                      <div className="absolute top-full left-0 z-50 w-screen max-w-4xl rounded-b-lg border border-gray-700 bg-black shadow-2xl">
+                      <div className="absolute top-full left-0 z-50 w-screen max-w-2xl rounded-b-lg border border-gray-700 bg-black shadow-2xl">
                         <div className="p-6">
                           <div className="grid grid-cols-2 gap-6 md:grid-cols-3">
                             {category.subcategories.map((subcategory) => (
