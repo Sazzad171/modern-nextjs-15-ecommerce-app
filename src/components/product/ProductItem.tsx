@@ -23,7 +23,7 @@ export function ProductItemCard({ product, className, showCategory = true }: Pro
         {/* Category Badge */}
         {showCategory && (
           <div className="absolute top-3 left-3">
-            <span className="rounded-full bg-red-500 px-3 py-1 text-xs font-medium text-white">
+            <span className="rounded-full bg-gray-600 px-3 py-1 text-xs font-medium text-white">
               {product.category}
             </span>
           </div>
@@ -46,9 +46,9 @@ export function ProductItemCard({ product, className, showCategory = true }: Pro
         </h3>
 
         {/* Price */}
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <span className="text-xl font-bold text-red-600">${product.price.toFixed(2)}</span>
+            <span className="text-lg font-bold text-red-600">${product.price.toFixed(2)}</span>
             {product?.discount && (
               <span className="text-sm text-gray-500 line-through">
                 ${((product.price * 100) / (100 - product?.discount)).toFixed(2)}
@@ -57,7 +57,7 @@ export function ProductItemCard({ product, className, showCategory = true }: Pro
           </div>
 
           {/* Add to Cart Button */}
-          <button className="rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white transition-colors duration-200 hover:bg-red-700 focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:outline-none">
+          <button className="rounded-lg bg-red-600 px-3 py-1 text-sm font-medium text-white transition-colors duration-200 hover:bg-red-700 focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:outline-none">
             Add to Cart
           </button>
         </div>

@@ -99,3 +99,7 @@
     color: hsl(var(--foreground));
   }
 }
+
+.section-gap {
+  @apply py-6 md:py-10;
+}
