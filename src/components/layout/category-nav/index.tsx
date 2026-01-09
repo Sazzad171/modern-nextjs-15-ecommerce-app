@@ -2,34 +2,35 @@
 
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { PAGE_ROUTES } from '@/lib/constants/page-routes';
 import { ChevronDown, Menu } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
 
 const CategoryNav = () => {
-  const [activeCategory, setActiveCategory] = useState(null);
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   const categories = [
     {
       id: 'electronics',
       name: 'Electronics',
       subcategories: [
-        { id: 'smartphones', name: 'Smartphones', href: '/category/electronics/smartphones' },
-        { id: 'laptops', name: 'Laptops', href: '/category/electronics/laptops' },
-        { id: 'tablets', name: 'Tablets', href: '/category/electronics/tablets' },
-        { id: 'headphones', name: 'Headphones', href: '/category/electronics/headphones' },
-        { id: 'gaming', name: 'Gaming', href: '/category/electronics/gaming' },
+        { id: 'smartphones', name: 'Smartphones', href: PAGE_ROUTES.PRODUCTS },
+        { id: 'laptops', name: 'Laptops', href: PAGE_ROUTES.PRODUCTS },
+        { id: 'tablets', name: 'Tablets', href: PAGE_ROUTES.PRODUCTS },
+        { id: 'headphones', name: 'Headphones', href: PAGE_ROUTES.PRODUCTS },
+        { id: 'gaming', name: 'Gaming', href: PAGE_ROUTES.PRODUCTS },
       ],
     },
     {
       id: 'fashion',
       name: 'Fashion',
       subcategories: [
-        { id: 'mens', name: "Men's", href: '/category/fashion/mens' },
-        { id: 'womens', name: "Women's", href: '/category/fashion/womens' },
-        { id: 'kids', name: "Kids'", href: '/category/fashion/kids' },
-        { id: 'shoes', name: 'Shoes', href: '/category/fashion/shoes' },
-        { id: 'accessories', name: 'Accessories', href: '/category/fashion/accessories' },
+        { id: 'mens', name: "Men's", href: PAGE_ROUTES.PRODUCTS },
+        { id: 'womens', name: "Women's", href: PAGE_ROUTES.PRODUCTS },
+        { id: 'kids', name: "Kids'", href: PAGE_ROUTES.PRODUCTS },
+        { id: 'shoes', name: 'Shoes', href: PAGE_ROUTES.PRODUCTS },
+        { id: 'accessories', name: 'Accessories', href: PAGE_ROUTES.PRODUCTS },
       ],
     },
   ];
@@ -43,7 +44,7 @@ const CategoryNav = () => {
             <div className="border-r border-gray-800 px-4 py-3">
               <Button
                 variant="ghost"
-                className="flex items-center gap-2 hover:bg-gray-800"
+                className="flex items-center gap-2"
                 onClick={() => {
                   /* Open all categories */
                 }}

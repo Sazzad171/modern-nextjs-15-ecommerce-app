@@ -1,9 +1,16 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 import { Input } from '@/components/ui/input';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
-import { ChevronRight, Search, ShoppingCart, Star, User, X } from 'lucide-react';
+import { PAGE_ROUTES } from '@/lib/constants/page-routes';
+import { ChevronRight, Search, ShoppingCart, User, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
@@ -190,7 +197,7 @@ const Header = () => {
           <Button
             variant="ghost"
             size="icon"
-            className="rounded-full border border-gray-700 bg-transparent text-white hover:bg-gray-800 md:hidden"
+            className="rounded-full border border-gray-700 bg-transparent text-white hover:bg-gray-800 hover:text-white md:hidden"
             onClick={() => setShowMobileSearch(!showMobileSearch)}
           >
             {showMobileSearch ? <X className="h-5 w-5" /> : <Search className="h-5 w-5" />}
@@ -202,7 +209,7 @@ const Header = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="relative rounded-full border border-gray-700 bg-transparent text-white hover:bg-gray-800"
+                className="relative cursor-pointer rounded-full border border-gray-700 bg-transparent text-white hover:bg-gray-800 hover:text-white"
               >
                 <ShoppingCart className="h-5 w-5" />
                 <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-red-600 text-xs font-medium">
@@ -306,13 +313,25 @@ const Header = () => {
           </Sheet>
 
           {/* User Icon */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="hidden rounded-full border border-gray-700 bg-transparent text-white hover:bg-gray-800 sm:inline-flex"
-          >
-            <User className="h-5 w-5" />
-          </Button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="hidden cursor-pointer rounded-full border border-gray-700 bg-transparent text-white hover:bg-gray-800 hover:text-white sm:inline-flex"
+              >
+                <User className="h-5 w-5" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem>
+                <Link href={PAGE_ROUTES.PROFILE}>Profile</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href={PAGE_ROUTES.LOGOUT}>Logout</Link>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
 
           {/* Mobile User Menu (simplified) */}
           <Button
