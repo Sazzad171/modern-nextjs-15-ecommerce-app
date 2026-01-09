@@ -1,16 +1,28 @@
+'use client';
+
+import { ProductItemCard } from '@/components/product/ProductItem';
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
+import { ProductItemTypes } from '@/features/product/product.types';
+import Autoplay from 'embla-carousel-autoplay';
 import Image from 'next/image';
+import { useRef } from 'react';
 
-interface Product {
-  id: number;
-  name: string;
-  price: number;
-  image: string;
-  category: string;
-  storage?: string;
-  color?: string;
-}
+const images = [
+  {
+    src: '/images/home/main-banner.webp',
+    alt: 'Main Banner 1',
+  },
+  {
+    src: '/images/home/sub-banner.webp',
+    alt: 'Main Banner 2',
+  },
+  {
+    src: '/images/home/sub-banner-2.jpg',
+    alt: 'Main Banner 3',
+  },
+];
 
-const products: Product[] = [
+const products: ProductItemTypes[] = [
   {
     id: 1,
     name: 'iPhone 14 Pro',
@@ -42,14 +54,25 @@ const products: Product[] = [
     id: 4,
     name: 'iPhone 16',
     price: 1799.99,
-    image: '/images/products/2.webp',
+    image: '/images/products/1.webp',
     category: 'Smartphones',
     storage: '512GB',
     color: 'Desert Titanium',
   },
+  {
+    id: 5,
+    name: 'iPhone 15 Pro',
+    price: 1199.99,
+    image: '/images/products/2.webp',
+    category: 'Smartphones',
+    storage: '256GB',
+    color: 'Natural Titanium',
+  },
 ];
 
 export default function Home() {
+  const plugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: false }));
+
   return (
     <>
       {/* banner */}
@@ -57,15 +80,32 @@ export default function Home() {
         <div className="container mx-auto px-4 py-4">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
             <div className="md:col-span-8">
-              <div className="">
-                <Image
-                  src={'/images/home/main-banner.webp'}
-                  alt="Company Logo"
-                  width={1500}
-                  height={800}
-                  className="rounded-xl"
-                />
-              </div>
+              <Carousel
+                plugins={[plugin.current]}
+                className="w-full"
+                opts={{
+                  loop: true,
+                  dragFree: false,
+                }}
+              >
+                <CarouselContent>
+                  {images.map((image, index) => (
+                    <CarouselItem key={index}>
+                      <div className="relative aspect-1500/810 w-full overflow-hidden rounded-xl bg-gray-50">
+                        <Image
+                          src={image.src}
+                          alt={image.alt}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 100vw, 80vw"
+                          priority={index === 0}
+                        />
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                {/* No arrows or dots included */}
+              </Carousel>
             </div>
             <div className="md:col-span-4">
               <Image
@@ -93,48 +133,9 @@ export default function Home() {
           <h1 className="mb-8 text-center text-3xl font-bold">Featured Products</h1>
 
           {/* Grid Layout */}
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
             {products.map((product) => (
-              <div
-                key={product.id}
-                className="group rounded-xl border-2 border-red-500 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl dark:bg-gray-800"
-              >
-                {/* Product Image */}
-                <div className="relative h-58 w-full overflow-hidden rounded-t-lg">
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  />
-                  {/* Category Badge */}
-                  <div className="absolute top-3 left-3">
-                    <span className="rounded-full bg-red-500 px-3 py-1 text-xs text-white">
-                      {product.category}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Product Info */}
-                <div className="p-5">
-                  <h3 className="mb-2 line-clamp-2 text-lg font-semibold text-gray-800 dark:text-white">
-                    {product.name}
-                  </h3>
-
-                  {/* Price */}
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <span className="text-xl font-bold text-red-600">${product.price}</span>
-                    </div>
-
-                    {/* Add to Cart Button */}
-                    <button className="rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white transition-colors duration-200 hover:bg-red-700">
-                      Add to Cart
-                    </button>
-                  </div>
-                </div>
-              </div>
+              <ProductItemCard product={product} />
             ))}
           </div>
         </div>
@@ -146,7 +147,7 @@ export default function Home() {
           <h1 className="mb-8 text-center text-3xl font-bold">New Arrival</h1>
 
           {/* Grid Layout */}
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
             {products.map((product) => (
               <div
                 key={product.id}
