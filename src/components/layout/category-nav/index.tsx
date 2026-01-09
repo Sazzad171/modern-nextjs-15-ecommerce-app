@@ -23,17 +23,6 @@ const CategoryNav = () => {
       ],
     },
     {
-      id: 'fashion',
-      name: 'Fashion',
-      subcategories: [
-        { id: 'mens', name: "Men's", href: PAGE_ROUTES.PRODUCTS },
-        { id: 'womens', name: "Women's", href: PAGE_ROUTES.PRODUCTS },
-        { id: 'kids', name: "Kids'", href: PAGE_ROUTES.PRODUCTS },
-        { id: 'shoes', name: 'Shoes', href: PAGE_ROUTES.PRODUCTS },
-        { id: 'accessories', name: 'Accessories', href: PAGE_ROUTES.PRODUCTS },
-      ],
-    },
-    {
       id: 'Gadget',
       name: 'Gadget',
       subcategories: [
