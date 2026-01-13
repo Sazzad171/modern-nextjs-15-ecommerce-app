@@ -33,8 +33,8 @@ const CategoryNav = () => {
   ];
 
   return (
-    <nav className="bg-red-800 text-white">
-      <div className="container mx-auto">
+    <nav className="bg-orange-700 text-white">
+      <div className="container">
         {/* Desktop */}
         <div className="hidden md:block">
           <div className="flex items-center">

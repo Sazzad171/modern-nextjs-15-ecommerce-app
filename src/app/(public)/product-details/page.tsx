@@ -31,8 +31,8 @@ const ProductDetailsPage = ({
 
   return (
     <>
-      <section>
-        <div className="container mx-auto px-4 py-4">
+      <section className="py-4">
+        <div className="container">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-5">
             <div className="col-span-2">
               <div className="bg-muted relative mb-2 aspect-square w-full overflow-hidden rounded-lg">
@@ -73,7 +73,7 @@ const ProductDetailsPage = ({
 
               {/* Price */}
               <div className="flex items-center gap-3">
-                <span className="text-primary text-3xl font-bold text-red-600">৳{price}</span>
+                <span className="text-primary text-primary text-3xl font-bold">৳{price}</span>
                 {originalPrice && (
                   <span className="text-muted-foreground line-through">৳{originalPrice}</span>
                 )}
@@ -108,7 +108,7 @@ const ProductDetailsPage = ({
 
               {/* Actions */}
               <div className="flex gap-3">
-                <button className="rounded-lg bg-red-600 px-4 py-2 font-medium text-white transition-colors duration-200 hover:bg-red-700">
+                <button className="bg-primary hover:bg-primary-hov rounded-lg px-4 py-2 font-medium text-white transition-colors duration-200">
                   Add to Cart
                 </button>
                 <Button variant="outline" size="icon">
@@ -120,11 +120,11 @@ const ProductDetailsPage = ({
         </div>
       </section>
 
-      <section>
-        <div className="container mx-auto px-4 py-4">
+      <section className="py-4">
+        <div className="container">
           <Card className="p-5">
             <CardContent className="p-0">
-              <h2 className="mb-4 text-center text-2xl font-semibold text-red-500">
+              <h2 className="text-primary mb-4 text-center text-2xl font-semibold">
                 <span className="border-b-2 border-gray-200 pb-2">Product Details</span>
               </h2>
               <p>
@@ -138,7 +138,7 @@ const ProductDetailsPage = ({
       </section>
 
       <section className="section-gap">
-        <div className="container mx-auto px-4">
+        <div className="container">
           <h1 className="mb-8 text-center text-3xl font-bold">Related Products</h1>
 
           {/* Grid Layout */}

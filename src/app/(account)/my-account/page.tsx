@@ -172,7 +172,7 @@ export default function MyAccountPage() {
       case 'Processing':
         return <Clock className="h-4 w-4 text-yellow-500" />;
       case 'Cancelled':
-        return <XCircle className="h-4 w-4 text-red-500" />;
+        return <XCircle className="text-primary h-4 w-4" />;
       default:
         return <Clock className="h-4 w-4" />;
     }
@@ -180,11 +180,11 @@ export default function MyAccountPage() {
 
   return (
     <section className="py-6 lg:py-10">
-      <div className="container mx-auto px-4">
+      <div className="container">
         {/* Header */}
         <div className="mb-8">
           <h1 className="mb-2 text-4xl font-bold">
-            My <span className="text-red-600">Account</span>
+            My <span className="text-primary">Account</span>
           </h1>
           <p className="text-gray-600">Manage your account settings and orders</p>
         </div>
@@ -195,7 +195,7 @@ export default function MyAccountPage() {
             <Card className="border-gray-800 bg-gray-900">
               <CardHeader>
                 <div className="flex items-center gap-4">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-red-600 to-pink-600">
+                  <div className="from-primary flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br to-pink-600">
                     <User className="h-8 w-8 text-white" />
                   </div>
                   <div>
@@ -212,7 +212,7 @@ export default function MyAccountPage() {
                       variant={activeTab === item.id ? 'default' : 'ghost'}
                       className={`w-full justify-start ${
                         activeTab === item.id
-                          ? 'bg-red-600 text-white hover:bg-red-700'
+                          ? 'bg-primary hover:bg-primary-hov text-white'
                           : 'text-gray-400 hover:bg-gray-800 hover:text-white'
                       }`}
                       onClick={() => setActiveTab(item.id)}
@@ -351,7 +351,10 @@ export default function MyAccountPage() {
                           />
                         </div>
 
-                        <Button type="submit" className="bg-red-600 text-white hover:bg-red-700">
+                        <Button
+                          type="submit"
+                          className="bg-primary hover:bg-primary-hov text-white"
+                        >
                           Update Profile
                         </Button>
                       </form>
@@ -397,7 +400,7 @@ export default function MyAccountPage() {
                             <Button
                               variant="ghost"
                               size="sm"
-                              className="text-red-600 hover:bg-red-50 hover:text-red-700"
+                              className="text-primary hover:text-primary-hov hover:bg-red-50"
                             >
                               View Details
                             </Button>
@@ -431,7 +434,7 @@ export default function MyAccountPage() {
                         </Button>
                       </div>
                     </div>
-                    <Button className="bg-red-600 text-white hover:bg-red-700">
+                    <Button className="bg-primary hover:bg-primary-hov text-white">
                       <Plus className="mr-2 h-4 w-4" />
                       Add New Address
                     </Button>
@@ -565,7 +568,7 @@ export default function MyAccountPage() {
                         )}
                       />
 
-                      <Button type="submit" className="bg-red-600 text-white hover:bg-red-700">
+                      <Button type="submit" className="bg-primary hover:bg-primary-hov text-white">
                         Change Password
                       </Button>
                     </form>

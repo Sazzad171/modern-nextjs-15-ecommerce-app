@@ -20,8 +20,8 @@ export default function Home() {
   return (
     <>
       {/* Banner */}
-      <section>
-        <div className="container mx-auto px-4 py-4">
+      <section className="py-4">
+        <div className="container">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
             <div className="md:col-span-8">
               <Carousel
@@ -73,8 +73,19 @@ export default function Home() {
 
       {/* Product list */}
       <section className="section-gap">
-        <div className="container mx-auto px-4">
-          <h2 className="mb-8 text-center text-3xl font-bold">Featured Products</h2>
+        <div className="container">
+          <div className="mb-4 flex items-baseline justify-between gap-3">
+            <div>
+              <h2 className="text-center text-2xl font-bold">Featured Products</h2>
+            </div>
+            <div>
+              <p>
+                <Link href={PAGE_ROUTES.PRODUCTS} className="border-primary border-b-2 pb-1">
+                  View More
+                </Link>
+              </p>
+            </div>
+          </div>
 
           {/* Grid Layout */}
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
@@ -111,8 +122,19 @@ export default function Home() {
 
       {/* Product list */}
       <section className="section-gap">
-        <div className="container mx-auto px-4">
-          <h2 className="mb-8 text-center text-3xl font-bold">New Arrival</h2>
+        <div className="container">
+          <div className="mb-4 flex items-baseline justify-between gap-3">
+            <div>
+              <h2 className="text-center text-2xl font-bold">New Arrival</h2>
+            </div>
+            <div>
+              <p>
+                <Link href={PAGE_ROUTES.PRODUCTS} className="border-primary border-b-2 pb-1">
+                  View More
+                </Link>
+              </p>
+            </div>
+          </div>
 
           {/* Grid Layout */}
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
@@ -125,7 +147,7 @@ export default function Home() {
 
       {/* Features */}
       <section className="section-gap bg-gray-100">
-        <div className="container mx-auto px-4">
+        <div className="container">
           <div className="grid grid-cols-2 items-stretch md:grid-cols-3 lg:grid-cols-5">
             {homeFeatures?.map((featureItem, index) => (
               <div
@@ -148,8 +170,19 @@ export default function Home() {
 
       {/* Product list */}
       <section className="section-gap">
-        <div className="container mx-auto px-4">
-          <h2 className="mb-8 text-center text-3xl font-bold">All Products</h2>
+        <div className="container">
+          <div className="mb-4 flex items-baseline justify-between gap-3">
+            <div>
+              <h2 className="text-center text-2xl font-bold">All Products</h2>
+            </div>
+            <div>
+              <p>
+                <Link href={PAGE_ROUTES.PRODUCTS} className="border-primary border-b-2 pb-1">
+                  View More
+                </Link>
+              </p>
+            </div>
+          </div>
 
           {/* Grid Layout */}
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
@@ -162,7 +195,7 @@ export default function Home() {
 
       {/* Site description */}
       <section className="section-gap bg-gray-50">
-        <div className="container mx-auto px-4">
+        <div className="container">
           <div className="mb-4 lg:mb-6">
             <h1 className="mb-4 text-2xl font-semibold">
               Leading Computer, Laptop & Gaming PC Retail & Online Shop in Bangladesh

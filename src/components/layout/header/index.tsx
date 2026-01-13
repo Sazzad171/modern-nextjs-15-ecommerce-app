@@ -106,12 +106,14 @@ const Header = () => {
 
   return (
     <header className="bg-black py-2">
-      <div className="container mx-auto flex items-center justify-between px-4 md:px-6">
+      <div className="container flex items-center justify-between">
         {/* Left Column - Logo */}
         <div className="flex items-center">
-          <Link href="/">
-            <Image src={'/images/logo-red.png'} alt="Company Logo" width={60} height={60} />
-          </Link>
+          <div className="relative aspect-520/200 w-40">
+            <Link href={PAGE_ROUTES.HOME}>
+              <Image src={'/images/logo.png'} alt="Company Logo" fill className="object-contain" />
+            </Link>
+          </div>
         </div>
 
         {/* Middle Column - Search Box with Dropdown (Desktop) */}
@@ -212,7 +214,7 @@ const Header = () => {
                 className="relative cursor-pointer rounded-full border border-gray-700 bg-transparent text-white hover:bg-gray-800 hover:text-white"
               >
                 <ShoppingCart className="h-5 w-5" />
-                <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-red-600 text-xs font-medium">
+                <span className="bg-primary absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full text-xs font-medium">
                   {cartItemsCount}
                 </span>
               </Button>
@@ -302,7 +304,7 @@ const Header = () => {
 
                     <Link
                       href="/checkout"
-                      className="flex flex-1 items-center justify-center rounded-full bg-red-600 px-4 py-2 text-white transition-colors hover:bg-red-700"
+                      className="bg-primary hover:bg-primary-hov flex flex-1 items-center justify-center rounded-full px-4 py-2 text-white transition-colors"
                     >
                       Checkout
                     </Link>

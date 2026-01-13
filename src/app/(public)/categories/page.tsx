@@ -73,8 +73,8 @@ const ProductList = () => {
   };
 
   return (
-    <section>
-      <div className="container mx-auto px-4 py-4">
+    <section className="py-4">
+      <div className="container">
         <div className="grid grid-cols-1 gap-3 md:grid-cols-12">
           <div className="rounded-xl bg-gray-100 p-5 md:col-span-3">
             <div className="mb-4">
@@ -95,7 +95,7 @@ const ProductList = () => {
                       id={`series-${series}`}
                       checked={selectedSeries.includes(series)}
                       onChange={() => toggleSeries(series)}
-                      className="h-4 w-4 rounded border-gray-300 text-red-600 focus:ring-red-500"
+                      className="focus:ring-primary text-primary h-4 w-4 rounded border-gray-300"
                     />
                     <label htmlFor={`series-${series}`} className="ml-2 cursor-pointer text-sm">
                       {series}
@@ -116,7 +116,7 @@ const ProductList = () => {
                       id={`price-${price}`}
                       checked={selectedPrice.includes(price)}
                       onChange={() => togglePrice(price)}
-                      className="h-4 w-4 rounded border-gray-300 text-red-600 focus:ring-red-500"
+                      className="focus:ring-primary text-primary h-4 w-4 rounded border-gray-300"
                     />
                     <label htmlFor={`price-${price}`} className="ml-2 cursor-pointer text-sm">
                       {price}
@@ -133,7 +133,7 @@ const ProductList = () => {
                   {selectedSeries.map((series) => (
                     <span
                       key={series}
-                      className="rounded bg-red-100 px-2 py-1 text-xs text-red-800"
+                      className="text-primary-hov rounded bg-red-100 px-2 py-1 text-xs"
                     >
                       {series} ✕
                     </span>
@@ -152,7 +152,7 @@ const ProductList = () => {
                     setSelectedSeries([]);
                     setSelectedPrice([]);
                   }}
-                  className="text-sm text-red-600 hover:text-red-800"
+                  className="text-primary hover:text-primary-hov text-sm"
                 >
                   Clear all filters
                 </button>
@@ -164,7 +164,7 @@ const ProductList = () => {
               {products.map((product) => (
                 <div
                   key={product.id}
-                  className="group rounded-xl border-2 border-red-500 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl dark:bg-gray-800"
+                  className="group border-primary rounded-xl border-2 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl dark:bg-gray-800"
                 >
                   {/* Product Image */}
                   <div className="relative h-48 w-full overflow-hidden rounded-t-lg">
@@ -177,7 +177,7 @@ const ProductList = () => {
                     />
                     {/* Category Badge */}
                     <div className="absolute top-3 left-3">
-                      <span className="rounded-full bg-red-500 px-3 py-1 text-xs text-white">
+                      <span className="bg-primary rounded-full px-3 py-1 text-xs text-white">
                         {product.category}
                       </span>
                     </div>
@@ -192,14 +192,14 @@ const ProductList = () => {
                     {/* Price */}
                     <div className="flex items-center justify-between">
                       <div>
-                        <span className="text-2xl font-bold text-red-600">${product.price}</span>
+                        <span className="text-primary text-2xl font-bold">${product.price}</span>
                         <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
                           Free Shipping
                         </p>
                       </div>
 
                       {/* Add to Cart Button */}
-                      <button className="rounded-lg bg-red-600 px-4 py-2 font-medium text-white transition-colors duration-200 hover:bg-red-700">
+                      <button className="bg-primary hover:bg-primary-hov rounded-lg px-4 py-2 font-medium text-white transition-colors duration-200">
                         Add to Cart
                       </button>
                     </div>

@@ -25,8 +25,8 @@ const ProductList = () => {
   };
 
   return (
-    <section>
-      <div className="container mx-auto px-4 py-4">
+    <section className="py-4">
+      <div className="container">
         <div className="grid grid-cols-1 gap-3 md:grid-cols-12">
           <div className="rounded-xl bg-gray-100 p-5 md:col-span-3">
             <div className="mb-4">
@@ -47,7 +47,7 @@ const ProductList = () => {
                       id={`series-${series}`}
                       checked={selectedSeries.includes(series)}
                       onChange={() => toggleSeries(series)}
-                      className="h-4 w-4 rounded border-gray-300 text-red-600 focus:ring-red-500"
+                      className="focus:ring-primary text-primary h-4 w-4 rounded border-gray-300"
                     />
                     <label htmlFor={`series-${series}`} className="ml-2 cursor-pointer text-sm">
                       {series}
@@ -68,7 +68,7 @@ const ProductList = () => {
                       id={`price-${price}`}
                       checked={selectedPrice.includes(price)}
                       onChange={() => togglePrice(price)}
-                      className="h-4 w-4 rounded border-gray-300 text-red-600 focus:ring-red-500"
+                      className="focus:ring-primary text-primary h-4 w-4 rounded border-gray-300"
                     />
                     <label htmlFor={`price-${price}`} className="ml-2 cursor-pointer text-sm">
                       {price}
@@ -85,7 +85,7 @@ const ProductList = () => {
                   {selectedSeries.map((series) => (
                     <span
                       key={series}
-                      className="rounded bg-red-100 px-2 py-1 text-xs text-red-800"
+                      className="text-primary-hov rounded bg-red-100 px-2 py-1 text-xs"
                     >
                       {series} ✕
                     </span>
@@ -104,7 +104,7 @@ const ProductList = () => {
                     setSelectedSeries([]);
                     setSelectedPrice([]);
                   }}
-                  className="text-sm text-red-600 hover:text-red-800"
+                  className="text-primary hover:text-primary-hov text-sm"
                 >
                   Clear all filters
                 </button>

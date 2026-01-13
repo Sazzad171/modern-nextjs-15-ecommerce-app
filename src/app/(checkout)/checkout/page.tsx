@@ -106,11 +106,11 @@ export default function CheckoutPage() {
 
   return (
     <section className="py-6 lg:py-10">
-      <div className="container mx-auto px-4">
+      <div className="container">
         {/* Header */}
         <div className="mb-8 text-center">
           <h1 className="mb-4 text-4xl font-bold">
-            Secure <span className="text-red-600">Checkout</span>
+            Secure <span className="text-primary">Checkout</span>
           </h1>
           <p className="text-gray-800">Complete your purchase securely</p>
         </div>
@@ -123,7 +123,7 @@ export default function CheckoutPage() {
               <Card className="bg-gray-50">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <ShoppingBag className="h-5 w-5 text-red-600" />
+                    <ShoppingBag className="text-primary h-5 w-5" />
                     Contact Information
                   </CardTitle>
                 </CardHeader>
@@ -135,11 +135,11 @@ export default function CheckoutPage() {
                     <Input
                       id="email"
                       type="email"
-                      className={`mt-1 border-gray-700 ${errors.email ? 'border-red-500' : ''}`}
+                      className={`mt-1 border-gray-700 ${errors.email ? 'border-primary' : ''}`}
                       {...register('email')}
                     />
                     {errors.email && (
-                      <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>
+                      <p className="text-primary mt-1 text-sm">{errors.email.message}</p>
                     )}
                   </div>
                 </CardContent>
@@ -149,7 +149,7 @@ export default function CheckoutPage() {
               <Card className="bg-gray-50">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <Truck className="h-5 w-5 text-red-600" />
+                    <Truck className="text-primary h-5 w-5" />
                     Shipping Address
                   </CardTitle>
                 </CardHeader>
@@ -162,12 +162,12 @@ export default function CheckoutPage() {
                       <Input
                         id="firstName"
                         className={`mt-1 border-gray-700 ${
-                          errors.firstName ? 'border-red-500' : ''
+                          errors.firstName ? 'border-primary' : ''
                         }`}
                         {...register('firstName')}
                       />
                       {errors.firstName && (
-                        <p className="mt-1 text-sm text-red-500">{errors.firstName.message}</p>
+                        <p className="text-primary mt-1 text-sm">{errors.firstName.message}</p>
                       )}
                     </div>
                     <div>
@@ -177,12 +177,12 @@ export default function CheckoutPage() {
                       <Input
                         id="lastName"
                         className={`mt-1 border-gray-700 ${
-                          errors.lastName ? 'border-red-500' : ''
+                          errors.lastName ? 'border-primary' : ''
                         }`}
                         {...register('lastName')}
                       />
                       {errors.lastName && (
-                        <p className="mt-1 text-sm text-red-500">{errors.lastName.message}</p>
+                        <p className="text-primary mt-1 text-sm">{errors.lastName.message}</p>
                       )}
                     </div>
                   </div>
@@ -193,11 +193,11 @@ export default function CheckoutPage() {
                     </Label>
                     <Input
                       id="address"
-                      className={`mt-1 border-gray-700 ${errors.address ? 'border-red-500' : ''}`}
+                      className={`mt-1 border-gray-700 ${errors.address ? 'border-primary' : ''}`}
                       {...register('address')}
                     />
                     {errors.address && (
-                      <p className="mt-1 text-sm text-red-500">{errors.address.message}</p>
+                      <p className="text-primary mt-1 text-sm">{errors.address.message}</p>
                     )}
                   </div>
 
@@ -208,11 +208,11 @@ export default function CheckoutPage() {
                       </Label>
                       <Input
                         id="city"
-                        className={`mt-1 border-gray-700 ${errors.city ? 'border-red-500' : ''}`}
+                        className={`mt-1 border-gray-700 ${errors.city ? 'border-primary' : ''}`}
                         {...register('city')}
                       />
                       {errors.city && (
-                        <p className="mt-1 text-sm text-red-500">{errors.city.message}</p>
+                        <p className="text-primary mt-1 text-sm">{errors.city.message}</p>
                       )}
                     </div>
                     <div>
@@ -221,11 +221,11 @@ export default function CheckoutPage() {
                       </Label>
                       <Input
                         id="country"
-                        className={`mt-1 border-gray-700 ${errors.country ? 'border-red-500' : ''}`}
+                        className={`mt-1 border-gray-700 ${errors.country ? 'border-primary' : ''}`}
                         {...register('country')}
                       />
                       {errors.country && (
-                        <p className="mt-1 text-sm text-red-500">{errors.country.message}</p>
+                        <p className="text-primary mt-1 text-sm">{errors.country.message}</p>
                       )}
                     </div>
                     <div>
@@ -234,11 +234,11 @@ export default function CheckoutPage() {
                       </Label>
                       <Input
                         id="zipCode"
-                        className={`mt-1 border-gray-700 ${errors.zipCode ? 'border-red-500' : ''}`}
+                        className={`mt-1 border-gray-700 ${errors.zipCode ? 'border-primary' : ''}`}
                         {...register('zipCode')}
                       />
                       {errors.zipCode && (
-                        <p className="mt-1 text-sm text-red-500">{errors.zipCode.message}</p>
+                        <p className="text-primary mt-1 text-sm">{errors.zipCode.message}</p>
                       )}
                     </div>
                   </div>
@@ -250,11 +250,11 @@ export default function CheckoutPage() {
                     <Input
                       id="phone"
                       type="tel"
-                      className={`mt-1 border-gray-700 ${errors.phone ? 'border-red-500' : ''}`}
+                      className={`mt-1 border-gray-700 ${errors.phone ? 'border-primary' : ''}`}
                       {...register('phone')}
                     />
                     {errors.phone && (
-                      <p className="mt-1 text-sm text-red-500">{errors.phone.message}</p>
+                      <p className="text-primary mt-1 text-sm">{errors.phone.message}</p>
                     )}
                   </div>
 
@@ -275,7 +275,7 @@ export default function CheckoutPage() {
               <Card className="bg-gray-50">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <CreditCard className="h-5 w-5 text-red-600" />
+                    <CreditCard className="text-primary h-5 w-5" />
                     Payment Method
                   </CardTitle>
                 </CardHeader>
@@ -289,7 +289,7 @@ export default function CheckoutPage() {
                         key={method.id}
                         className={`flex cursor-pointer items-center justify-between rounded-lg border p-4 transition-colors ${
                           paymentMethod === method.id
-                            ? 'border-red-600 bg-red-600/10'
+                            ? 'border-primary bg-primary/10'
                             : 'border-gray-700 hover:border-gray-600'
                         }`}
                         onClick={() => setPaymentMethod(method.id)}
@@ -301,7 +301,7 @@ export default function CheckoutPage() {
                         <div
                           className={`h-4 w-4 rounded-full border ${
                             paymentMethod === method.id
-                              ? 'border-red-600 bg-red-600'
+                              ? 'border-primary bg-primary'
                               : 'border-gray-600'
                           }`}
                         />
@@ -338,7 +338,7 @@ export default function CheckoutPage() {
                             Qty: {item.quantity} × ${item.price.toFixed(2)}
                           </p>
                         </div>
-                        <p className="font-bold text-red-600">
+                        <p className="text-primary font-bold">
                           ${(item.price * item.quantity).toFixed(2)}
                         </p>
                       </div>
@@ -361,7 +361,7 @@ export default function CheckoutPage() {
                     </div>
                     <div className="flex justify-between border-t border-gray-800 pt-2 text-lg font-bold text-white">
                       <span>Total</span>
-                      <span className="text-red-600">${total.toFixed(2)}</span>
+                      <span className="text-primary">${total.toFixed(2)}</span>
                     </div>
                   </div>
 
@@ -379,7 +379,7 @@ export default function CheckoutPage() {
                   {/* Place Order Button */}
                   <Button
                     type="submit"
-                    className="w-full bg-red-600 py-6 text-lg text-white hover:bg-red-700"
+                    className="bg-primary hover:bg-primary-hov w-full py-6 text-lg text-white"
                     disabled={cartItems.length === 0 || isSubmitting}
                   >
                     {isSubmitting ? 'Processing...' : 'Place Order'}

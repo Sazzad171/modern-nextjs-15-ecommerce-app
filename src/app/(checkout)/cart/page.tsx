@@ -52,11 +52,11 @@ export default function CartSection() {
 
   return (
     <section className="py-6 lg:py-10">
-      <div className="container mx-auto px-4">
+      <div className="container">
         {/* Header */}
         <div className="mb-8 text-center">
           <h1 className="mb-4 text-4xl font-bold">
-            Your <span className="text-red-600">Shopping</span> Cart
+            Your <span className="text-primary">Shopping</span> Cart
           </h1>
           <p className="text-gray-800">Review and manage your items</p>
         </div>
@@ -67,7 +67,7 @@ export default function CartSection() {
             <Card className="bg-gray-50">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <ShoppingBag className="h-5 w-5 text-red-600" />
+                  <ShoppingBag className="text-primary h-5 w-5" />
                   Cart Items ({cartItems.length})
                 </CardTitle>
               </CardHeader>
@@ -94,7 +94,7 @@ export default function CartSection() {
                           <div className="flex items-start justify-between">
                             <div>
                               <h3 className="text-lg font-semibold">{item.name}</h3>
-                              <p className="mt-2 text-xl font-bold text-red-600">
+                              <p className="text-primary mt-2 text-xl font-bold">
                                 ${item.price.toFixed(2)}
                               </p>
                             </div>
@@ -102,7 +102,7 @@ export default function CartSection() {
                               variant="ghost"
                               size="icon"
                               onClick={() => removeItem(item.id)}
-                              className="bg-red-600/10 text-red-600"
+                              className="bg-primary/10 text-primary"
                             >
                               <Trash2 className="h-4 w-4" />
                             </Button>
@@ -115,7 +115,7 @@ export default function CartSection() {
                                 variant="outline"
                                 size="icon"
                                 onClick={() => updateQuantity(item.id, -1)}
-                                className="border-gray-700 hover:border-red-600 hover:bg-red-600 hover:text-white"
+                                className="hover:border-primary hover:bg-primary border-gray-700 hover:text-white"
                               >
                                 <Minus className="h-4 w-4" />
                               </Button>
@@ -126,7 +126,7 @@ export default function CartSection() {
                                 variant="outline"
                                 size="icon"
                                 onClick={() => updateQuantity(item.id, 1)}
-                                className="border-gray-700 hover:border-red-600 hover:bg-red-600 hover:text-white"
+                                className="hover:border-primary hover:bg-primary border-gray-700 hover:text-white"
                               >
                                 <Plus className="h-4 w-4" />
                               </Button>
@@ -164,13 +164,13 @@ export default function CartSection() {
                   </div>
                   <div className="flex justify-between text-lg font-bold text-white">
                     <span>Total</span>
-                    <span className="text-red-600">${total.toFixed(2)}</span>
+                    <span className="text-primary">${total.toFixed(2)}</span>
                   </div>
                 </div>
 
                 <div className="pt-4">
                   <Button
-                    className="w-full bg-red-600 py-6 text-lg text-white hover:bg-red-700"
+                    className="bg-primary hover:bg-primary-hov w-full py-6 text-lg text-white"
                     disabled={cartItems.length === 0}
                   >
                     Proceed to Checkout
@@ -181,7 +181,7 @@ export default function CartSection() {
                   <div className="pt-4">
                     <Button
                       variant="outline"
-                      className="w-full border-gray-700 text-gray-300 hover:border-red-600 hover:bg-black hover:text-white"
+                      className="hover:border-primary w-full border-gray-700 text-gray-300 hover:bg-black hover:text-white"
                       onClick={() => setCartItems([])}
                     >
                       Clear Cart

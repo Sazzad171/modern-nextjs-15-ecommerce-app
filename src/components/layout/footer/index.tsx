@@ -4,15 +4,15 @@ import Link from 'next/link';
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white">
+    <footer className="bg-black py-12 text-white md:py-16">
       {/* Main Footer Content */}
-      <div className="container mx-auto px-4 py-12 md:py-16">
+      <div className="container">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-12">
           {/* Left Column - Logo & Contact */}
           <div className="space-y-6">
             {/* Logo */}
             <Link href="/" className="inline-block">
-              <Image src={'/images/logo-red.png'} alt="Company Logo" width={80} height={80} />
+              <Image src={'/images/logo.png'} alt="Company Logo" width={520} height={200} />
             </Link>
 
             {/* Contact Info */}
@@ -185,8 +185,8 @@ const Footer = () => {
       </div>
 
       {/* Full Width Copyright Bar */}
-      <div className="border-t border-gray-800">
-        <div className="container mx-auto px-4 py-6">
+      <div className="border-t border-gray-800 py-6">
+        <div className="container">
           <div className="flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0">
             <div className="text-center text-sm text-gray-400 md:text-left">
               &copy; {new Date().getFullYear()} ITBazar. All rights reserved.

@@ -1,14 +1,14 @@
 'use client';
 
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { User, Mail, Lock } from 'lucide-react';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Lock, Mail, User } from 'lucide-react';
+import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
+import * as z from 'zod';
 
 const formSchema = z.object({
   username: z.string().min(2, 'Username must be at least 2 characters'),
@@ -35,11 +35,11 @@ export function ExampleForm() {
   const onSubmit = async (data: FormValues) => {
     // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    
+
     toast.success('Form submitted successfully!', {
       description: `Welcome, ${data.username}!`,
     });
-    
+
     console.log('Form data:', data);
   };
 
@@ -56,7 +56,7 @@ export function ExampleForm() {
           <div className="space-y-2">
             <Label htmlFor="username">Username</Label>
             <div className="relative">
-              <User className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+              <User className="absolute top-3 left-3 h-4 w-4 text-gray-400" />
               <Input
                 id="username"
                 placeholder="john_doe"
@@ -64,15 +64,13 @@ export function ExampleForm() {
                 {...register('username')}
               />
             </div>
-            {errors.username && (
-              <p className="text-sm text-red-500">{errors.username.message}</p>
-            )}
+            {errors.username && <p className="text-primary text-sm">{errors.username.message}</p>}
           </div>
 
           <div className="space-y-2">
             <Label htmlFor="email">Email</Label>
             <div className="relative">
-              <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+              <Mail className="absolute top-3 left-3 h-4 w-4 text-gray-400" />
               <Input
                 id="email"
                 type="email"
@@ -81,15 +79,13 @@ export function ExampleForm() {
                 {...register('email')}
               />
             </div>
-            {errors.email && (
-              <p className="text-sm text-red-500">{errors.email.message}</p>
-            )}
+            {errors.email && <p className="text-primary text-sm">{errors.email.message}</p>}
           </div>
 
           <div className="space-y-2">
             <Label htmlFor="password">Password</Label>
             <div className="relative">
-              <Lock className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+              <Lock className="absolute top-3 left-3 h-4 w-4 text-gray-400" />
               <Input
                 id="password"
                 type="password"
@@ -98,9 +94,7 @@ export function ExampleForm() {
                 {...register('password')}
               />
             </div>
-            {errors.password && (
-              <p className="text-sm text-red-500">{errors.password.message}</p>
-            )}
+            {errors.password && <p className="text-primary text-sm">{errors.password.message}</p>}
           </div>
 
           <Button type="submit" className="w-full" disabled={isSubmitting}>

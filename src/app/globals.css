@@ -43,6 +43,10 @@
   --radius-md: var(--radius);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-xs: calc(var(--radius) - 6px);
+
+  /* custom colors */
+  --color-primary: var(--primary);
+  --color-primary-hov: var(--primary-hov);
 }
 
 :root {
@@ -66,6 +70,9 @@
   --input: 214.3 31.8% 91.4%;
   --ring: 222.2 84% 4.9%;
   --radius: 0.5rem;
+
+  --primary: #f17e23;
+  --primary-hov: #e62e04;
 }
 
 .dark {
@@ -102,4 +109,8 @@
 
 .section-gap {
   @apply py-6 md:py-10;
+}
+
+.container {
+  @apply mx-auto px-4;
 }
