@@ -10,6 +10,14 @@ import { useState } from 'react';
 const CategoryNav = () => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
+  const mainCategories = [
+    { label: 'Laptop', slug: 'laptop' },
+    { label: 'Desktop', slug: 'desktop' },
+    { label: 'Monitor & UPS', slug: 'monitor-ups' },
+    { label: 'Computer Accessories', slug: 'computer-accessories' },
+    { label: 'Internet & Networking', slug: 'internet-networking' },
+  ];
+
   const categories = [
     {
       id: 'electronics',
@@ -32,28 +40,51 @@ const CategoryNav = () => {
     },
   ];
 
+  const navLinks = [
+    { id: 1, name: 'Home', href: '/' },
+    { id: 2, name: 'About', href: '/about-us' },
+    { id: 3, name: 'All Brands', href: '/all-brands' },
+    { id: 3, name: 'Notice Board', href: '/notice-board' },
+  ];
+
   return (
-    <nav className="bg-orange-700 text-white">
+    <nav className="bg-orange-700">
       <div className="container">
         {/* Desktop */}
         <div className="hidden md:block">
           <div className="flex items-center">
-            <div className="border-r border-gray-800 px-4 py-3">
-              <Button
-                variant="ghost"
-                className="flex items-center gap-2"
-                onClick={() => {
-                  /* Open all categories */
-                }}
-              >
-                <Menu className="h-5 w-5" />
-                <span>All Categories</span>
-              </Button>
+            <div className="border-r border-gray-800 px-4">
+              <div className="group relative">
+                {/* Button */}
+                <Button
+                  variant="ghost"
+                  className="flex items-center gap-2 rounded-none py-5 text-white group-hover:bg-white group-hover:text-gray-700"
+                >
+                  <Menu className="h-5 w-5" />
+                  <span>All Categories</span>
+                </Button>
+
+                {/* Dropdown */}
+                <div className="bg-background absolute top-full left-0 z-50 hidden w-56 overflow-hidden border shadow-md group-hover:block">
+                  <ul className="divide-y text-sm">
+                    {mainCategories.map((item) => (
+                      <li key={item.slug}>
+                        <Link
+                          href={`/categories`}
+                          className="hover:bg-muted block cursor-pointer px-4 py-2"
+                        >
+                          {item.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
 
             <div className="flex-1">
               <ul className="flex items-center">
-                {categories.map((category) => (
+                {categories?.slice(0, 2).map((category) => (
                   <li
                     key={category.id}
                     className="group relative"
@@ -62,7 +93,7 @@ const CategoryNav = () => {
                   >
                     <Link
                       href={`/category/${category.id}`}
-                      className="flex items-center px-6 py-3 transition-colors hover:bg-gray-800"
+                      className="flex items-center px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-gray-800"
                     >
                       <span>{category.name}</span>
                       <ChevronDown className="ml-2 h-4 w-4" />
@@ -77,7 +108,7 @@ const CategoryNav = () => {
                               <div key={subcategory.id}>
                                 <Link
                                   href={subcategory.href}
-                                  className="group/sub block rounded-lg p-3 transition-all hover:bg-gray-800"
+                                  className="group/sub block rounded-lg p-3 text-white transition-all hover:bg-gray-800"
                                 >
                                   <div className="mb-1 font-medium">{subcategory.name}</div>
                                   <div className="text-sm text-gray-400">
@@ -92,6 +123,17 @@ const CategoryNav = () => {
                     )}
                   </li>
                 ))}
+                {navLinks?.length > 0 &&
+                  navLinks?.map((navItem, index) => (
+                    <li key={index}>
+                      <Link
+                        href={navItem?.href}
+                        className="flex items-center px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-gray-800"
+                      >
+                        <span>{navItem?.name}</span>
+                      </Link>
+                    </li>
+                  ))}
               </ul>
             </div>
           </div>

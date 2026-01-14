@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const Footer = () => {
   return (
-    <footer className="bg-black py-12 text-white md:py-16">
+    <footer className="bg-black pt-12 text-white md:pt-16">
       {/* Main Footer Content */}
       <div className="container">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-12">
@@ -12,7 +12,7 @@ const Footer = () => {
           <div className="space-y-6">
             {/* Logo */}
             <Link href="/" className="inline-block">
-              <Image src={'/images/logo.png'} alt="Company Logo" width={520} height={200} />
+              <Image src={'/images/logo.png'} alt="Company Logo" width={200} height={80} />
             </Link>
 
             {/* Contact Info */}
@@ -143,7 +143,7 @@ const Footer = () => {
             </ul>
 
             {/* Additional Quick Links */}
-            <div className="pt-4">
+            <div className="pt-4 pb-2">
               <h3 className="mb-3 text-lg font-semibold">Quick Links</h3>
               <ul className="space-y-2">
                 <li>
@@ -168,14 +168,6 @@ const Footer = () => {
                     className="text-sm text-gray-300 transition-colors hover:text-white"
                   >
                     FAQ
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/"
-                    className="text-sm text-gray-300 transition-colors hover:text-white"
-                  >
-                    Support
                   </Link>
                 </li>
               </ul>

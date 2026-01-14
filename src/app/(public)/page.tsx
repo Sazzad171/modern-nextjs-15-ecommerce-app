@@ -13,6 +13,33 @@ import Autoplay from 'embla-carousel-autoplay';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRef } from 'react';
+import Marquee from 'react-fast-marquee';
+
+const bannerImages = [
+  '/images/home/banner/1.jpg',
+  '/images/home/banner/2.jpg',
+  '/images/home/banner/3.jpg',
+  '/images/home/banner/4.jpg',
+];
+
+const brands = [
+  '/images/brands/1.png',
+  '/images/brands/2.jpg',
+  '/images/brands/3.jpg',
+  '/images/brands/4.png',
+  '/images/brands/5.png',
+  '/images/brands/2.jpg',
+  '/images/brands/1.png',
+  '/images/brands/4.png',
+  '/images/brands/5.png',
+  '/images/brands/1.png',
+  '/images/brands/4.png',
+  '/images/brands/3.jpg',
+  '/images/brands/2.jpg',
+  '/images/brands/5.png',
+  '/images/brands/4.png',
+  '/images/brands/3.jpg',
+];
 
 export default function Home() {
   const plugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: false }));
@@ -71,6 +98,20 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Marquee notice */}
+      <section>
+        <div className="container">
+          <div className="rounded-md bg-gray-200 py-2">
+            <Marquee speed={50} pauseOnHover>
+              <h5 className="font-medium">
+                🔥 Latest Deals: Free Shipping on Orders Over $50! | New Arrivals Just In! | 50% Off
+                Summer Sale!
+              </h5>
+            </Marquee>
+          </div>
+        </div>
+      </section>
+
       {/* Product list */}
       <section className="section-gap">
         <div className="container">
@@ -96,24 +137,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Categories */}
+      {/* Banner section */}
       <section className="section-gap bg-gray-100">
-        <div className="container mx-auto px-4">
-          <h2 className="mb-8 text-center text-3xl font-bold">Featured Categories</h2>
-
-          <div className="flex flex-wrap items-center justify-center gap-y-4">
-            {homeFeaturedCategories?.map((categoryItem, index) => (
-              <div className="px-2 lg:px-4" key={index}>
-                <Link href={PAGE_ROUTES?.PRODUCTS}>
-                  <Image
-                    src={categoryItem?.imageURL}
-                    alt={categoryItem?.alt}
-                    width={132}
-                    height={132}
-                    className="mx-auto object-contain"
-                  />
-                  <h5 className="text text-center font-medium">{categoryItem?.title}</h5>
-                </Link>
+        <div className="container">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {bannerImages?.map((bannerItem, index) => (
+              <div key={index} className="group relative h-[280px] w-full overflow-hidden">
+                <Image
+                  src={bannerItem}
+                  alt="banner image"
+                  fill
+                  className="object-cover transition-all group-hover:scale-105"
+                />
               </div>
             ))}
           </div>
@@ -145,23 +180,24 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features */}
+      {/* Featured Categories */}
       <section className="section-gap bg-gray-100">
         <div className="container">
-          <div className="grid grid-cols-2 items-stretch md:grid-cols-3 lg:grid-cols-5">
-            {homeFeatures?.map((featureItem, index) => (
-              <div
-                className="flex items-center justify-center gap-4 border-r border-gray-200 px-2 last:border-0"
-                key={index}
-              >
-                <Image
-                  src={featureItem?.imageURL}
-                  alt={featureItem?.alt}
-                  width={36}
-                  height={36}
-                  className="object-contain"
-                />
-                <h5 className="text-xl font-medium">{featureItem?.title}</h5>
+          <h2 className="mb-8 text-center text-3xl font-bold">Featured Categories</h2>
+
+          <div className="flex flex-wrap items-center justify-center gap-y-4">
+            {homeFeaturedCategories?.map((categoryItem, index) => (
+              <div className="group px-2 lg:px-4" key={index}>
+                <Link href={PAGE_ROUTES?.PRODUCTS}>
+                  <Image
+                    src={categoryItem?.imageURL}
+                    alt={categoryItem?.alt}
+                    width={132}
+                    height={132}
+                    className="mx-auto object-contain transition-all group-hover:scale-95"
+                  />
+                  <h5 className="text text-center font-medium">{categoryItem?.title}</h5>
+                </Link>
               </div>
             ))}
           </div>
@@ -189,6 +225,66 @@ export default function Home() {
             {productsData?.slice(4, 9)?.map((product) => (
               <ProductItemCard product={product} key={product.id} />
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Features */}
+      <section className="section-gap bg-gray-100">
+        <div className="container">
+          <div className="grid grid-cols-2 items-stretch md:grid-cols-3 lg:grid-cols-5">
+            {homeFeatures?.map((featureItem, index) => (
+              <div
+                className="flex items-center justify-center gap-4 border-r border-gray-200 px-2 last:border-0"
+                key={index}
+              >
+                <Image
+                  src={featureItem?.imageURL}
+                  alt={featureItem?.alt}
+                  width={36}
+                  height={36}
+                  className="object-contain"
+                />
+                <h5 className="text-xl font-medium">{featureItem?.title}</h5>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our brands */}
+      <section className="section-gap">
+        <div className="container">
+          <div className="mb-4 flex items-baseline justify-between gap-3">
+            <div>
+              <h2 className="text-center text-2xl font-bold">Our Brands</h2>
+            </div>
+            <div>
+              <p>
+                <Link href={PAGE_ROUTES.PRODUCTS} className="border-primary border-b-2 pb-1">
+                  View More
+                </Link>
+              </p>
+            </div>
+          </div>
+
+          <div className="border">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
+              {brands.map((src, index) => (
+                <div
+                  key={index}
+                  className="group flex items-center justify-center border p-4 transition"
+                >
+                  <Image
+                    src={src}
+                    alt="Brand Logo"
+                    width={120}
+                    height={60}
+                    className="object-contain transition group-hover:scale-95"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

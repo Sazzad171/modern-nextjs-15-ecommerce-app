@@ -112,9 +112,9 @@ const ProductList = () => {
             )}
           </div>
           <div className="md:col-span-9">
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {productsData?.map((product) => (
-                <ProductItemCard product={product} key={product.id} imageHeightClass="h-50" />
+                <ProductItemCard product={product} key={product.id} imageHeightClass="h-60" />
               ))}
             </div>
           </div>
