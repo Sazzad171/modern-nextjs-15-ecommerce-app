@@ -32,7 +32,7 @@ const ProductDetailsPage = ({
   return (
     <>
       <section className="py-4">
-        <div className="container">
+        <div className="site-container">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-5">
             <div className="col-span-2">
               <div className="bg-muted relative mb-2 aspect-square w-full overflow-hidden rounded-lg">
@@ -121,7 +121,7 @@ const ProductDetailsPage = ({
       </section>
 
       <section className="py-4">
-        <div className="container">
+        <div className="site-container">
           <Card className="p-5">
             <CardContent className="p-0">
               <h2 className="text-primary mb-4 text-center text-2xl font-semibold">
@@ -138,7 +138,7 @@ const ProductDetailsPage = ({
       </section>
 
       <section className="section-gap">
-        <div className="container">
+        <div className="site-container">
           <h1 className="mb-8 text-center text-3xl font-bold">Related Products</h1>
 
           {/* Grid Layout */}

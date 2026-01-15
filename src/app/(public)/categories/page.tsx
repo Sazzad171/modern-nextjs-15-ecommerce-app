@@ -26,7 +26,7 @@ const ProductList = () => {
 
   return (
     <section className="py-4">
-      <div className="container">
+      <div className="site-container">
         <div className="grid grid-cols-1 gap-3 md:grid-cols-12">
           <div className="rounded-xl bg-gray-100 p-5 md:col-span-3">
             <div className="mb-4">

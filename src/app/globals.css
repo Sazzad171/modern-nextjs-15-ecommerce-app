@@ -114,3 +114,7 @@
 .container {
   @apply mx-auto px-4;
 }
+
+.site-container {
+  @apply mx-auto w-full max-w-[1480px] px-4;
+}

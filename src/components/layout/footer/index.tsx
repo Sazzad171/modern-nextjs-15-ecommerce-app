@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="bg-black pt-12 text-white md:pt-16">
       {/* Main Footer Content */}
-      <div className="container">
+      <div className="site-container">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-12">
           {/* Left Column - Logo & Contact */}
           <div className="space-y-6">
@@ -178,7 +178,7 @@ const Footer = () => {
 
       {/* Full Width Copyright Bar */}
       <div className="border-t border-gray-800 py-6">
-        <div className="container">
+        <div className="site-container">
           <div className="flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0">
             <div className="text-center text-sm text-gray-400 md:text-left">
               &copy; {new Date().getFullYear()} ITBazar. All rights reserved.

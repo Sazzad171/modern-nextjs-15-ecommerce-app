@@ -84,6 +84,11 @@ export const homeFeaturedCategories: ImageTypes = [
     title: 'Gaming',
   },
   {
+    imageURL: '/images/home/ft-categories/4.png',
+    alt: 'Category 4',
+    title: 'Smart Watches',
+  },
+  {
     imageURL: '/images/home/ft-categories/8.png',
     alt: 'Category 8',
     title: 'Charger & Cables',

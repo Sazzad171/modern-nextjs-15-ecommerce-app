@@ -106,7 +106,7 @@ const Header = () => {
 
   return (
     <header className="bg-black py-2">
-      <div className="container flex items-center justify-between">
+      <div className="site-container flex items-center justify-between">
         {/* Left Column - Logo */}
         <div className="flex items-center">
           <div className="relative aspect-520/200 w-40">

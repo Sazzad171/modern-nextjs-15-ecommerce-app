@@ -180,7 +180,7 @@ export default function MyAccountPage() {
 
   return (
     <section className="py-6 lg:py-10">
-      <div className="container">
+      <div className="site-container">
         {/* Header */}
         <div className="mb-8">
           <h1 className="mb-2 text-4xl font-bold">

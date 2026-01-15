@@ -52,7 +52,7 @@ export default function CartSection() {
 
   return (
     <section className="py-6 lg:py-10">
-      <div className="container">
+      <div className="site-container">
         {/* Header */}
         <div className="mb-8 text-center">
           <h1 className="mb-4 text-4xl font-bold">

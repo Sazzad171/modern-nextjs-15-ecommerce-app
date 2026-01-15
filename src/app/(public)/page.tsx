@@ -45,10 +45,10 @@ export default function Home() {
   const plugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: false }));
 
   return (
-    <>
+    <div className="bg-gray-100">
       {/* Banner */}
       <section className="py-4">
-        <div className="container">
+        <div className="site-container">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
             <div className="md:col-span-8">
               <Carousel
@@ -100,7 +100,7 @@ export default function Home() {
 
       {/* Marquee notice */}
       <section>
-        <div className="container">
+        <div className="site-container">
           <div className="rounded-md bg-gray-200 py-2">
             <Marquee speed={50} pauseOnHover>
               <h5 className="font-medium">
@@ -112,9 +112,35 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Featured Categories */}
+      <section className="section-gap">
+        <div className="site-container">
+          <h2 className="mb-8 text-center text-3xl font-bold">Featured Categories</h2>
+
+          <div className="flex flex-wrap items-center justify-center gap-y-4">
+            {homeFeaturedCategories?.map((categoryItem, index) => (
+              <div className="group px-2 lg:px-4" key={index}>
+                <Link href={PAGE_ROUTES?.PRODUCTS}>
+                  <div className="mx-auto w-[132px] rounded-full bg-white">
+                    <Image
+                      src={categoryItem?.imageURL}
+                      alt={categoryItem?.alt}
+                      width={132}
+                      height={132}
+                      className="object-contain transition-all group-hover:scale-95"
+                    />
+                  </div>
+                  <h5 className="text text-center font-medium">{categoryItem?.title}</h5>
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Product list */}
       <section className="section-gap">
-        <div className="container">
+        <div className="site-container">
           <div className="mb-4 flex items-baseline justify-between gap-3">
             <div>
               <h2 className="text-center text-2xl font-bold">Featured Products</h2>
@@ -138,8 +164,8 @@ export default function Home() {
       </section>
 
       {/* Banner section */}
-      <section className="section-gap bg-gray-100">
-        <div className="container">
+      <section className="section-gap">
+        <div className="site-container">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {bannerImages?.map((bannerItem, index) => (
               <div key={index} className="group relative h-[280px] w-full overflow-hidden">
@@ -157,7 +183,7 @@ export default function Home() {
 
       {/* Product list */}
       <section className="section-gap">
-        <div className="container">
+        <div className="site-container">
           <div className="mb-4 flex items-baseline justify-between gap-3">
             <div>
               <h2 className="text-center text-2xl font-bold">New Arrival</h2>
@@ -180,24 +206,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Categories */}
-      <section className="section-gap bg-gray-100">
-        <div className="container">
-          <h2 className="mb-8 text-center text-3xl font-bold">Featured Categories</h2>
-
-          <div className="flex flex-wrap items-center justify-center gap-y-4">
-            {homeFeaturedCategories?.map((categoryItem, index) => (
-              <div className="group px-2 lg:px-4" key={index}>
-                <Link href={PAGE_ROUTES?.PRODUCTS}>
-                  <Image
-                    src={categoryItem?.imageURL}
-                    alt={categoryItem?.alt}
-                    width={132}
-                    height={132}
-                    className="mx-auto object-contain transition-all group-hover:scale-95"
-                  />
-                  <h5 className="text text-center font-medium">{categoryItem?.title}</h5>
-                </Link>
+      {/* Features */}
+      <section className="section-gap">
+        <div className="site-container">
+          <div className="grid grid-cols-2 items-stretch md:grid-cols-3 lg:grid-cols-5">
+            {homeFeatures?.map((featureItem, index) => (
+              <div
+                className="flex items-center justify-center gap-4 border-r border-gray-200 px-2 last:border-0"
+                key={index}
+              >
+                <Image
+                  src={featureItem?.imageURL}
+                  alt={featureItem?.alt}
+                  width={36}
+                  height={36}
+                  className="object-contain"
+                />
+                <h5 className="text-xl font-medium">{featureItem?.title}</h5>
               </div>
             ))}
           </div>
@@ -206,7 +231,7 @@ export default function Home() {
 
       {/* Product list */}
       <section className="section-gap">
-        <div className="container">
+        <div className="site-container">
           <div className="mb-4 flex items-baseline justify-between gap-3">
             <div>
               <h2 className="text-center text-2xl font-bold">All Products</h2>
@@ -229,32 +254,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features */}
-      <section className="section-gap bg-gray-100">
-        <div className="container">
-          <div className="grid grid-cols-2 items-stretch md:grid-cols-3 lg:grid-cols-5">
-            {homeFeatures?.map((featureItem, index) => (
-              <div
-                className="flex items-center justify-center gap-4 border-r border-gray-200 px-2 last:border-0"
-                key={index}
-              >
-                <Image
-                  src={featureItem?.imageURL}
-                  alt={featureItem?.alt}
-                  width={36}
-                  height={36}
-                  className="object-contain"
-                />
-                <h5 className="text-xl font-medium">{featureItem?.title}</h5>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Our brands */}
       <section className="section-gap">
-        <div className="container">
+        <div className="site-container">
           <div className="mb-4 flex items-baseline justify-between gap-3">
             <div>
               <h2 className="text-center text-2xl font-bold">Our Brands</h2>
@@ -268,7 +270,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="border">
+          <div className="border bg-white">
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
               {brands.map((src, index) => (
                 <div
@@ -290,8 +292,8 @@ export default function Home() {
       </section>
 
       {/* Site description */}
-      <section className="section-gap bg-gray-50">
-        <div className="container">
+      <section className="section-gap bg-white">
+        <div className="site-container">
           <div className="mb-4 lg:mb-6">
             <h1 className="mb-4 text-2xl font-semibold">
               Leading Computer, Laptop & Gaming PC Retail & Online Shop in Bangladesh
@@ -325,6 +327,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

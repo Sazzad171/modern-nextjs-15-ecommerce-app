@@ -75,12 +75,12 @@ export function ProductItemCard({
         </div>
 
         <div className="flex items-center justify-between gap-2">
-          <button className="focus:ring-primary hover:bg-primary-hov w-full rounded-sm bg-gray-600 px-3 py-1 text-sm font-medium text-white transition-colors duration-200 focus:ring-2 focus:ring-offset-2 focus:outline-none">
+          <button className="w-full rounded-sm bg-gray-600/20 px-3 py-1 text-sm font-medium transition-colors duration-200 hover:bg-gray-600 hover:text-white">
             Add to Cart
           </button>
 
           {/* Add to Cart Button */}
-          <button className="bg-primary focus:ring-primary hover:bg-primary-hov w-full rounded-sm px-3 py-1 text-sm font-medium text-white transition-colors duration-200 focus:ring-2 focus:ring-offset-2 focus:outline-none">
+          <button className="bg-primary/20 hover:bg-primary text-primary w-full rounded-sm px-3 py-1 text-sm font-medium transition-colors duration-200 hover:text-white">
             Buy Now
           </button>
         </div>
