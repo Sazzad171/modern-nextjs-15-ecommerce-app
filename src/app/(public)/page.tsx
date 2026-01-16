@@ -59,6 +59,22 @@ const memberOf = [
   '/images/member-of/4.jpg',
 ];
 
+const topFeatures = [
+  { imgURL: '/images/hot-deals/1.jpg', category: 'Smart Watch', title: 'CMF Watch Pro 2' },
+  { imgURL: '/images/hot-deals/2.jpg', category: 'Air Fryer', title: 'Philips 4.2 Litr Air Fryer' },
+  { imgURL: '/images/hot-deals/3.jpg', category: ' One Plus Nord 5 0% EMI', title: 'Smart Phones' },
+  {
+    imgURL: '/images/hot-deals/4.jpg',
+    category: 'Drone & Airflys',
+    title: 'Drone from TK BDT 1300+',
+  },
+  {
+    imgURL: '/images/hot-deals/1.jpg',
+    category: 'Top Brands | 1 Year Waranty',
+    title: 'CMF Watch Pro 2',
+  },
+];
+
 export default function Home() {
   const plugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: false }));
 
@@ -313,6 +329,38 @@ export default function Home() {
       </section>
 
       {/* Features & top categories */}
+      <section className="section-gap">
+        <div className="site-container">
+          <h2 className="mb-4 text-2xl font-bold">Updated with Latest Technologies</h2>
+          <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-5">
+            {topFeatures?.map((item, index) => (
+              <div
+                key={index}
+                className="group overflow-hidden rounded-xl border border-gray-50 bg-white"
+              >
+                <Link href={PAGE_ROUTES.PRODUCTS}>
+                  <div className="p-2">
+                    <div className="relative mb-1 h-46 w-full overflow-hidden">
+                      <Image
+                        src={item?.imgURL}
+                        alt="offer image"
+                        fill
+                        className="object-cover transition-all group-hover:scale-105"
+                      />
+                    </div>
+                    <h5 className="py-2 text-center text-sm font-medium">{item?.title}</h5>
+                  </div>
+                  <div className="bg-primary">
+                    <h5 className="py-1 text-center text-lg font-semibold text-white">
+                      {item?.category}
+                    </h5>
+                  </div>
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Features */}
       <section className="section-gap">
