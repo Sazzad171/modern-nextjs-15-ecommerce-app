@@ -41,6 +41,24 @@ const brands = [
   '/images/brands/3.jpg',
 ];
 
+const hotDeals = [
+  { imgURL: '/images/hot-deals/1.jpg', title: 'Smart Watch' },
+  { imgURL: '/images/hot-deals/2.jpg', title: 'Air Fryer' },
+  { imgURL: '/images/hot-deals/3.jpg', title: 'Smart Phones' },
+  { imgURL: '/images/hot-deals/4.jpg', title: 'Drone & Airflys' },
+  { imgURL: '/images/hot-deals/4.jpg', title: 'Drone & Airflys' },
+  { imgURL: '/images/hot-deals/3.jpg', title: 'Smart Phones' },
+  { imgURL: '/images/hot-deals/2.jpg', title: 'Air Fryer' },
+  { imgURL: '/images/hot-deals/1.jpg', title: 'Smart Watch' },
+];
+
+const memberOf = [
+  '/images/member-of/1.png',
+  '/images/member-of/2.jpg',
+  '/images/member-of/3.jpg',
+  '/images/member-of/4.jpg',
+];
+
 export default function Home() {
   const plugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: false }));
 
@@ -163,12 +181,100 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Hot deals card */}
+      <div className="section-gap">
+        <div className="site-container">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            <div className="rounded-lg bg-white p-3 shadow">
+              <h2 className="text-lg font-semibold">Wireless Tech</h2>
+              <div className="mt-3 grid grid-cols-2 gap-3">
+                {hotDeals?.slice(0, 4)?.map((item, index) => (
+                  <div className="mb-3">
+                    <Link href={PAGE_ROUTES?.PRODUCTS}>
+                      <div key={index} className="group relative mb-1 h-34 w-full overflow-hidden">
+                        <Image
+                          src={item?.imgURL}
+                          alt="offer image"
+                          fill
+                          className="object-cover transition-all group-hover:scale-105"
+                        />
+                      </div>
+                      <h5 className="text-center text-sm font-medium">{item?.title}</h5>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow">
+              <h2 className="text-lg font-semibold">Deals on Top Categories</h2>
+              <div className="mt-3 grid grid-cols-2 gap-3">
+                {hotDeals?.slice(4, 8)?.map((item, index) => (
+                  <div className="mb-3">
+                    <Link href={PAGE_ROUTES?.PRODUCTS}>
+                      <div key={index} className="group relative mb-1 h-34 w-full overflow-hidden">
+                        <Image
+                          src={item?.imgURL}
+                          alt="offer image"
+                          fill
+                          className="object-cover transition-all group-hover:scale-105"
+                        />
+                      </div>
+                      <h5 className="text-center text-sm font-medium">{item?.title}</h5>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow">
+              <h2 className="text-lg font-semibold">Wireless Tech</h2>
+              <div className="mt-3 grid grid-cols-2 gap-3">
+                {hotDeals?.slice(0, 4)?.map((item, index) => (
+                  <div className="mb-3">
+                    <Link href={PAGE_ROUTES?.PRODUCTS}>
+                      <div key={index} className="group relative mb-1 h-34 w-full overflow-hidden">
+                        <Image
+                          src={item?.imgURL}
+                          alt="offer image"
+                          fill
+                          className="object-cover transition-all group-hover:scale-105"
+                        />
+                      </div>
+                      <h5 className="text-center text-sm font-medium">{item?.title}</h5>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow">
+              <h2 className="text-lg font-semibold">Deals on Top Categories</h2>
+              <div className="mt-3 grid grid-cols-2 gap-3">
+                {hotDeals?.slice(4, 8)?.map((item, index) => (
+                  <div className="mb-3">
+                    <Link href={PAGE_ROUTES?.PRODUCTS}>
+                      <div key={index} className="group relative mb-1 h-34 w-full overflow-hidden">
+                        <Image
+                          src={item?.imgURL}
+                          alt="offer image"
+                          fill
+                          className="object-cover transition-all group-hover:scale-105"
+                        />
+                      </div>
+                      <h5 className="text-center text-sm font-medium">{item?.title}</h5>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Banner section */}
       <section className="section-gap">
         <div className="site-container">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {bannerImages?.map((bannerItem, index) => (
-              <div key={index} className="group relative h-[280px] w-full overflow-hidden">
+              <div key={index} className="group relative h-80 w-full overflow-hidden">
                 <Image
                   src={bannerItem}
                   alt="banner image"
@@ -205,6 +311,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Features & top categories */}
 
       {/* Features */}
       <section className="section-gap">
@@ -287,6 +395,29 @@ export default function Home() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Member of */}
+      <section className="section-gap bg-orange-100">
+        <div className="site-container">
+          <h2 className="mb-8 text-center text-3xl font-bold">We Are Proud Member</h2>
+
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+            {memberOf?.map((item, index) => (
+              <div
+                className="group relative h-40 w-full overflow-hidden rounded-xl bg-white"
+                key={index}
+              >
+                <Image
+                  src={item}
+                  alt="member image"
+                  fill
+                  className="mx-auto object-contain transition-all group-hover:scale-105"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
