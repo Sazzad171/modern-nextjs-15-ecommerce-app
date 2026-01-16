@@ -101,17 +101,17 @@ const CategoryNav = () => {
 
                     {/* Mega Dropdown */}
                     {activeCategory === category.id && (
-                      <div className="absolute top-full left-0 z-50 w-screen max-w-2xl rounded-b-lg border border-gray-700 bg-black shadow-2xl">
+                      <div className="absolute top-full left-0 z-50 w-screen max-w-2xl rounded-b-lg border border-gray-200 bg-white shadow-2xl">
                         <div className="p-6">
                           <div className="grid grid-cols-2 gap-6 md:grid-cols-3">
                             {category.subcategories.map((subcategory) => (
                               <div key={subcategory.id}>
                                 <Link
                                   href={subcategory.href}
-                                  className="group/sub block rounded-lg p-3 text-white transition-all hover:bg-gray-800"
+                                  className="group/sub block rounded-lg p-3 transition-all hover:bg-gray-100"
                                 >
                                   <div className="mb-1 font-medium">{subcategory.name}</div>
-                                  <div className="text-sm text-gray-400">
+                                  <div className="text-sm text-gray-700">
                                     Shop the latest collection
                                   </div>
                                 </Link>
