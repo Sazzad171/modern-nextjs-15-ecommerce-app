@@ -75,7 +75,7 @@ export function ProductItemCard({
         </div>
 
         <div className="flex items-center justify-between gap-2">
-          <button className="w-full rounded-sm bg-gray-600/20 px-3 py-1 text-sm font-medium transition-colors duration-200 hover:bg-gray-600 hover:text-white">
+          <button className="w-full rounded-sm bg-gray-600/20 px-2 py-1 text-sm font-medium transition-colors duration-200 hover:bg-gray-600 hover:text-white">
             Add to Cart
           </button>
 

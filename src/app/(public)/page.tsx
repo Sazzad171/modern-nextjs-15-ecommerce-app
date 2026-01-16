@@ -69,7 +69,7 @@ const topFeatures = [
     title: 'Drone from TK BDT 1300+',
   },
   {
-    imgURL: '/images/hot-deals/1.jpg',
+    imgURL: '/images/hot-deals/5.jpg',
     category: 'Top Brands | 1 Year Waranty',
     title: 'CMF Watch Pro 2',
   },
@@ -189,7 +189,7 @@ export default function Home() {
           </div>
 
           {/* Grid Layout */}
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {productsData?.slice(3, 8)?.map((product) => (
               <ProductItemCard product={product} key={product.id} />
             ))}
@@ -320,7 +320,7 @@ export default function Home() {
           </div>
 
           {/* Grid Layout */}
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {productsData?.slice(3, 8)?.map((product) => (
               <ProductItemCard product={product} key={product.id} />
             ))}
@@ -338,9 +338,9 @@ export default function Home() {
                 key={index}
                 className="group overflow-hidden rounded-xl border border-gray-50 bg-white"
               >
-                <Link href={PAGE_ROUTES.PRODUCTS}>
+                <Link href={PAGE_ROUTES.PRODUCTS} className="flex h-full flex-col justify-between">
                   <div className="p-2">
-                    <div className="relative mb-1 h-46 w-full overflow-hidden">
+                    <div className="relative mb-1 h-50 w-full overflow-hidden">
                       <Image
                         src={item?.imgURL}
                         alt="offer image"
@@ -402,7 +402,7 @@ export default function Home() {
           </div>
 
           {/* Grid Layout */}
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {productsData?.slice(4, 9)?.map((product) => (
               <ProductItemCard product={product} key={product.id} />
             ))}
