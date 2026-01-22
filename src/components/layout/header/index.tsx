@@ -1,5 +1,6 @@
 'use client';
 
+import { CustomButton } from '@/components/CustomUI/CustomButton';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -10,7 +11,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { PAGE_ROUTES } from '@/lib/constants/page-routes';
-import { ChevronRight, Search, ShoppingCart, User, X } from 'lucide-react';
+import { AlertTriangle, ChevronRight, Search, ShoppingCart, User, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
@@ -106,6 +107,35 @@ const Header = () => {
 
   return (
     <header className="bg-black py-2">
+      {/* Top links */}
+      <div className="site-container align-center flex justify-center gap-2 max-md:hidden">
+        <div>
+          <CustomButton size={'sm'} href="/" className="border-primary border-2 bg-transparent">
+            Blog
+          </CustomButton>
+        </div>
+        <div>
+          <CustomButton size={'sm'} href="/" className="border-primary border-2 bg-transparent">
+            Payment
+          </CustomButton>
+        </div>
+        <div>
+          <CustomButton size={'sm'} href="/" className="border-primary border-2 bg-transparent">
+            Photo Gallery
+          </CustomButton>
+        </div>
+        <div>
+          <CustomButton
+            size={'sm'}
+            href="/"
+            icon={<AlertTriangle />}
+            className="border-2 border-yellow-400 bg-yellow-400 text-black hover:text-white"
+          >
+            Notice
+          </CustomButton>
+        </div>
+      </div>
+
       <div className="site-container flex items-center justify-between">
         {/* Left Column - Logo */}
         <div className="flex items-center">
@@ -117,8 +147,19 @@ const Header = () => {
         </div>
 
         {/* Middle Column - Search Box with Dropdown (Desktop) */}
-        <div className="mx-1 hidden max-w-xl flex-1 md:flex lg:mx-8" ref={searchRef}>
-          <div className="relative w-full">
+        <div className="mx-1 hidden max-w-xl flex-1 items-center gap-3 md:flex lg:mx-8">
+          <div>
+            <Link href={'/'}>
+              <Image
+                src={'/images/offer-icon.png'}
+                width={70}
+                height={60}
+                alt="offer icon"
+                className="object-contain"
+              />
+            </Link>
+          </div>
+          <div className="relative w-full" ref={searchRef}>
             <Search className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-gray-400" />
             <Input
               ref={inputRef}

@@ -205,9 +205,9 @@ export default function Home() {
               <h2 className="text-lg font-semibold">Wireless Tech</h2>
               <div className="mt-3 grid grid-cols-2 gap-3">
                 {hotDeals?.slice(0, 4)?.map((item, index) => (
-                  <div className="mb-3">
+                  <div className="mb-3" key={index}>
                     <Link href={PAGE_ROUTES?.PRODUCTS}>
-                      <div key={index} className="group relative mb-1 h-34 w-full overflow-hidden">
+                      <div className="group relative mb-1 h-34 w-full overflow-hidden">
                         <Image
                           src={item?.imgURL}
                           alt="offer image"
@@ -225,9 +225,9 @@ export default function Home() {
               <h2 className="text-lg font-semibold">Deals on Top Categories</h2>
               <div className="mt-3 grid grid-cols-2 gap-3">
                 {hotDeals?.slice(4, 8)?.map((item, index) => (
-                  <div className="mb-3">
+                  <div className="mb-3" key={index}>
                     <Link href={PAGE_ROUTES?.PRODUCTS}>
-                      <div key={index} className="group relative mb-1 h-34 w-full overflow-hidden">
+                      <div className="group relative mb-1 h-34 w-full overflow-hidden">
                         <Image
                           src={item?.imgURL}
                           alt="offer image"
@@ -245,9 +245,9 @@ export default function Home() {
               <h2 className="text-lg font-semibold">Wireless Tech</h2>
               <div className="mt-3 grid grid-cols-2 gap-3">
                 {hotDeals?.slice(0, 4)?.map((item, index) => (
-                  <div className="mb-3">
+                  <div className="mb-3" key={index}>
                     <Link href={PAGE_ROUTES?.PRODUCTS}>
-                      <div key={index} className="group relative mb-1 h-34 w-full overflow-hidden">
+                      <div className="group relative mb-1 h-34 w-full overflow-hidden">
                         <Image
                           src={item?.imgURL}
                           alt="offer image"
@@ -265,9 +265,9 @@ export default function Home() {
               <h2 className="text-lg font-semibold">Deals on Top Categories</h2>
               <div className="mt-3 grid grid-cols-2 gap-3">
                 {hotDeals?.slice(4, 8)?.map((item, index) => (
-                  <div className="mb-3">
+                  <div className="mb-3" key={index}>
                     <Link href={PAGE_ROUTES?.PRODUCTS}>
-                      <div key={index} className="group relative mb-1 h-34 w-full overflow-hidden">
+                      <div className="group relative mb-1 h-34 w-full overflow-hidden">
                         <Image
                           src={item?.imgURL}
                           alt="offer image"

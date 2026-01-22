@@ -141,10 +141,10 @@ const CategoryNav = () => {
 
         {/* Mobile with Shadcn Sheet */}
         <div className="md:hidden">
-          <div className="flex items-center justify-between px-4 py-3">
+          <div className="flex items-center justify-between py-2">
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="hover:bg-gray-800">
+                <Button variant="ghost" size="icon" className="text-white">
                   <Menu className="h-5 w-5" />
                 </Button>
               </SheetTrigger>
@@ -189,7 +189,7 @@ const CategoryNav = () => {
               </SheetContent>
             </Sheet>
 
-            <div className="text-lg font-medium">Categories</div>
+            <div className="text-lg font-medium text-white">Categories</div>
 
             <Button variant="ghost" size="icon" className="invisible">
               <Menu className="h-5 w-5" />
