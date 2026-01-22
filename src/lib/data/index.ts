@@ -100,6 +100,50 @@ export const homeFeaturedCategories: ImageTypes = [
   },
 ];
 
+// Top categories
+export const topCategories: ImageTypes = [
+  {
+    imageURL: '/images/category-icons/cyber-security.png',
+    alt: 'Category 1',
+    title: 'CCTV & SECURITY SYSTEMS',
+  },
+  {
+    imageURL: '/images/category-icons/electronics.png',
+    alt: 'Category 2',
+    title: 'ELECTRONIC & HOME APPLIANCE',
+  },
+  {
+    imageURL: '/images/category-icons/robot.png',
+    alt: 'Category 3',
+    title: 'ROBOTICS',
+  },
+  {
+    imageURL: '/images/category-icons/server.png',
+    alt: 'Category 4',
+    title: 'SERVER & TELECOMMUNICATION',
+  },
+  {
+    imageURL: '/images/category-icons/wire.png',
+    alt: 'Category 5',
+    title: 'NETWORKING CABLE',
+  },
+  {
+    imageURL: '/images/category-icons/http.png',
+    alt: 'Category 6',
+    title: 'INTERNET & NETWORKING',
+  },
+  {
+    imageURL: '/images/category-icons/cyber-security.png',
+    alt: 'Category 1',
+    title: 'CCTV & SECURITY SYSTEMS',
+  },
+  {
+    imageURL: '/images/category-icons/electronics.png',
+    alt: 'Category 2',
+    title: 'ELECTRONIC & HOME APPLIANCE',
+  },
+];
+
 // All product items
 export const productsData: ProductItemTypes[] = [
   {

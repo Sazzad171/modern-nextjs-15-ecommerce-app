@@ -3,12 +3,7 @@
 import { ProductItemCard } from '@/components/product/ProductItem';
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 import { PAGE_ROUTES } from '@/lib/constants/page-routes';
-import {
-  homeBannerImageData,
-  homeFeaturedCategories,
-  homeFeatures,
-  productsData,
-} from '@/lib/data';
+import { homeBannerImageData, homeFeatures, productsData, topCategories } from '@/lib/data';
 import Autoplay from 'embla-carousel-autoplay';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -16,8 +11,8 @@ import { useRef } from 'react';
 import Marquee from 'react-fast-marquee';
 
 const bannerImages = [
-  '/images/home/banner/1.jpg',
-  '/images/home/banner/2.jpg',
+  '/images/home/banner/5.jpg',
+  '/images/home/banner/6.jpg',
   '/images/home/banner/3.jpg',
   '/images/home/banner/4.jpg',
 ];
@@ -146,8 +141,31 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Categories */}
+      {/* Features */}
       <section className="section-gap">
+        <div className="site-container">
+          <div className="grid grid-cols-2 items-stretch md:grid-cols-3 lg:grid-cols-5">
+            {homeFeatures?.map((featureItem, index) => (
+              <div
+                className="flex items-center justify-center gap-4 border-r border-gray-200 px-2 last:border-0"
+                key={index}
+              >
+                <Image
+                  src={featureItem?.imageURL}
+                  alt={featureItem?.alt}
+                  width={36}
+                  height={36}
+                  className="object-contain"
+                />
+                <h5 className="text-xl font-medium">{featureItem?.title}</h5>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Categories */}
+      {/* <section className="section-gap">
         <div className="site-container">
           <h2 className="mb-8 text-center text-3xl font-bold">Featured Categories</h2>
 
@@ -167,6 +185,40 @@ export default function Home() {
                   <h5 className="text text-center font-medium">{categoryItem?.title}</h5>
                 </Link>
               </div>
+            ))}
+          </div>
+        </div>
+      </section> */}
+
+      {/* Top categories */}
+      <section className="section-gap bg-white">
+        <div className="site-container">
+          <div className="mb-4 flex items-baseline justify-between gap-3 border-b-2 border-gray-300 pb-3 md:mb-10">
+            <div>
+              <h2 className="text-center text-2xl font-bold">Top Categories</h2>
+            </div>
+            <div>
+              <p>
+                <Link href={PAGE_ROUTES.PRODUCTS} className="text-primary font-medium">
+                  See All Categories
+                </Link>
+              </p>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-5 lg:grid-cols-8">
+            {topCategories?.map((item, index) => (
+              <Link href={PAGE_ROUTES.PRODUCTS} key={index}>
+                <div className="group">
+                  <Image
+                    src={item?.imageURL}
+                    alt={item?.alt}
+                    height={40}
+                    width={40}
+                    className="mx-auto object-contain transition-all group-hover:scale-95"
+                  />
+                  <h4 className="mt-3 text-center text-sm font-semibold">{item?.title}</h4>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -288,9 +340,9 @@ export default function Home() {
       {/* Banner section */}
       <section className="section-gap">
         <div className="site-container">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {bannerImages?.map((bannerItem, index) => (
-              <div key={index} className="group relative h-80 w-full overflow-hidden">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
+            {bannerImages?.slice(0, 2)?.map((bannerItem, index) => (
+              <div key={index} className="group relative h-80 w-full overflow-hidden rounded-md">
                 <Image
                   src={bannerItem}
                   alt="banner image"
@@ -362,23 +414,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features */}
-      <section className="section-gap">
+      {/* Ad products */}
+      <section className="section-gap bg-white">
         <div className="site-container">
           <div className="grid grid-cols-2 items-stretch md:grid-cols-3 lg:grid-cols-5">
-            {homeFeatures?.map((featureItem, index) => (
+            {topFeatures?.map((featureItem, index) => (
               <div
-                className="flex items-center justify-center gap-4 border-r border-gray-200 px-2 last:border-0"
+                className="flex items-center justify-center gap-4 border-r border-gray-300 px-2 last:border-0"
                 key={index}
               >
                 <Image
-                  src={featureItem?.imageURL}
-                  alt={featureItem?.alt}
-                  width={36}
-                  height={36}
+                  src={featureItem?.imgURL}
+                  alt={featureItem?.title}
+                  width={100}
+                  height={100}
                   className="object-contain"
                 />
-                <h5 className="text-xl font-medium">{featureItem?.title}</h5>
+                <h5 className="text-lg font-medium">{featureItem?.title}</h5>
               </div>
             ))}
           </div>
@@ -467,6 +519,22 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Subscribe */}
+      <section className="py-6">
+        <div className="container">
+          <h2 className="mb-2 text-center text-3xl font-semibold">Subscribe To Our NewsLetter</h2>
+          <Link href="/">
+            <Image
+              src={'/images/home/subscribe.png'}
+              alt="Subscribe Logo"
+              width={160}
+              height={80}
+              className="mx-auto object-contain transition group-hover:scale-105"
+            />
+          </Link>
         </div>
       </section>
 
