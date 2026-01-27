@@ -11,8 +11,6 @@ const CategoryNav = () => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   const mainCategories = [
-    { label: 'Laptop', slug: 'laptop' },
-    { label: 'Desktop', slug: 'desktop' },
     { label: 'Monitor & UPS', slug: 'monitor-ups' },
     { label: 'Computer Accessories', slug: 'computer-accessories' },
     { label: 'Internet & Networking', slug: 'internet-networking' },
@@ -41,8 +39,7 @@ const CategoryNav = () => {
   ];
 
   const navLinks = [
-    { id: 1, name: 'Home', href: '/' },
-    { id: 2, name: 'About', href: '/about-us' },
+    { id: 2, name: 'About Us', href: '/about-us' },
     { id: 3, name: 'All Brands', href: '/all-brands' },
     { id: 3, name: 'Notice Board', href: '/notice-board' },
   ];
@@ -53,35 +50,6 @@ const CategoryNav = () => {
         {/* Desktop */}
         <div className="hidden md:block">
           <div className="flex items-center">
-            <div className="border-r border-gray-800 px-4">
-              <div className="group relative">
-                {/* Button */}
-                <Button
-                  variant="ghost"
-                  className="flex items-center gap-2 rounded-none py-5 text-white group-hover:bg-white group-hover:text-gray-700"
-                >
-                  <Menu className="h-5 w-5" />
-                  <span>All Categories</span>
-                </Button>
-
-                {/* Dropdown */}
-                <div className="bg-background absolute top-full left-0 z-50 hidden w-56 overflow-hidden border shadow-md group-hover:block">
-                  <ul className="divide-y text-sm">
-                    {mainCategories.map((item) => (
-                      <li key={item.slug}>
-                        <Link
-                          href={`/categories`}
-                          className="hover:bg-muted block cursor-pointer px-4 py-2"
-                        >
-                          {item.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-
             <div className="flex-1">
               <ul className="flex items-center">
                 {categories?.slice(0, 2).map((category) => (
@@ -123,6 +91,17 @@ const CategoryNav = () => {
                     )}
                   </li>
                 ))}
+                {mainCategories?.length > 0 &&
+                  mainCategories?.map((navItem, index) => (
+                    <li key={index}>
+                      <Link
+                        href={PAGE_ROUTES.PRODUCTS}
+                        className="flex items-center px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-gray-800"
+                      >
+                        <span>{navItem?.label}</span>
+                      </Link>
+                    </li>
+                  ))}
                 {navLinks?.length > 0 &&
                   navLinks?.map((navItem, index) => (
                     <li key={index}>

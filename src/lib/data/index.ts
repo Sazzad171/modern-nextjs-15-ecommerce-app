@@ -20,27 +20,27 @@ export const homeBannerImageData: ImageTypes = [
 // Home featuers
 export const homeFeatures: ImageTypes = [
   {
-    imageURL: '/images/home/features-1.png',
+    imageURL: '/images/home/ft-1.png',
     alt: 'Feature 1',
     title: 'Official Product',
   },
   {
-    imageURL: '/images/home/features-2.png',
+    imageURL: '/images/home/ft-2.png',
     alt: 'Feature 2',
     title: 'Authorised Seller',
   },
   {
-    imageURL: '/images/home/features-3.png',
+    imageURL: '/images/home/ft-3.png',
     alt: 'Feature 3',
     title: 'Exchange',
   },
   {
-    imageURL: '/images/home/features-4.png',
+    imageURL: '/images/home/ft-4.png',
     alt: 'Feature 4',
     title: 'Fastest Delivery',
   },
   {
-    imageURL: '/images/home/features-5.png',
+    imageURL: '/images/home/ft-5.png',
     alt: 'Feature 5',
     title: '100% Secure Payment',
   },

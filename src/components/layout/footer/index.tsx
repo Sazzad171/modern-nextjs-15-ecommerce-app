@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter } from 'lucide-react';
+import { Mail, MapPin, Phone } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -17,6 +17,20 @@ const Footer = () => {
 
             {/* Contact Info */}
             <div className="space-y-4">
+              <div className="flex items-start space-x-3">
+                <MapPin className="mt-1 h-5 w-5 text-gray-400" />
+                <div className="space-y-4">
+                  <div>
+                    <p className="text-sm text-gray-400">Main Office</p>
+                    <p className="text-gray-300">
+                      123 Banani, Dhaka
+                      <br />
+                      Bangladesh
+                    </p>
+                  </div>
+                </div>
+              </div>
+
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-gray-400" />
                 <div>
@@ -40,65 +54,44 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-
-            {/* Social Media (optional) */}
-            <div className="flex space-x-4 pt-4">
-              <a
-                href="#"
-                className="rounded-full bg-gray-800 p-2 transition-colors hover:bg-gray-700"
-              >
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="rounded-full bg-gray-800 p-2 transition-colors hover:bg-gray-700"
-              >
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="rounded-full bg-gray-800 p-2 transition-colors hover:bg-gray-700"
-              >
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="rounded-full bg-gray-800 p-2 transition-colors hover:bg-gray-700"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
-            </div>
           </div>
 
-          {/* Middle Column - Location & Details */}
-          <div>
-            <div className="flex items-start space-x-3">
-              <MapPin className="mt-1 h-5 w-5 text-gray-400" />
-              <div className="space-y-4">
-                <div>
-                  <h3 className="mb-2 text-lg font-semibold">Main Office</h3>
-                  <p className="text-gray-300">
-                    123 Banani, Dhaka
-                    <br />
-                    Bangladesh
-                  </p>
-                </div>
-
-                <div className="pt-4">
-                  <h3 className="mb-2 text-lg font-semibold">Business Hours</h3>
-                  <ul className="space-y-1 text-gray-300">
-                    <li>Monday - Friday: 9:00 AM - 6:00 PM</li>
-                    <li>Saturday: 10:00 AM - 4:00 PM</li>
-                    <li>Sunday: Closed</li>
-                  </ul>
-                </div>
-              </div>
+          {/* Middle Column - Links */}
+          <div className="space-y-6">
+            <div className="pt-4 pb-2">
+              <h3 className="mb-3 text-lg font-semibold">About Us</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link
+                    href="/"
+                    className="text-sm text-gray-300 transition-colors hover:text-white"
+                  >
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/"
+                    className="text-sm text-gray-300 transition-colors hover:text-white"
+                  >
+                    Contact Us
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/"
+                    className="text-sm text-gray-300 transition-colors hover:text-white"
+                  >
+                    FAQ
+                  </Link>
+                </li>
+              </ul>
             </div>
           </div>
 
           {/* Right Column - Privacy & Legal Links */}
           <div className="space-y-6">
-            <h3 className="text-lg font-semibold">Legal</h3>
+            <h3 className="text-lg font-semibold">Quick Links</h3>
             <ul className="space-y-3">
               <li>
                 <Link
@@ -141,43 +134,12 @@ const Footer = () => {
                 </Link>
               </li>
             </ul>
-
-            {/* Additional Quick Links */}
-            <div className="pt-4 pb-2">
-              <h3 className="mb-3 text-lg font-semibold">Quick Links</h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link
-                    href="/"
-                    className="text-sm text-gray-300 transition-colors hover:text-white"
-                  >
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/"
-                    className="text-sm text-gray-300 transition-colors hover:text-white"
-                  >
-                    Contact Us
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/"
-                    className="text-sm text-gray-300 transition-colors hover:text-white"
-                  >
-                    FAQ
-                  </Link>
-                </li>
-              </ul>
-            </div>
           </div>
         </div>
       </div>
 
       {/* Full Width Copyright Bar */}
-      <div className="border-t border-gray-800 py-6">
+      <div className="mt-6 border-t border-gray-800 py-6">
         <div className="site-container">
           <div className="flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0">
             <div className="text-center text-sm text-gray-400 md:text-left">

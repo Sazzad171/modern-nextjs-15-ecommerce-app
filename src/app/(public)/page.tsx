@@ -5,6 +5,7 @@ import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carouse
 import { PAGE_ROUTES } from '@/lib/constants/page-routes';
 import { homeBannerImageData, homeFeatures, productsData, topCategories } from '@/lib/data';
 import Autoplay from 'embla-carousel-autoplay';
+import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRef } from 'react';
@@ -34,6 +35,14 @@ const brands = [
   '/images/brands/5.png',
   '/images/brands/4.png',
   '/images/brands/3.jpg',
+  '/images/brands/4.png',
+  '/images/brands/5.png',
+  '/images/brands/2.jpg',
+  '/images/brands/1.png',
+  '/images/brands/4.png',
+  '/images/brands/5.png',
+  '/images/brands/1.png',
+  '/images/brands/4.png',
 ];
 
 const hotDeals = [
@@ -467,7 +476,7 @@ export default function Home() {
         <div className="site-container">
           <div className="mb-4 flex items-baseline justify-between gap-3">
             <div>
-              <h2 className="text-center text-2xl font-bold">Our Brands</h2>
+              <h2 className="text-center text-2xl font-bold">Top Brands</h2>
             </div>
             <div>
               <p>
@@ -479,7 +488,7 @@ export default function Home() {
           </div>
 
           <div className="border bg-white">
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 xl:grid-cols-12">
               {brands.map((src, index) => (
                 <div
                   key={index}
@@ -502,39 +511,105 @@ export default function Home() {
       {/* Member of */}
       <section className="section-gap bg-orange-100">
         <div className="site-container">
-          <h2 className="mb-8 text-center text-3xl font-bold">We Are Proud Member</h2>
-
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-            {memberOf?.map((item, index) => (
-              <div
-                className="group relative h-40 w-full overflow-hidden rounded-xl bg-white"
-                key={index}
-              >
-                <Image
-                  src={item}
-                  alt="member image"
-                  fill
-                  className="mx-auto object-contain transition-all group-hover:scale-105"
-                />
+          <div className="grid items-center gap-2 md:grid-cols-2 md:gap-8">
+            <div className="grid grid-cols-1 gap-2 md:grid-cols-3">
+              <div className="col-span-2">
+                <h2 className="mb-2 text-center text-2xl font-semibold">
+                  Subscribe To Our NewsLetter
+                </h2>
+                <Link href="/">
+                  <Image
+                    src={'/images/home/subscribe.png'}
+                    alt="Subscribe Logo"
+                    width={160}
+                    height={80}
+                    className="mx-auto object-contain transition group-hover:scale-105"
+                  />
+                </Link>
               </div>
-            ))}
+              <div className="col-span-1">
+                <h4 className="mb-1 text-center text-lg font-semibold">Complain Box</h4>
+                <Link href="/">
+                  <Image
+                    src={'/images/home/complaint.png'}
+                    alt="complaint Logo"
+                    width={60}
+                    height={60}
+                    className="mx-auto object-contain transition group-hover:scale-105"
+                  />
+                </Link>
+              </div>
+            </div>
+            <div>
+              <h2 className="mb-4 text-center text-2xl font-bold">We Are Proud Member</h2>
+              <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+                {memberOf?.map((item, index) => (
+                  <div
+                    className="group relative h-30 w-full overflow-hidden rounded-xl bg-white"
+                    key={index}
+                  >
+                    <Image
+                      src={item}
+                      alt="member image"
+                      fill
+                      className="mx-auto object-contain transition-all group-hover:scale-105"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Subscribe */}
-      <section className="py-6">
-        <div className="container">
-          <h2 className="mb-2 text-center text-3xl font-semibold">Subscribe To Our NewsLetter</h2>
-          <Link href="/">
-            <Image
-              src={'/images/home/subscribe.png'}
-              alt="Subscribe Logo"
-              width={160}
-              height={80}
-              className="mx-auto object-contain transition group-hover:scale-105"
-            />
-          </Link>
+      {/* Social icons */}
+      <section className="section-gap">
+        <div className="site-container">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+            <div className="mx-auto">
+              <Link
+                href="#"
+                target="_blank"
+                className="inline-flex rounded-full bg-[#1877F2] p-2 text-white transition hover:opacity-90"
+                aria-label="Facebook"
+              >
+                <Facebook className="h-8 w-8" />
+              </Link>
+            </div>
+
+            <div className="mx-auto">
+              <Link
+                href="#"
+                target="_blank"
+                className="inline-flex rounded-full bg-[#1DA1F2] p-2 text-white transition hover:opacity-90"
+                aria-label="Twitter"
+              >
+                <Twitter className="h-8 w-8" />
+              </Link>
+            </div>
+
+            <div className="mx-auto">
+              <Link
+                href="#"
+                target="_blank"
+                className="inline-flex rounded-full bg-linear-to-tr from-[#F58529] via-[#DD2A7B] to-[#8134AF] p-2 text-white transition hover:opacity-90"
+                aria-label="Instagram"
+              >
+                <Instagram className="h-8 w-8" />
+              </Link>
+            </div>
+
+            <div className="mx-auto">
+              <Link
+                href="#"
+                target="_blank"
+                className="inline-flex rounded-full bg-[#0A66C2] p-2 text-white transition hover:opacity-90"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="h-8 w-8" />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 

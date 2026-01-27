@@ -108,31 +108,41 @@ const Header = () => {
   return (
     <header className="bg-black py-2">
       {/* Top links */}
-      <div className="site-container align-center flex justify-center gap-2 max-md:hidden">
-        <div>
-          <CustomButton size={'sm'} href="/" className="border-primary border-2 bg-transparent">
-            Blog
-          </CustomButton>
-        </div>
-        <div>
-          <CustomButton size={'sm'} href="/" className="border-primary border-2 bg-transparent">
-            Payment
-          </CustomButton>
-        </div>
-        <div>
-          <CustomButton size={'sm'} href="/" className="border-primary border-2 bg-transparent">
-            Photo Gallery
-          </CustomButton>
-        </div>
-        <div>
-          <CustomButton
-            size={'sm'}
-            href="/"
-            icon={<AlertTriangle />}
-            className="border-2 border-yellow-400 bg-yellow-400 text-black hover:text-white"
-          >
-            Notice
-          </CustomButton>
+      <div className="site-container max-md:hidden">
+        <div className="grid grid-cols-5 items-center gap-2">
+          <div className="col-span-1"></div>
+          <div className="align-center col-span-3 flex justify-center gap-2">
+            <div>
+              <CustomButton size={'sm'} href="/" className="border-2 bg-transparent">
+                Blog
+              </CustomButton>
+            </div>
+            <div>
+              <CustomButton size={'sm'} href="/" className="border-2 bg-transparent">
+                Payment
+              </CustomButton>
+            </div>
+            <div>
+              <CustomButton size={'sm'} href="/" className="border-2 bg-transparent">
+                Photo Gallery
+              </CustomButton>
+            </div>
+            <div>
+              <CustomButton
+                size={'sm'}
+                href="/"
+                icon={<AlertTriangle />}
+                className="border-2 border-yellow-400 bg-yellow-400 text-black hover:bg-yellow-500 hover:text-white"
+              >
+                Notice
+              </CustomButton>
+            </div>
+          </div>
+          <div className="col-span-1">
+            <p className="text-right text-sm text-white">
+              <Link href={'tel:01975700755'}>Helpline: +8801975700755</Link>
+            </p>
+          </div>
         </div>
       </div>
 
@@ -252,10 +262,10 @@ const Header = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="relative cursor-pointer rounded-full border border-gray-700 bg-transparent text-white hover:bg-gray-800 hover:text-white"
+                className="relative cursor-pointer rounded-full border border-gray-700 bg-white"
               >
                 <ShoppingCart className="h-5 w-5" />
-                <span className="bg-primary absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full text-xs font-medium">
+                <span className="bg-primary absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full text-xs font-medium text-white">
                   {cartItemsCount}
                 </span>
               </Button>
@@ -361,7 +371,7 @@ const Header = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="hidden cursor-pointer rounded-full border border-gray-700 bg-transparent text-white hover:bg-gray-800 hover:text-white sm:inline-flex"
+                className="hidden cursor-pointer rounded-full border border-gray-700 bg-white sm:inline-flex"
               >
                 <User className="h-5 w-5" />
               </Button>
