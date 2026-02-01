@@ -1,27 +1,38 @@
 'use client';
 
+import { CheckboxField } from '@/components/CustomUI/Checkbox';
 import { ProductItemCard } from '@/components/product/ProductItem';
 import { productsData } from '@/lib/data';
 import { useState } from 'react';
 
 const ProductList = () => {
-  const [selectedSeries, setSelectedSeries] = useState<string[]>([]);
-  const [selectedPrice, setSelectedPrice] = useState<string[]>([]);
+  const [selectedBrands, setselectedBrands] = useState<string[]>([]);
+  const [availability, setAvailability] = useState<string[]>([]);
 
   // Simple filter options
   const seriesOptions = ['iPhone 14', 'iPhone 15', 'iPhone 16'];
-  const priceOptions = ['Under $500', '$500 - $1000', 'Above $1000'];
+  const availabilityOptions = ['In-Stock', 'Pre Order', 'Up Coming', 'Stock Out'];
 
-  const toggleSeries = (series: string) => {
-    setSelectedSeries((prev) =>
+  // Toggle brands
+  const toggleBrands = (series: string) => {
+    setselectedBrands((prev) =>
       prev.includes(series) ? prev.filter((s) => s !== series) : [...prev, series]
     );
   };
 
-  const togglePrice = (price: string) => {
-    setSelectedPrice((prev) =>
-      prev.includes(price) ? prev.filter((p) => p !== price) : [...prev, price]
+  // Toggle price
+  const togglePrice = (availableOption: string) => {
+    setAvailability((prev) =>
+      prev.includes(availableOption)
+        ? prev.filter((p) => p !== availableOption)
+        : [...prev, availableOption]
     );
+  };
+
+  // Clear filter
+  const clearFilter = () => {
+    setselectedBrands([]);
+    setAvailability([]);
   };
 
   return (
@@ -32,78 +43,69 @@ const ProductList = () => {
             <div className="mb-4">
               <h2 className="mb-4 text-lg font-bold">Filters</h2>
               <p className="text-sm text-gray-500">
-                {selectedSeries.length + selectedPrice.length} active
+                {selectedBrands.length + availability.length} active
               </p>
             </div>
 
-            {/* Series Filter */}
+            {/* Brands Filter */}
             <div className="mb-4">
-              <h3 className="mb-3 font-medium">iPhone Series</h3>
+              <h3 className="mb-3 font-medium">Brands</h3>
               <div className="space-y-2">
-                {seriesOptions.map((series) => (
-                  <div key={series} className="flex items-center">
-                    <input
-                      type="checkbox"
-                      id={`series-${series}`}
-                      checked={selectedSeries.includes(series)}
-                      onChange={() => toggleSeries(series)}
-                      className="focus:ring-primary text-primary h-4 w-4 rounded border-gray-300"
+                {seriesOptions.map((brandItem) => (
+                  <div key={brandItem} className="flex items-center">
+                    <CheckboxField
+                      key={brandItem}
+                      id={`brandItem-${brandItem}`}
+                      label={brandItem}
+                      checked={selectedBrands.includes(brandItem)}
+                      onCheckedChange={() => toggleBrands(brandItem)}
                     />
-                    <label htmlFor={`series-${series}`} className="ml-2 cursor-pointer text-sm">
-                      {series}
-                    </label>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Price Filter */}
+            {/* Availability Filter */}
             <div className="mb-4">
-              <h3 className="mb-3 font-medium">Price Range</h3>
+              <h3 className="mb-3 font-medium">Availability</h3>
               <div className="space-y-2">
-                {priceOptions.map((price) => (
-                  <div key={price} className="flex items-center">
-                    <input
-                      type="checkbox"
-                      id={`price-${price}`}
-                      checked={selectedPrice.includes(price)}
-                      onChange={() => togglePrice(price)}
-                      className="focus:ring-primary text-primary h-4 w-4 rounded border-gray-300"
+                {availabilityOptions.map((availableOption) => (
+                  <div key={availableOption} className="flex items-center">
+                    <CheckboxField
+                      key={availableOption}
+                      id={`availableOption-${availableOption}`}
+                      label={availableOption}
+                      checked={selectedBrands.includes(availableOption)}
+                      onCheckedChange={() => toggleBrands(availableOption)}
                     />
-                    <label htmlFor={`price-${price}`} className="ml-2 cursor-pointer text-sm">
-                      {price}
-                    </label>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Active Filters */}
-            {(selectedSeries.length > 0 || selectedPrice.length > 0) && (
+            {(selectedBrands.length > 0 || availability.length > 0) && (
               <div className="border-t pt-4">
                 <div className="mb-3 flex flex-wrap gap-2">
-                  {selectedSeries.map((series) => (
+                  {selectedBrands.map((series) => (
                     <span
                       key={series}
                       className="text-primary-hov rounded bg-red-100 px-2 py-1 text-xs"
                     >
-                      {series} ✕
+                      {series}
                     </span>
                   ))}
-                  {selectedPrice.map((price) => (
+                  {availability.map((price) => (
                     <span
                       key={price}
                       className="rounded bg-blue-100 px-2 py-1 text-xs text-blue-800"
                     >
-                      {price} ✕
+                      {price}
                     </span>
                   ))}
                 </div>
                 <button
-                  onClick={() => {
-                    setSelectedSeries([]);
-                    setSelectedPrice([]);
-                  }}
+                  onClick={clearFilter}
                   className="text-primary hover:text-primary-hov text-sm"
                 >
                   Clear all filters
