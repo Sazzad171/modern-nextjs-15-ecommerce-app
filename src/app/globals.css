@@ -108,7 +108,7 @@
 }
 
 .section-gap {
-  @apply py-6 md:py-10;
+  @apply py-4 md:py-6;
 }
 
 .container {
