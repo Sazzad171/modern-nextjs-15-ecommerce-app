@@ -1,16 +1,30 @@
 'use client';
 
-import { CheckboxField } from '@/components/CustomUI/Checkbox';
+import { CheckboxField } from '@/components/CustomUI/checkbox';
+import { PriceRange } from '@/components/CustomUI/price-range';
+import { PriceRangeValue } from '@/components/CustomUI/price-range/type';
+import { RadioField } from '@/components/CustomUI/radio-button';
 import { ProductItemCard } from '@/components/product/ProductItem';
 import { productsData } from '@/lib/data';
 import { useState } from 'react';
 
 const ProductList = () => {
+  const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [selectedBrands, setselectedBrands] = useState<string[]>([]);
   const [availability, setAvailability] = useState<string[]>([]);
+  const [price, setPrice] = useState<PriceRangeValue>({
+    min: 1000,
+    max: 50000,
+  });
 
   // Simple filter options
-  const seriesOptions = ['iPhone 14', 'iPhone 15', 'iPhone 16'];
+  const categoryOptions = [
+    { value: 'All', label: 'All' },
+    { value: 'Laptop', label: 'Laptop' },
+    { value: 'Monitor', label: 'Monitor' },
+    { value: 'UPS', label: 'UPS' },
+  ];
+  const seriesOptions = ['Apple', 'Samsung', 'Lenovo'];
   const availabilityOptions = ['In-Stock', 'Pre Order', 'Up Coming', 'Stock Out'];
 
   // Toggle brands
@@ -21,7 +35,7 @@ const ProductList = () => {
   };
 
   // Toggle price
-  const togglePrice = (availableOption: string) => {
+  const toggleAvailability = (availableOption: string) => {
     setAvailability((prev) =>
       prev.includes(availableOption)
         ? prev.filter((p) => p !== availableOption)
@@ -45,6 +59,19 @@ const ProductList = () => {
               <p className="text-sm text-gray-500">
                 {selectedBrands.length + availability.length} active
               </p>
+            </div>
+
+            {/* Category filter */}
+            <div className="mb-4">
+              <h3 className="mb-3 font-medium">Category</h3>
+              <div className="space-y-2">
+                <RadioField
+                  id="category"
+                  value={selectedCategory}
+                  onValueChange={setSelectedCategory}
+                  options={categoryOptions}
+                />
+              </div>
             </div>
 
             {/* Brands Filter */}
@@ -75,12 +102,24 @@ const ProductList = () => {
                       key={availableOption}
                       id={`availableOption-${availableOption}`}
                       label={availableOption}
-                      checked={selectedBrands.includes(availableOption)}
-                      onCheckedChange={() => toggleBrands(availableOption)}
+                      checked={availability.includes(availableOption)}
+                      onCheckedChange={() => toggleAvailability(availableOption)}
                     />
                   </div>
                 ))}
               </div>
+            </div>
+
+            {/* Price range slider */}
+            <div>
+              <PriceRange
+                min={0}
+                max={100000}
+                step={1000}
+                value={price}
+                onChange={setPrice}
+                currency="৳"
+              />
             </div>
 
             {/* Active Filters */}

@@ -1,7 +1,8 @@
 'use client';
 
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { cn } from '@/lib/utils';
 import { Controller, FieldValues } from 'react-hook-form';
 import { RadioFieldProps } from './type';
 
@@ -61,15 +62,18 @@ export function RadioField<T extends FieldValues>(props: RadioFieldProps<T>) {
           name={props.name}
           control={props.control}
           render={({ field }) => (
-            <RadioGroup value={field.value} onValueChange={field.onChange} className="space-y-2">
+            <RadioGroup value={field.value} onValueChange={field.onChange}>
               {options.map((opt) => (
                 <div key={opt.value} className="flex items-center gap-2">
                   <RadioGroupItem
                     id={`${id}-${opt.value}`}
                     value={opt.value}
-                    className={radioClassName}
+                    className={cn(radioClassName, 'border-gray-400')}
                   />
-                  <Label htmlFor={`${id}-${opt.value}`} className={labelClassName}>
+                  <Label
+                    htmlFor={`${id}-${opt.value}`}
+                    className={cn(labelClassName, 'font-normal')}
+                  >
                     {opt.label}
                   </Label>
                 </div>
@@ -86,15 +90,15 @@ export function RadioField<T extends FieldValues>(props: RadioFieldProps<T>) {
     <div className={className}>
       {label && <p className="mb-2 font-medium">{label}</p>}
 
-      <RadioGroup value={props.value} onValueChange={props.onValueChange} className="space-y-2">
+      <RadioGroup value={props.value} onValueChange={props.onValueChange}>
         {options.map((opt) => (
           <div key={opt.value} className="flex items-center gap-2">
             <RadioGroupItem
               id={`${id}-${opt.value}`}
               value={opt.value}
-              className={radioClassName}
+              className={cn(radioClassName, 'border-gray-400')}
             />
-            <Label htmlFor={`${id}-${opt.value}`} className={labelClassName}>
+            <Label htmlFor={`${id}-${opt.value}`} className={cn(labelClassName, 'font-normal')}>
               {opt.label}
             </Label>
           </div>
