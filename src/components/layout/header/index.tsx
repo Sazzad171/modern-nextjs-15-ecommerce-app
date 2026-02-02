@@ -1,6 +1,6 @@
 'use client';
 
-import { CustomButton } from '@/components/CustomUI/button';
+import { CustomButton } from '@/components/custom-ui/button';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,

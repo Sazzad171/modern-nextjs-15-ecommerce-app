@@ -1,9 +1,9 @@
 'use client';
 
-import { CheckboxField } from '@/components/CustomUI/checkbox';
-import { PriceRange } from '@/components/CustomUI/price-range';
-import { PriceRangeValue } from '@/components/CustomUI/price-range/type';
-import { RadioField } from '@/components/CustomUI/radio-button';
+import { CheckboxField } from '@/components/custom-ui/checkbox';
+import { PriceRange } from '@/components/custom-ui/price-range';
+import { PriceRangeValue } from '@/components/custom-ui/price-range/type';
+import { RadioField } from '@/components/custom-ui/radio-button';
 import { ProductItemCard } from '@/components/product/ProductItem';
 import { productsData } from '@/lib/data';
 import { useState } from 'react';
