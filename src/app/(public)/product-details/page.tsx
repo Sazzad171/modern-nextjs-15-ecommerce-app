@@ -75,7 +75,7 @@ const ProductDetailsPage = ({
                 </div>
               </div>
             </div>
-            <div className="md:col-span-5">
+            <div className="md:col-span-5 md:pt-4">
               {/* Title */}
               <div>
                 <h1 className="mb-1 text-2xl font-semibold">{name}</h1>
@@ -123,8 +123,8 @@ const ProductDetailsPage = ({
                 </Button>
               </div>
             </div>
-            <div className="md:col-span-3">
-              <div className="space-y-3 rounded-lg p-3 shadow">
+            <div className="md:col-span-3 md:pt-4">
+              <div className="space-y-3 rounded-lg p-3 pb-8 shadow md:min-h-64">
                 <h4 className="border-b border-gray-200 pb-2 text-lg font-semibold text-gray-800">
                   Delivery Options
                 </h4>
@@ -165,27 +165,61 @@ const ProductDetailsPage = ({
       <section className="pb-4">
         <div className="site-container">
           <Tabs defaultValue="overview">
-            <TabsList className="mx-auto mb-4 flex w-fit">
-              <TabsTrigger value="overview" className="px-6 py-3 text-base">
+            <TabsList className="mx-auto mb-4 flex h-auto w-fit">
+              <TabsTrigger value="overview" className="px-6 py-2 text-base">
                 Specification
               </TabsTrigger>
-              <TabsTrigger value="analytics" className="px-6 py-3 text-base">
+              <TabsTrigger value="analytics" className="px-6 py-2 text-base">
                 Details
               </TabsTrigger>
-              <TabsTrigger value="reports" className="px-6 py-3 text-base">
+              <TabsTrigger value="reports" className="px-6 py-2 text-base">
                 Video
               </TabsTrigger>
             </TabsList>
             <TabsContent value="overview">
               <Card className="p-5">
                 <CardContent className="p-0">
-                  <h2 className="text-primary mb-4 text-center text-2xl font-semibold">
-                    <span className="border-b-2 border-gray-200 pb-2">Product Details</span>
-                  </h2>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt rem laborum
-                    dolore aspernatur! Ut eveniet ad quis molestiae laboriosam ipsam dolore, sunt
-                    eligendi quas obcaecati, placeat velit ullam voluptatibus id!
+                    <b>Lenovo IdeaPad Slim 3 15ARP10 Ryzen 7 7735HS 15.3" WUXGA Laptop</b>
+                    <br />
+                    The Lenovo IdeaPad Slim 3 15ARP10 Laptop features a powerful AMD Ryzen 7 7735HS
+                    processor with 8 cores and 16 threads, delivering quick and responsive
+                    performance at speeds up to 4.75GHz. This makes the Lenovo IdeaPad Slim 3
+                    15ARP10 Ryzen 7 7735HS Laptop perfect for multitasking, productivity software,
+                    light content creation, and efficient everyday computing. The integrated AMD
+                    Radeon 680M Graphics provide fluid images for streaming, presentations, and
+                    casual creative projects, while the AMD SoC platform improves efficiency and
+                    stability. Memory performance is a crucial strength of the Lenovo IdeaPad Slim 3
+                    15ARP10 Laptop, which has 16GB DDR5-4800 in dual-channel mode, 8GB soldered, and
+                    an additional 8GB SODIMM. It also allows extension up to 24GB, providing
+                    flexibility for future requirements. The storage is handled by a fast 512GB PCIe
+                    4.0 NVMe SSD, with support for twin M.2 slots and extension up to two SSDs,
+                    making this Lenovo Laptop ideal for huge files and quick boot times. The Lenovo
+                    IdeaPad Slim 3 15ARP10 Laptop features a 15.3-inch WUXGA IPS display with
+                    1920x1200 resolution, 300 nits brightness, anti-glare coating, and a
+                    screen-to-body ratio of 90.7%, providing an immersive viewing experience suited
+                    for lengthy work sessions. Dolby Audio-tuned stereo speakers, dual-array
+                    microphones, and an HD webcam with a privacy shutter enhance conversation and
+                    media consumption. Wi-Fi 6 and Bluetooth 5.3 provide rapid wireless
+                    connectivity, while many ports such as USB-A, USB-C with Power Delivery,
+                    DisplayPort, HDMI, and an SD card reader meet daily necessities. The Lenovo
+                    IdeaPad Slim 3 15ARP10 Ryzen 7 7735HS 15.3" WUXGA Laptop, with its aluminum top
+                    cover, MIL-STD-810H durability testing, Microsoft Pluton TPM 2.0 security, and
+                    TÜV Rheinland Low Blue Light certification, stands out as a durable, modern, and
+                    adaptable Lenovo laptop for today's customers.
+                    <br />
+                    <br />
+                    <b>
+                      Buy Lenovo IdeaPad Slim 3 15ARP10 Ryzen 7 7735HS 15.3" WUXGA Laptop from IT
+                      Bazar
+                    </b>
+                    <br />
+                    In Bangladesh, you can get the original Lenovo IdeaPad Slim 3 15ARP10 Ryzen 7
+                    7735HS 15.3" WUXGA Laptop from IT Bazar. We have a large collection of the
+                    latest Lenovo Laptops to purchase. Order Online Or Visit your Nearest IT Bazar
+                    Shop to get yours at the lowest price. The Lenovo IdeaPad Slim 3 15ARP10 Ryzen 7
+                    7735HS 15.3" WUXGA Laptop comes with a 2-year Warranty ( Battery & Adapter 1
+                    Year).
                   </p>
                 </CardContent>
               </Card>
@@ -193,9 +227,6 @@ const ProductDetailsPage = ({
             <TabsContent value="analytics">
               <Card className="p-5">
                 <CardContent className="p-0">
-                  <h2 className="text-primary mb-4 text-center text-2xl font-semibold">
-                    <span className="border-b-2 border-gray-200 pb-2">kjProduct Details</span>
-                  </h2>
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt rem laborum
                     dolore aspernatur! Ut eveniet ad quis molestiae laboriosam ipsam dolore, sunt
@@ -207,9 +238,6 @@ const ProductDetailsPage = ({
             <TabsContent value="reports">
               <Card className="p-5">
                 <CardContent className="p-0">
-                  <h2 className="text-primary mb-4 text-center text-2xl font-semibold">
-                    <span className="border-b-2 border-gray-200 pb-2">Product Details</span>
-                  </h2>
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt rem laborum
                     dolore aspernatur! Ut eveniet ad quis molestiae laboriosam ipsam dolore, sunt
