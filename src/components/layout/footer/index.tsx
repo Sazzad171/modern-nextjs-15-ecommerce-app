@@ -146,13 +146,13 @@ const Footer = () => {
               &copy; {new Date().getFullYear()} ITBazar. All rights reserved.
             </div>
 
+            <div>
+              <Image src={'/images/payment-banner.jpg'} alt="payment" width={1000} height={50} />
+            </div>
+
             <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
               <Link href="/" className="transition-colors hover:text-white">
                 Sitemap
-              </Link>
-              <span className="text-gray-600">•</span>
-              <Link href="/" className="transition-colors hover:text-white">
-                Accessibility
               </Link>
             </div>
           </div>
