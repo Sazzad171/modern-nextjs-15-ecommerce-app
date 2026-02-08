@@ -113,6 +113,14 @@ const CategoryNav = () => {
                       </Link>
                     </li>
                   ))}
+                <li>
+                  <Link
+                    href={'/'}
+                    className="flex items-center border border-gray-100 px-5 py-1 text-sm font-medium text-white transition-colors hover:bg-gray-800"
+                  >
+                    <span>View All</span>
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>

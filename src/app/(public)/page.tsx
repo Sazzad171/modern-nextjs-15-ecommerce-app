@@ -5,7 +5,7 @@ import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carouse
 import { PAGE_ROUTES } from '@/lib/constants/page-routes';
 import { homeBannerImageData, homeFeatures, productsData, topCategories } from '@/lib/data';
 import Autoplay from 'embla-carousel-autoplay';
-import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Twitter, Youtube } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRef } from 'react';
@@ -198,6 +198,31 @@ export default function Home() {
           </div>
         </div>
       </section> */}
+
+      {/* Product list */}
+      <section className="section-gap">
+        <div className="site-container">
+          <div className="mb-4 flex items-baseline justify-between gap-3">
+            <div>
+              <h2 className="text-center text-2xl font-bold">Most Popular Products</h2>
+            </div>
+            <div>
+              <p>
+                <Link href={PAGE_ROUTES.PRODUCTS} className="border-primary border-b-2 pb-1">
+                  View More
+                </Link>
+              </p>
+            </div>
+          </div>
+
+          {/* Grid Layout */}
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {productsData?.slice(3, 8)?.map((product) => (
+              <ProductItemCard product={product} key={product.id} />
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Top categories */}
       <section className="section-gap bg-white">
@@ -565,7 +590,7 @@ export default function Home() {
       {/* Social icons */}
       <section className="section-gap">
         <div className="site-container">
-          <div className="grid grid-cols-2 place-items-center gap-4 md:grid-cols-4 lg:grid-cols-8">
+          <div className="grid grid-cols-2 place-items-center gap-4 md:grid-cols-5 lg:grid-cols-9">
             <div className="col-span-1 lg:col-start-3">
               <Link
                 href="#"
@@ -607,6 +632,17 @@ export default function Home() {
                 aria-label="LinkedIn"
               >
                 <Linkedin className="h-8 w-8" />
+              </Link>
+            </div>
+
+            <div className="col-span-1">
+              <Link
+                href="#"
+                target="_blank"
+                className="inline-flex rounded-full bg-red-600 p-2 text-white transition hover:opacity-90"
+                aria-label="LinkedIn"
+              >
+                <Youtube className="h-8 w-8" />
               </Link>
             </div>
           </div>
