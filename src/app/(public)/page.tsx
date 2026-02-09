@@ -16,6 +16,8 @@ const bannerImages = [
   '/images/home/banner/6.jpg',
   '/images/home/banner/3.jpg',
   '/images/home/banner/4.jpg',
+  '/images/home/banner/1.jpg',
+  '/images/home/banner/2.jpg',
 ];
 
 const brands = [
@@ -465,6 +467,24 @@ export default function Home() {
                   className="object-contain"
                 />
                 <h5 className="text-lg font-medium">{featureItem?.title}</h5>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Offer banner section */}
+      <section className="section-gap">
+        <div className="site-container">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {bannerImages?.slice(2, 6)?.map((bannerItem, index) => (
+              <div key={index} className="group relative h-74 w-full overflow-hidden rounded-md">
+                <Image
+                  src={bannerItem}
+                  alt="banner image"
+                  fill
+                  className="object-cover transition-all group-hover:scale-105"
+                />
               </div>
             ))}
           </div>

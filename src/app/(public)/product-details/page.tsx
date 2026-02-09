@@ -6,9 +6,11 @@ import { ProductItemCard } from '@/components/product/ProductItem';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { productsData } from '@/lib/data';
 import { cn } from '@/lib/utils';
 import {
+  Download,
   Facebook,
   Heart,
   Linkedin,
@@ -102,7 +104,8 @@ const ProductDetailsPage = ({
               {/* Title */}
               <div>
                 <h1 className="mb-1 text-2xl font-semibold">{name}</h1>
-                <h4 className="text-sm font-semibold text-gray-600">Product ID: #FDSA44</h4>
+                <h4 className="mb-1 text-sm font-semibold text-gray-700">Product ID: #FDSA44</h4>
+                <h5 className="text-sm font-semibold text-gray-500">Waranty available - 1 year</h5>
               </div>
 
               {/* variation */}
@@ -116,6 +119,7 @@ const ProductDetailsPage = ({
                 {originalPrice && (
                   <span className="text-muted-foreground line-through">৳{originalPrice}</span>
                 )}
+                <span className="text-primary text font-medium">Off 18%</span>
               </div>
 
               {/* Quantity */}
@@ -179,6 +183,11 @@ const ProductDetailsPage = ({
                     <p className="text-sm text-gray-500">Delivery Time: 1-7 Working days</p>
                     <p className="text-sm text-gray-500">Shipping Charge: TK 50</p>
                   </div>
+                </div>
+                <div className="mt-4">
+                  <Button asChild variant={'outline'}>
+                    <Link href="/terms-conditions">Waranty & Return</Link>
+                  </Button>
                 </div>
               </div>
             </div>
@@ -268,7 +277,21 @@ const ProductDetailsPage = ({
             </TabsList>
             <TabsContent value="overview">
               <Card className="p-5">
-                <CardContent className="p-0">
+                <CardContent className="relative p-0">
+                  <span className="absolute top-0 right-0">
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Button size="icon" variant="outline">
+                            <Download className="text-primary h-4 w-4" />
+                          </Button>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>Download Specification</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </span>
                   <p>
                     <b>Lenovo IdeaPad Slim 3 15ARP10 Ryzen 7 7735HS 15.3" WUXGA Laptop</b>
                     <br />
