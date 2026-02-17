@@ -5,6 +5,7 @@ import { VariationOption } from '@/components/custom-ui/variation-option/type';
 import { ProductItemCard } from '@/components/product/ProductItem';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { productsData } from '@/lib/data';
@@ -19,6 +20,7 @@ import {
   MapPin,
   Minus,
   Pin,
+  Play,
   Plus,
   Twitter,
   Wallet,
@@ -33,10 +35,18 @@ interface ProductInfoProps {
   originalPrice?: number;
 }
 
-const productImages = [
-  '/images/products/1.webp',
-  '/images/products/2.webp',
-  '/images/products/3.webp',
+type MediaItem =
+  | { type: 'image'; src: string }
+  | { type: 'youtube'; videoId: string; thumbnail: string };
+
+const productMedia: MediaItem[] = [
+  { type: 'image', src: '/images/products/1.webp' },
+  { type: 'image', src: '/images/products/2.webp' },
+  {
+    type: 'youtube',
+    videoId: 'dQw4w9WgXcQ',
+    thumbnail: '/images/products/3.webp',
+  },
 ];
 
 const lengthOptions: VariationOption[] = [
@@ -51,6 +61,8 @@ const ProductDetailsPage = ({
   originalPrice = 120000,
 }: ProductInfoProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [videoOpen, setVideoOpen] = useState(false);
+  const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
   const [qty, setQty] = useState(1);
   const [length, setLength] = useState('0.5m');
 
@@ -73,10 +85,17 @@ const ProductDetailsPage = ({
               <div className="flex gap-2">
                 {/* Thumbnails */}
                 <div className="relative flex flex-col justify-center gap-2">
-                  {productImages.map((img, index) => (
+                  {productMedia.map((item, index) => (
                     <button
-                      key={img}
-                      onClick={() => setActiveIndex(index)}
+                      key={index}
+                      onClick={() => {
+                        if (item.type === 'youtube') {
+                          setActiveVideoId(item.videoId);
+                          setVideoOpen(true);
+                        } else {
+                          setActiveIndex(index);
+                        }
+                      }}
                       className={cn(
                         'relative h-20 w-20 shrink-0 overflow-hidden rounded-md border transition',
                         activeIndex === index
@@ -84,19 +103,40 @@ const ProductDetailsPage = ({
                           : 'hover:ring-muted-foreground hover:ring-1'
                       )}
                     >
-                      <Image src={img} alt="Product thumbnail" fill className="object-contain" />
+                      {item.type === 'image' ? (
+                        <Image
+                          src={item.src}
+                          alt="Product thumbnail"
+                          fill
+                          className="object-contain"
+                        />
+                      ) : (
+                        <>
+                          <Image
+                            src={item.thumbnail}
+                            alt="Video thumbnail"
+                            fill
+                            className="object-cover"
+                          />
+                          <div className="absolute inset-0 flex items-center justify-center bg-black/40">
+                            <Play className="h-6 w-6 text-white" />
+                          </div>
+                        </>
+                      )}
                     </button>
                   ))}
                 </div>
                 {/* Main image */}
                 <div className="bg-muted relative mb-2 aspect-square w-full overflow-hidden rounded-lg">
-                  <Image
-                    src={productImages[activeIndex]}
-                    alt="Product image"
-                    fill
-                    priority
-                    className="object-cover"
-                  />
+                  {productMedia[activeIndex]?.type === 'image' && (
+                    <Image
+                      src={(productMedia[activeIndex] as any).src}
+                      alt="Product image"
+                      fill
+                      priority
+                      className="object-cover"
+                    />
+                  )}
                 </div>
               </div>
             </div>
@@ -375,6 +415,33 @@ const ProductDetailsPage = ({
           </div>
         </div>
       </section>
+
+      {/* Video dialog */}
+      <Dialog
+        open={videoOpen}
+        onOpenChange={(open) => {
+          setVideoOpen(open);
+          if (!open) setActiveVideoId(null);
+        }}
+      >
+        <DialogContent className="max-w-3xl">
+          <DialogHeader>
+            <DialogTitle>Product Video</DialogTitle>
+          </DialogHeader>
+
+          {activeVideoId && (
+            <div className="aspect-video w-full">
+              <iframe
+                src={`https://www.youtube.com/embed/${activeVideoId}?autoplay=1`}
+                title="Product Video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="h-full w-full rounded-md"
+              />
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </>
   );
 };
