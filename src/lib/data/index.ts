@@ -1,5 +1,6 @@
 import { ProductItemTypes } from '@/features/product/product.types';
 import { ImageTypes } from '@/types';
+import { PAGE_ROUTES } from '../constants/page-routes';
 
 // Home banner image
 export const homeBannerImageData: ImageTypes = [
@@ -226,5 +227,141 @@ export const productsData: ProductItemTypes[] = [
     category: 'Smartphones',
     storage: '256GB',
     color: 'Natural Titanium',
+  },
+];
+
+// Menu categories
+export const menuCategories = [
+  {
+    id: 'laptop',
+    name: 'Laptop',
+    subcategories: [
+      { id: 'gaming-laptop', name: 'Gaming Laptop', href: PAGE_ROUTES.PRODUCTS },
+      { id: 'business-laptop', name: 'Business Laptop', href: PAGE_ROUTES.PRODUCTS },
+      { id: 'student-laptop', name: 'Student Laptop', href: PAGE_ROUTES.PRODUCTS },
+    ],
+  },
+  {
+    id: 'desktop',
+    name: 'Desktop',
+    subcategories: [
+      { id: 'all-in-one', name: 'All-in-One PC', href: PAGE_ROUTES.PRODUCTS },
+      { id: 'gaming-desktop', name: 'Gaming Desktop', href: PAGE_ROUTES.PRODUCTS },
+    ],
+  },
+  {
+    id: 'monitor-ups',
+    name: 'Monitor & UPS',
+    subcategories: [
+      { id: 'led-monitor', name: 'LED Monitor', href: PAGE_ROUTES.PRODUCTS },
+      { id: 'gaming-monitor', name: 'Gaming Monitor', href: PAGE_ROUTES.PRODUCTS },
+      { id: 'ups', name: 'UPS', href: PAGE_ROUTES.PRODUCTS },
+    ],
+  },
+  {
+    id: 'projector-speaker',
+    name: 'Projector & Speaker',
+    subcategories: [
+      { id: 'projector', name: 'Projector', href: PAGE_ROUTES.PRODUCTS },
+      { id: 'bluetooth-speaker', name: 'Bluetooth Speaker', href: PAGE_ROUTES.PRODUCTS },
+    ],
+  },
+  {
+    id: 'microphone-speaker',
+    name: 'Microphone & Speaker',
+    subcategories: [
+      { id: 'wireless-mic', name: 'Wireless Microphone', href: PAGE_ROUTES.PRODUCTS },
+      { id: 'conference-speaker', name: 'Conference Speaker', href: PAGE_ROUTES.PRODUCTS },
+    ],
+  },
+  {
+    id: 'printer-toner',
+    name: 'Printer & Toner',
+    subcategories: [
+      { id: 'laser-printer', name: 'Laser Printer', href: PAGE_ROUTES.PRODUCTS },
+      { id: 'inkjet-printer', name: 'Inkjet Printer', href: PAGE_ROUTES.PRODUCTS },
+      { id: 'toner-cartridge', name: 'Toner Cartridge', href: PAGE_ROUTES.PRODUCTS },
+    ],
+  },
+  {
+    id: 'computer-accessories',
+    name: 'Computer Accessories',
+    subcategories: [
+      { id: 'keyboard', name: 'Keyboard', href: PAGE_ROUTES.PRODUCTS },
+      { id: 'mouse', name: 'Mouse', href: PAGE_ROUTES.PRODUCTS },
+      { id: 'webcam', name: 'Webcam', href: PAGE_ROUTES.PRODUCTS },
+    ],
+  },
+  {
+    id: 'software',
+    name: 'Software',
+    subcategories: [
+      { id: 'antivirus', name: 'Antivirus', href: PAGE_ROUTES.PRODUCTS },
+      { id: 'operating-system', name: 'Operating System', href: PAGE_ROUTES.PRODUCTS },
+    ],
+  },
+  {
+    id: 'internet-networking',
+    name: 'Internet & Networking',
+    subcategories: [
+      { id: 'router', name: 'Router', href: PAGE_ROUTES.PRODUCTS },
+      { id: 'wifi-extender', name: 'WiFi Extender', href: PAGE_ROUTES.PRODUCTS },
+    ],
+  },
+  {
+    id: 'server-telecommunication',
+    name: 'Server & Telecommunication',
+    subcategories: [
+      { id: 'rack-server', name: 'Rack Server', href: PAGE_ROUTES.PRODUCTS },
+      { id: 'ip-phone', name: 'IP Phone', href: PAGE_ROUTES.PRODUCTS },
+    ],
+  },
+  {
+    id: 'networking-cable',
+    name: 'Networking Cable',
+    subcategories: [
+      { id: 'cat6-cable', name: 'CAT6 Cable', href: PAGE_ROUTES.PRODUCTS },
+      { id: 'fiber-cable', name: 'Fiber Optic Cable', href: PAGE_ROUTES.PRODUCTS },
+    ],
+  },
+  {
+    id: 'networking-accessories',
+    name: 'Networking Accessories',
+    subcategories: [
+      { id: 'patch-panel', name: 'Patch Panel', href: PAGE_ROUTES.PRODUCTS },
+      { id: 'network-switch', name: 'Network Switch', href: PAGE_ROUTES.PRODUCTS },
+    ],
+  },
+  {
+    id: 'cctv-security',
+    name: 'CCTV & Security Systems',
+    subcategories: [
+      { id: 'dome-camera', name: 'Dome Camera', href: PAGE_ROUTES.PRODUCTS },
+      { id: 'nvr', name: 'NVR', href: PAGE_ROUTES.PRODUCTS },
+    ],
+  },
+  {
+    id: 'electronics-home-appliance',
+    name: 'Electronics & Home Appliance',
+    subcategories: [
+      { id: 'smart-tv', name: 'Smart TV', href: PAGE_ROUTES.PRODUCTS },
+      { id: 'home-theater', name: 'Home Theater', href: PAGE_ROUTES.PRODUCTS },
+    ],
+  },
+  {
+    id: 'gadget-item',
+    name: 'Gadget Item',
+    subcategories: [
+      { id: 'power-bank', name: 'Power Bank', href: PAGE_ROUTES.PRODUCTS },
+      { id: 'mobile-accessory', name: 'Mobile Accessory', href: PAGE_ROUTES.PRODUCTS },
+    ],
+  },
+  {
+    id: 'digital-product',
+    name: 'Digital Product',
+    subcategories: [
+      { id: 'software-license', name: 'Software License', href: PAGE_ROUTES.PRODUCTS },
+      { id: 'digital-subscription', name: 'Digital Subscription', href: PAGE_ROUTES.PRODUCTS },
+    ],
   },
 ];
