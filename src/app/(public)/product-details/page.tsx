@@ -229,6 +229,16 @@ const ProductDetailsPage = ({
                     <Link href="/terms-conditions">Waranty & Return</Link>
                   </Button>
                 </div>
+                <div className="mt-4 rounded-md bg-gray-100 p-2">
+                  <h4 className="text-sm font-medium">
+                    Avail EMI Offer!{' '}
+                    <Link href={'#'} className="text-primary">
+                      See Plans
+                    </Link>
+                    <br />
+                    EMI starts from TK 500/months
+                  </h4>
+                </div>
               </div>
             </div>
           </div>
@@ -391,11 +401,14 @@ const ProductDetailsPage = ({
             <TabsContent value="reports">
               <Card className="p-5">
                 <CardContent className="p-0">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt rem laborum
-                    dolore aspernatur! Ut eveniet ad quis molestiae laboriosam ipsam dolore, sunt
-                    eligendi quas obcaecati, placeat velit ullam voluptatibus id!
-                  </p>
+                  <iframe
+                    className="h-[400px] w-full rounded-lg"
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    title="Gadget Demo Video"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
                 </CardContent>
               </Card>
             </TabsContent>

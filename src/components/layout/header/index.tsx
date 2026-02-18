@@ -242,6 +242,14 @@ const Header = () => {
               </div>
             )}
           </div>
+          <div>
+            <Link
+              href="/pc-builder"
+              className="bg-primary rounded-sm px-4 py-1 text-sm font-medium whitespace-nowrap text-white transition-all duration-200 hover:bg-gray-800"
+            >
+              PC Builder
+            </Link>
+          </div>
         </div>
 
         {/* Right Column - Icons */}
