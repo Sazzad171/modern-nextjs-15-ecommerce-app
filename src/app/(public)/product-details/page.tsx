@@ -19,9 +19,11 @@ import {
   Mail,
   MapPin,
   Minus,
+  Phone,
   Pin,
   Play,
   Plus,
+  Star,
   Twitter,
   Wallet,
 } from 'lucide-react';
@@ -144,6 +146,26 @@ const ProductDetailsPage = ({
               {/* Title */}
               <div>
                 <h1 className="mb-1 text-2xl font-semibold">{name}</h1>
+                <div className="mb-1 flex flex-wrap items-center gap-2">
+                  <div>
+                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                  </div>
+                  <div>
+                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                  </div>
+                  <div>
+                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                  </div>
+                  <div>
+                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                  </div>
+                  <div>
+                    <Star className="h-4 w-4 text-gray-400" />
+                  </div>
+                  <div>
+                    <p className="text-sm">14 Reviews</p>
+                  </div>
+                </div>
                 <h4 className="mb-1 text-sm font-semibold text-gray-700">Product ID: #FDSA44</h4>
                 <h5 className="text-sm font-semibold text-gray-500">Waranty available - 1 year</h5>
               </div>
@@ -181,7 +203,7 @@ const ProductDetailsPage = ({
               </div>
 
               {/* Actions */}
-              <div className="flex gap-3">
+              <div className="mb-4 flex gap-3">
                 <Button variant="outline" size="lg">
                   Add to Cart
                 </Button>
@@ -189,6 +211,15 @@ const ProductDetailsPage = ({
                 <Button variant="outline" size="icon">
                   <Heart className="h-5 w-5" />
                 </Button>
+              </div>
+
+              <div className="flex gap-3">
+                <div className="size-6 pt-1">
+                  <Phone className="text-primary h-5 w-5" />
+                </div>
+                <div>
+                  <h4 className="text-md font-medium">Call For Order: +880167938364</h4>
+                </div>
               </div>
             </div>
             <div className="md:col-span-3 md:pt-4">
@@ -262,7 +293,7 @@ const ProductDetailsPage = ({
                     />
                   </div>
                 </div>
-                <div className="mt-4 flex flex-wrap gap-2">
+                <div className="mt-2 flex flex-wrap gap-2">
                   <Button asChild variant={'outline'}>
                     <Link href="/terms-conditions">Waranty & Return</Link>
                   </Button>
@@ -365,6 +396,9 @@ const ProductDetailsPage = ({
               <TabsTrigger value="reports" className="px-6 py-2 text-base">
                 Video
               </TabsTrigger>
+              <TabsTrigger value="review" className="px-6 py-2 text-base">
+                Review
+              </TabsTrigger>
             </TabsList>
             <TabsContent value="overview">
               <Card className="p-5">
@@ -450,6 +484,23 @@ const ProductDetailsPage = ({
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                   ></iframe>
+                </CardContent>
+              </Card>
+            </TabsContent>
+            <TabsContent value="review">
+              <Card className="p-5">
+                <CardContent className="p-0">
+                  <div className="mx-auto w-full max-w-md rounded-xl border border-gray-200 p-4">
+                    <h3 className="mb-4 text-center text-lg font-semibold">Submit Your Review</h3>
+                    <div className="mb-6 flex justify-center gap-2">
+                      {[1, 2, 3, 4, 5].map((star) => (
+                        <button key={star}>
+                          <Star className="h-6 w-6 text-yellow-400" />
+                        </button>
+                      ))}
+                    </div>
+                    <Button className="w-full">Submit Review</Button>
+                  </div>
                 </CardContent>
               </Card>
             </TabsContent>
