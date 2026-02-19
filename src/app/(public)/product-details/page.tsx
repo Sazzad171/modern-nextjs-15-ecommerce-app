@@ -224,9 +224,50 @@ const ProductDetailsPage = ({
                     <p className="text-sm text-gray-500">Shipping Charge: TK 50</p>
                   </div>
                 </div>
-                <div className="mt-4">
+                <div className="flex flex-wrap items-center gap-2">
+                  <div>
+                    <Image
+                      src="/images/payment-method-logo/Bkash.webp"
+                      alt="payment methods"
+                      width={50}
+                      height={30}
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src="/images/payment-method-logo/nagad.webp"
+                      alt="payment methods"
+                      width={50}
+                      height={50}
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src="/images/payment-method-logo/Visa.webp"
+                      alt="payment methods"
+                      width={50}
+                      height={30}
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={'/images/payment-method-logo/Amex.webp'}
+                      alt="payment methods"
+                      width={50}
+                      height={20}
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+                <div className="mt-4 flex flex-wrap gap-2">
                   <Button asChild variant={'outline'}>
                     <Link href="/terms-conditions">Waranty & Return</Link>
+                  </Button>
+                  <Button asChild variant={'outline'}>
+                    <Link href="/terms-conditions">Seller Policy</Link>
                   </Button>
                 </div>
                 <div className="mt-4 rounded-md bg-gray-100 p-2">
