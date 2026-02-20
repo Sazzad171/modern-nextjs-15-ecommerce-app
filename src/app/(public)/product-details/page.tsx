@@ -490,16 +490,71 @@ const ProductDetailsPage = ({
             <TabsContent value="review">
               <Card className="p-5">
                 <CardContent className="p-0">
-                  <div className="mx-auto w-full max-w-md rounded-xl border border-gray-200 p-4">
-                    <h3 className="mb-4 text-center text-lg font-semibold">Submit Your Review</h3>
-                    <div className="mb-6 flex justify-center gap-2">
-                      {[1, 2, 3, 4, 5].map((star) => (
-                        <button key={star}>
-                          <Star className="h-6 w-6 text-yellow-400" />
-                        </button>
-                      ))}
+                  <div className="grid gap-4 md:grid-cols-2">
+                    <div className="md:order-2">
+                      <div className="space-y-3">
+                        <h4 className="text-lg font-semibold">Customer Reviews</h4>
+
+                        {[
+                          {
+                            name: 'Rahim Ahmed',
+                            rating: 5,
+                            comment: 'Excellent product! Highly recommended.',
+                          },
+                          {
+                            name: 'Karim Uddin',
+                            rating: 4,
+                            comment: 'Very good quality, delivery was fast.',
+                          },
+                          {
+                            name: 'Sadia Khan',
+                            rating: 3,
+                            comment: 'Product is okay, but packaging could be better.',
+                          },
+                        ].map((review, index) => (
+                          <div key={index} className="rounded-lg border border-gray-200 p-4">
+                            <div className="mb-2 flex items-center justify-between">
+                              <h5 className="font-medium">{review.name}</h5>
+                              <div className="flex gap-1">
+                                {[1, 2, 3, 4, 5].map((star) => (
+                                  <Star
+                                    key={star}
+                                    className={`h-4 w-4 ${
+                                      star <= review.rating
+                                        ? 'fill-yellow-400 text-yellow-400'
+                                        : 'text-gray-300'
+                                    }`}
+                                  />
+                                ))}
+                              </div>
+                            </div>
+                            <p className="text-sm text-gray-600">{review.comment}</p>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                    <Button className="w-full">Submit Review</Button>
+                    <div className="md:order-1">
+                      <div className="mx-auto w-full max-w-md rounded-xl border border-gray-200 p-4">
+                        <h3 className="mb-4 text-center text-lg font-semibold">
+                          Submit Your Review
+                        </h3>
+                        <div className="mb-6 flex justify-center gap-2">
+                          {[1, 2, 3, 4, 5].map((star) => (
+                            <button key={star}>
+                              <Star className="h-6 w-6 text-yellow-400" />
+                            </button>
+                          ))}
+                        </div>
+                        <textarea
+                          // value={comment}
+                          // onChange={(e) => setComment(e.target.value)}
+                          placeholder="Write your review..."
+                          className="focus:ring-primary mb-4 w-full rounded-md border border-gray-300 p-3 text-sm focus:ring-2 focus:outline-none"
+                          rows={4}
+                        />
+                        <Button className="w-full">Submit Review</Button>
+                      </div>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
