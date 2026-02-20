@@ -1,7 +1,7 @@
 import { ProductItemProps } from '@/features/product/product.types';
 import { PAGE_ROUTES } from '@/lib/constants/page-routes';
 import { cn } from '@/lib/utils';
-import { Heart } from 'lucide-react';
+import { Heart, Star } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -59,16 +59,43 @@ export function ProductItemCard({
       {/* Product Info */}
       <div className="px-3 pb-4">
         <Link href={PAGE_ROUTES?.PRODUCT_DETAILS}>
-          <h3 className="mb-1 line-clamp-2 text-center text-lg font-medium text-gray-800 dark:text-white">
+          <h3 className="line-clamp-2 text-center font-medium text-gray-800 dark:text-white">
             {product.name}
           </h3>
+          <p className="truncate text-center text-sm text-gray-500">
+            Authentic american variation imported from malaysia
+          </p>
+          <p className="text-primary/80 truncate text-center text-sm">Waranty available - 2 Year</p>
+          <p className="truncate text-center text-xs text-gray-500">Product ID: #FDS32</p>
         </Link>
+
+        {/* Review */}
+        <div className="flex flex-wrap items-center justify-center gap-1">
+          <div>
+            <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+          </div>
+          <div>
+            <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+          </div>
+          <div>
+            <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+          </div>
+          <div>
+            <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+          </div>
+          <div>
+            <Star className="h-3 w-3 text-gray-400" />
+          </div>
+          <div>
+            <p className="text-sm">(8)</p>
+          </div>
+        </div>
 
         {/* Price */}
         <div className="mb-3 flex items-center justify-center gap-2">
-          <span className="text-primary text-lg font-bold">${product.price.toFixed(2)}</span>
+          <span className="text-primary font-bold">${product.price.toFixed(2)}</span>
           {product?.discount && (
-            <span className="text-sm text-gray-500 line-through">
+            <span className="text-xs text-gray-500 line-through">
               ${((product.price * 100) / (100 - product?.discount)).toFixed(2)}
             </span>
           )}
