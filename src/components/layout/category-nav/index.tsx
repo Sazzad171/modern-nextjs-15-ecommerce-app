@@ -29,10 +29,10 @@ const CategoryNav = () => {
         <div className="hidden md:block">
           <div className="relative">
             <ul className="flex items-center">
-              {menuCategories.slice(0, 7).map((category) => (
+              {menuCategories.slice(0, 8).map((category) => (
                 <li key={category.id} className="group">
                   {/* Main Menu Button */}
-                  <button className="flex items-center gap-1 px-5 py-3 text-sm font-medium text-white hover:bg-gray-800">
+                  <button className="flex items-center gap-1 px-2 py-3 text-sm font-medium text-white hover:bg-gray-800">
                     {category.name}
                     <ChevronDown className="h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
                   </button>
@@ -63,7 +63,7 @@ const CategoryNav = () => {
 
               <li>
                 <Link
-                  href="/"
+                  href="/category-list"
                   className="border border-gray-100 px-5 py-1 text-sm font-medium text-white hover:bg-gray-800"
                 >
                   View All
