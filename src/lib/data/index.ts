@@ -374,3 +374,73 @@ export const menuCategories = [
     ],
   },
 ];
+
+export const bannerImages = [
+  '/images/home/banner/5.jpg',
+  '/images/home/banner/6.jpg',
+  '/images/home/banner/3.jpg',
+  '/images/home/banner/4.jpg',
+  '/images/home/banner/1.jpg',
+  '/images/home/banner/2.jpg',
+];
+
+export const brands = [
+  '/images/brands/1.png',
+  '/images/brands/2.jpg',
+  '/images/brands/3.jpg',
+  '/images/brands/4.png',
+  '/images/brands/5.png',
+  '/images/brands/2.jpg',
+  '/images/brands/1.png',
+  '/images/brands/4.png',
+  '/images/brands/5.png',
+  '/images/brands/1.png',
+  '/images/brands/4.png',
+  '/images/brands/3.jpg',
+  '/images/brands/2.jpg',
+  '/images/brands/5.png',
+  '/images/brands/4.png',
+  '/images/brands/3.jpg',
+  '/images/brands/4.png',
+  '/images/brands/5.png',
+  '/images/brands/2.jpg',
+  '/images/brands/1.png',
+  '/images/brands/4.png',
+  '/images/brands/5.png',
+  '/images/brands/1.png',
+  '/images/brands/4.png',
+];
+
+export const hotDeals = [
+  { imgURL: '/images/hot-deals/1.jpg', title: 'Smart Watch' },
+  { imgURL: '/images/hot-deals/2.jpg', title: 'Air Fryer' },
+  { imgURL: '/images/hot-deals/3.jpg', title: 'Smart Phones' },
+  { imgURL: '/images/hot-deals/4.jpg', title: 'Drone & Airflys' },
+  { imgURL: '/images/hot-deals/4.jpg', title: 'Drone & Airflys' },
+  { imgURL: '/images/hot-deals/3.jpg', title: 'Smart Phones' },
+  { imgURL: '/images/hot-deals/2.jpg', title: 'Air Fryer' },
+  { imgURL: '/images/hot-deals/1.jpg', title: 'Smart Watch' },
+];
+
+export const memberOf = [
+  '/images/member-of/1.png',
+  '/images/member-of/2.jpg',
+  '/images/member-of/3.jpg',
+  '/images/member-of/4.jpg',
+];
+
+export const topFeatures = [
+  { imgURL: '/images/hot-deals/1.jpg', category: 'Smart Watch', title: 'CMF Watch Pro 2' },
+  { imgURL: '/images/hot-deals/2.jpg', category: 'Air Fryer', title: 'Philips 4.2 Litr Air Fryer' },
+  { imgURL: '/images/hot-deals/3.jpg', category: ' One Plus Nord 5 0% EMI', title: 'Smart Phones' },
+  {
+    imgURL: '/images/hot-deals/4.jpg',
+    category: 'Drone & Airflys',
+    title: 'Drone from TK BDT 1300+',
+  },
+  {
+    imgURL: '/images/hot-deals/5.jpg',
+    category: 'Top Brands | 1 Year Waranty',
+    title: 'CMF Watch Pro 2',
+  },
+];
