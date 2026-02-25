@@ -1,3 +1,8 @@
+import { ProductItemCard } from '@/components/product/ProductItem';
+import { PAGE_ROUTES } from '@/lib/constants/page-routes';
+import { productsData } from '@/lib/data';
+import Link from 'next/link';
+
 export default function ProductList() {
   return (
     <section className="section-gap">

@@ -1,4 +1,6 @@
-export default function Marquee() {
+import Marquee from 'react-fast-marquee';
+
+export default function MarqueeText() {
   return (
     <section>
       <div className="site-container">

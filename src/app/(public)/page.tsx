@@ -5,6 +5,7 @@ import AdProducts from '@/components/sections/home/ad-products';
 import Banner from '@/components/sections/home/banner';
 import Features from '@/components/sections/home/features';
 import FeaturesCategories from '@/components/sections/home/features-categories';
+import HeroBanner from '@/components/sections/home/hero-banner';
 import HotDeals from '@/components/sections/home/hot-deals';
 import Marquee from '@/components/sections/home/marquee';
 import MemberOf from '@/components/sections/home/member-of';
@@ -18,6 +19,7 @@ export default function Home() {
   return (
     <div className="bg-gray-100">
       {/* Banner */}
+      <HeroBanner />
 
       {/* Marquee notice */}
       <Marquee />

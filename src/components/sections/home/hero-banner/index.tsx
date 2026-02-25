@@ -1,3 +1,7 @@
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
+import { homeBannerImageData } from '@/lib/data';
+import Autoplay from 'embla-carousel-autoplay';
+import Image from 'next/image';
 import { useRef } from 'react';
 
 export default function HeroBanner() {

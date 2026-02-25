@@ -1,3 +1,6 @@
+import { topFeatures } from '@/lib/data';
+import Image from 'next/image';
+
 export default function AdProducts() {
   return (
     <section className="section-gap bg-white">

@@ -1,3 +1,8 @@
+import { PAGE_ROUTES } from '@/lib/constants/page-routes';
+import { brands } from '@/lib/data';
+import Image from 'next/image';
+import Link from 'next/link';
+
 export default function OurBrands() {
   return (
     <section className="section-gap">

@@ -1,3 +1,6 @@
+import { homeFeatures } from '@/lib/data';
+import Image from 'next/image';
+
 export default function Features() {
   return (
     <section className="section-gap">

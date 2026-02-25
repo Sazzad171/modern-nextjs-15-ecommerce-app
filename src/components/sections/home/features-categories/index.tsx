@@ -1,3 +1,8 @@
+import { PAGE_ROUTES } from '@/lib/constants/page-routes';
+import { topFeatures } from '@/lib/data';
+import Image from 'next/image';
+import Link from 'next/link';
+
 export default function FeaturesCategories() {
   return (
     <section className="section-gap">

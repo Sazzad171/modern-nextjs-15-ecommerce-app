@@ -1,3 +1,8 @@
+import { PAGE_ROUTES } from '@/lib/constants/page-routes';
+import { topCategories } from '@/lib/data';
+import Link from 'next/link';
+import CategoryCardItem from '../../common/product-list/category-card-item';
+
 export default function TopCategories() {
   return (
     <section className="section-gap bg-white">
@@ -16,18 +21,7 @@ export default function TopCategories() {
         </div>
         <div className="grid grid-cols-2 gap-4 md:grid-cols-5 lg:grid-cols-8">
           {topCategories?.map((item, index) => (
-            <Link href={PAGE_ROUTES.PRODUCTS} key={index}>
-              <div className="group">
-                <Image
-                  src={item?.imageURL}
-                  alt={item?.alt}
-                  height={40}
-                  width={40}
-                  className="mx-auto object-contain transition-all group-hover:scale-95"
-                />
-                <h4 className="mt-3 text-center text-sm font-semibold">{item?.title}</h4>
-              </div>
-            </Link>
+            <CategoryCardItem item={item} key={index} />
           ))}
         </div>
       </div>

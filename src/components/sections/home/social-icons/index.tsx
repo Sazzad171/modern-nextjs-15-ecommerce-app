@@ -1,3 +1,6 @@
+import { Facebook, Instagram, Linkedin, Twitter, Youtube } from 'lucide-react';
+import Link from 'next/link';
+
 export default function SocialIcons() {
   return (
     <section className="section-gap">

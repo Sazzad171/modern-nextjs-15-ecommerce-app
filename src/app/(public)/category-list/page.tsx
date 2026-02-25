@@ -1,7 +1,5 @@
-import { PAGE_ROUTES } from '@/lib/constants/page-routes';
+import CategoryCardItem from '@/components/sections/common/product-list/category-card-item';
 import { topCategories } from '@/lib/data';
-import Image from 'next/image';
-import Link from 'next/link';
 
 function CategoryList() {
   return (
@@ -14,32 +12,10 @@ function CategoryList() {
 
           <div className="grid grid-cols-2 gap-4 md:grid-cols-5 md:gap-x-4 md:gap-y-12 lg:grid-cols-7">
             {topCategories?.map((item, index) => (
-              <Link href={PAGE_ROUTES.PRODUCTS} key={index}>
-                <div className="group">
-                  <Image
-                    src={item?.imageURL}
-                    alt={item?.alt}
-                    height={40}
-                    width={40}
-                    className="mx-auto object-contain transition-all group-hover:scale-95"
-                  />
-                  <h4 className="mt-3 text-center text-sm font-semibold">{item?.title}</h4>
-                </div>
-              </Link>
+              <CategoryCardItem item={item} key={index} />
             ))}
             {topCategories?.map((item, index) => (
-              <Link href={PAGE_ROUTES.PRODUCTS} key={index}>
-                <div className="group">
-                  <Image
-                    src={item?.imageURL}
-                    alt={item?.alt}
-                    height={40}
-                    width={40}
-                    className="mx-auto object-contain transition-all group-hover:scale-95"
-                  />
-                  <h4 className="mt-3 text-center text-sm font-semibold">{item?.title}</h4>
-                </div>
-              </Link>
+              <CategoryCardItem item={item} key={index} />
             ))}
           </div>
         </div>

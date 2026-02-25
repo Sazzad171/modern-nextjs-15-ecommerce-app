@@ -1,3 +1,8 @@
+import { PAGE_ROUTES } from '@/lib/constants/page-routes';
+import { hotDeals } from '@/lib/data';
+import Image from 'next/image';
+import Link from 'next/link';
+
 export default function HotDeals() {
   return (
     <div className="section-gap">
