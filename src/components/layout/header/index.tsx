@@ -310,12 +310,18 @@ const Header = () => {
               )}
             </div>
             <div>
-              <Link
-                href="/pc-builder"
-                className="bg-primary rounded-sm px-4 py-1 text-sm font-medium whitespace-nowrap text-white transition-all duration-200 hover:bg-gray-800"
-              >
-                PC Builder
-              </Link>
+              <Button asChild className="min-w-30">
+                <Link href="/pc-builder" className="flex items-center gap-2">
+                  <Image
+                    src="/images/custom-pc-build.webp"
+                    width={30}
+                    height={30}
+                    alt="pc builder icon"
+                    className="rounded"
+                  />
+                  PC Builder
+                </Link>
+              </Button>
             </div>
           </div>
 
@@ -537,7 +543,7 @@ const Header = () => {
       </header>
 
       {/* Bottom fixed bar - Mobile */}
-      <div className="fixed bottom-0 left-0 z-1000 w-full bg-black p-2">
+      <div className="fixed bottom-0 left-0 z-1000 w-full bg-black p-2 md:hidden">
         <div className="flex items-center justify-around gap-2">
           {/* cart */}
           <Sheet>
@@ -647,6 +653,19 @@ const Header = () => {
               </div>
             </SheetContent>
           </Sheet>
+          {/* pc builder */}
+          <Button asChild className="min-w-30">
+            <Link href="/pc-builder" className="flex items-center gap-2">
+              <Image
+                src="/images/custom-pc-build.webp"
+                width={30}
+                height={30}
+                alt="pc builder icon"
+                className="rounded"
+              />
+              PC Builder
+            </Link>
+          </Button>
           {/* Mobile User Menu (simplified) */}
           <Button
             variant="ghost"
