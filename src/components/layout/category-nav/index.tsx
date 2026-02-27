@@ -95,7 +95,7 @@ const CategoryNav = () => {
                 <li>
                   <Link
                     href="/category-list"
-                    className="border border-gray-100 px-5 py-1 text-sm font-medium text-white hover:bg-gray-800"
+                    className="border border-gray-100 px-5 py-1 text-sm font-medium whitespace-nowrap text-white hover:bg-gray-800"
                   >
                     View All
                   </Link>

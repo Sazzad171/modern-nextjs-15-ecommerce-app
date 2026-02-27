@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
+  Camera,
   CircuitBoard,
   Cpu,
   Fan,
@@ -11,6 +12,9 @@ import {
   MemoryStick,
   Monitor,
   Plus,
+  Printer,
+  Save,
+  ShoppingCart,
   Trash2,
 } from 'lucide-react';
 import { useState } from 'react';
@@ -59,16 +63,56 @@ export default function PCBuilderPage() {
 
   return (
     <div className="container mx-auto max-w-4xl px-4 py-10">
-      <h1 className="mb-6 text-3xl font-bold">PC Builder</h1>
+      <Card className="overflow-hidden rounded-2xl p-0 shadow-md">
+        <CardContent className="space-y-4 p-0">
+          <div className="flex flex-col gap-2 bg-gray-100 p-4 md:flex-row md:items-center md:justify-between md:gap-4">
+            {/* LEFT SECTION */}
+            <div>
+              <h1 className="text-xl font-bold md:text-3xl">PC Builder</h1>
+            </div>
 
-      <Card className="rounded-2xl shadow-md">
-        <CardContent className="space-y-4 p-6">
+            {/* RIGHT SECTION */}
+            <div className="flex flex-wrap items-center gap-2 md:gap-3">
+              <Button variant="outline" className="flex items-center gap-2">
+                <ShoppingCart className="h-4 w-4" />
+                <span className="hidden sm:inline">Add to Cart</span>
+              </Button>
+
+              <Button variant="outline" className="flex items-center gap-2">
+                <Save className="h-4 w-4" />
+                <span className="hidden sm:inline">Save PC</span>
+              </Button>
+
+              <Button variant="outline" className="flex items-center gap-2">
+                <Printer className="h-4 w-4" />
+                <span className="hidden sm:inline">Print</span>
+              </Button>
+
+              <Button variant="outline" className="flex items-center gap-2">
+                <Camera className="h-4 w-4" />
+                <span className="hidden sm:inline">Screenshot</span>
+              </Button>
+            </div>
+          </div>
+
+          {/* Total Section */}
+          <div className="px-4">
+            <div className="flex items-center justify-between">
+              <span className="text-lg font-semibold">Total Price</span>
+              <span className="text-primary text-xl font-bold">
+                ৳ {totalPrice.toLocaleString()}
+              </span>
+            </div>
+            <Separator className="mt-4" />
+          </div>
+
+          {/* Components list */}
           {COMPONENTS.map((component) => {
             const Icon = component.icon;
             const isSelected = selected[component.key as ComponentKey];
 
             return (
-              <div key={component.key}>
+              <div key={component.key} className="px-4">
                 <div className="flex items-center justify-between gap-4">
                   {/* Left Side */}
                   <div className="flex items-center gap-4">
@@ -112,12 +156,6 @@ export default function PCBuilderPage() {
           })}
         </CardContent>
       </Card>
-
-      {/* Total Section */}
-      <div className="bg-muted/40 mt-6 flex items-center justify-between rounded-2xl p-5">
-        <span className="text-lg font-semibold">Total Price</span>
-        <span className="text-primary text-xl font-bold">৳{totalPrice.toLocaleString()}</span>
-      </div>
     </div>
   );
 }
