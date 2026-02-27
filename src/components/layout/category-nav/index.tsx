@@ -27,49 +27,81 @@ const CategoryNav = () => {
       <div className="site-container">
         {/* Desktop - ShadCN NavigationMenu */}
         <div className="hidden md:block">
-          <div className="relative">
-            <ul className="flex items-center">
-              {menuCategories.slice(0, 8).map((category) => (
-                <li key={category.id} className="group">
-                  {/* Main Menu Button */}
-                  <button className="flex items-center gap-1 px-2 py-3 text-sm font-medium text-white hover:bg-gray-800">
-                    {category.name}
-                    <ChevronDown className="h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
-                  </button>
+          <div className="flex items-center">
+            {/* Category button and dropdown */}
+            <div className="border-r border-gray-800 px-4">
+              <div className="group relative">
+                {/* Button */}
+                <Button
+                  variant="ghost"
+                  className="flex items-center gap-2 rounded-none py-5 text-white transition-all duration-500 ease-out group-hover:bg-white group-hover:text-gray-700"
+                >
+                  <Menu className="h-5 w-5" />
+                  <span>All Categories</span>
+                </Button>
 
-                  {/* FULL WIDTH DROPDOWN */}
-                  <div className="absolute top-full left-0 z-50 hidden w-full group-hover:block">
-                    <div className="mx-auto max-w-[1480px] px-6">
-                      <div className="mt-2 rounded-2xl border border-gray-200 bg-white p-8 shadow-2xl">
-                        <div className="grid grid-cols-4 gap-8">
-                          {category.subcategories.map((subcategory) => (
-                            <Link
-                              key={subcategory.id}
-                              href={subcategory.href}
-                              className="block rounded-lg p-3 transition hover:bg-gray-100"
-                            >
-                              <div className="text-sm font-semibold text-gray-900">
-                                {subcategory.name}
-                              </div>
-                              <p className="text-xs text-gray-500">Explore collection</p>
-                            </Link>
-                          ))}
+                {/* Dropdown */}
+                <div className="bg-background invisible absolute top-full left-0 z-50 w-56 translate-y-2 overflow-hidden border opacity-0 shadow-md transition-all duration-500 ease-out group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                  <ul className="divide-y text-sm">
+                    {menuCategories.map((item) => (
+                      <li key={item.id}>
+                        <Link
+                          href={`/categories`}
+                          className="hover:bg-muted block cursor-pointer px-4 py-2"
+                        >
+                          {item.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+            {/* Right categories */}
+            <div className="relative">
+              <ul className="flex items-center">
+                {menuCategories.slice(0, 7).map((category) => (
+                  <li key={category.id} className="group">
+                    {/* Main Menu Button */}
+                    <button className="flex items-center gap-1 px-2 py-3 text-sm font-medium text-white transition-colors duration-500 ease-out hover:bg-gray-800">
+                      {category.name}
+                      <ChevronDown className="h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
+                    </button>
+
+                    {/* FULL WIDTH DROPDOWN */}
+                    <div className="invisible absolute top-full left-0 z-50 w-full translate-y-3 opacity-0 transition-all duration-500 ease-out group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                      <div className="mx-auto max-w-[1480px] px-6">
+                        <div className="mt-2 rounded-2xl border border-gray-200 bg-white p-8 shadow-2xl">
+                          <div className="grid grid-cols-4 gap-8">
+                            {category.subcategories.map((subcategory) => (
+                              <Link
+                                key={subcategory.id}
+                                href={subcategory.href}
+                                className="block rounded-lg p-3 transition hover:bg-gray-100"
+                              >
+                                <div className="text-sm font-semibold text-gray-900">
+                                  {subcategory.name}
+                                </div>
+                                <p className="text-xs text-gray-500">Explore collection</p>
+                              </Link>
+                            ))}
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </li>
-              ))}
+                  </li>
+                ))}
 
-              <li>
-                <Link
-                  href="/category-list"
-                  className="border border-gray-100 px-5 py-1 text-sm font-medium text-white hover:bg-gray-800"
-                >
-                  View All
-                </Link>
-              </li>
-            </ul>
+                <li>
+                  <Link
+                    href="/category-list"
+                    className="border border-gray-100 px-5 py-1 text-sm font-medium text-white hover:bg-gray-800"
+                  >
+                    View All
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
