@@ -1,15 +1,12 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { menuCategories } from '@/lib/data';
 import { ChevronDown, Menu } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
 
 const CategoryNav = () => {
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
-
   const mainCategories = [
     { label: 'Monitor & UPS', slug: 'monitor-ups' },
     { label: 'Computer Accessories', slug: 'computer-accessories' },
@@ -102,64 +99,6 @@ const CategoryNav = () => {
                 </li>
               </ul>
             </div>
-          </div>
-        </div>
-
-        {/* Mobile with Shadcn Sheet */}
-        <div className="md:hidden">
-          <div className="flex items-center justify-between py-2">
-            <Sheet>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="text-white">
-                  <Menu className="h-5 w-5" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent
-                side="left"
-                className="w-[300px] border-gray-800 bg-gray-900 text-white"
-              >
-                <div className="mt-6">
-                  <h3 className="mb-4 px-2 text-lg font-semibold">Categories</h3>
-                  <div className="space-y-1">
-                    {menuCategories.map((category) => (
-                      <div key={category.id} className="border-b border-gray-800 last:border-b-0">
-                        <button
-                          onClick={() =>
-                            setActiveCategory(activeCategory === category.id ? null : category.id)
-                          }
-                          className="flex w-full items-center justify-between rounded-md px-2 py-3 hover:bg-gray-800"
-                        >
-                          <span>{category.name}</span>
-                          <ChevronDown
-                            className={`h-4 w-4 transition-transform ${activeCategory === category.id ? 'rotate-180' : ''}`}
-                          />
-                        </button>
-
-                        {activeCategory === category.id && (
-                          <div className="mt-1 mb-2 ml-4 space-y-1">
-                            {category.subcategories.map((subcategory) => (
-                              <Link
-                                key={subcategory.id}
-                                href={subcategory.href}
-                                className="block rounded-md px-2 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white"
-                              >
-                                {subcategory.name}
-                              </Link>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </SheetContent>
-            </Sheet>
-
-            <div className="text-lg font-medium text-white">Categories</div>
-
-            <Button variant="ghost" size="icon" className="invisible">
-              <Menu className="h-5 w-5" />
-            </Button>
           </div>
         </div>
       </div>

@@ -5,7 +5,7 @@ export default function SocialIcons() {
   return (
     <section className="section-gap">
       <div className="site-container">
-        <div className="grid grid-cols-2 place-items-center gap-4 md:grid-cols-5 lg:grid-cols-9">
+        <div className="grid grid-cols-3 place-items-center gap-4 md:grid-cols-5 lg:grid-cols-9">
           <div className="col-span-1 lg:col-start-3">
             <Link
               href="#"

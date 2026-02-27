@@ -1,19 +1,19 @@
-import type { Metadata } from "next";
-import { Geist } from "next/font/google";
-import "./globals.css";
-import Header from "@/components/layout/header";
-import { Toaster } from "sonner";
-import Footer from "@/components/layout/footer";
-import CategoryNav from "@/components/layout/category-nav";
+import CategoryNav from '@/components/layout/category-nav';
+import Footer from '@/components/layout/footer';
+import Header from '@/components/layout/header';
+import type { Metadata } from 'next';
+import { Geist } from 'next/font/google';
+import { Toaster } from 'sonner';
+import './globals.css';
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
-  title: "IT Bazar | Modern Ecommerce",
-  description: "A modern ecommerce app built with nextjs",
+  title: 'IT Bazar | Modern Ecommerce',
+  description: 'A modern ecommerce app built with nextjs',
 };
 
 export default function RootLayout({
@@ -23,14 +23,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} relative antialiased`}>
         <Header />
         <CategoryNav />
-        <main>
-          {children}
-        </main>
+        <main>{children}</main>
         <Footer />
         <Toaster position="top-right" />
       </body>

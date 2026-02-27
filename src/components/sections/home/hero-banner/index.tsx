@@ -39,21 +39,25 @@ export default function HeroBanner() {
               {/* No arrows or dots included */}
             </Carousel>
           </div>
-          <div className="md:col-span-4">
-            <Image
-              src={'/images/home/sub-banner.webp'}
-              alt="Company Logo"
-              width={1500}
-              height={800}
-              className="mb-2 rounded-xl"
-            />
-            <Image
-              src={'/images/home/sub-banner-2.jpg'}
-              alt="Company Logo"
-              width={1500}
-              height={700}
-              className="rounded-xl"
-            />
+          <div className="flex gap-2 md:col-span-4 md:block">
+            <div>
+              <Image
+                src={'/images/home/sub-banner.webp'}
+                alt="Company Logo"
+                width={1500}
+                height={800}
+                className="mb-2 rounded-xl"
+              />
+            </div>
+            <div>
+              <Image
+                src={'/images/home/sub-banner-2.jpg'}
+                alt="Company Logo"
+                width={1500}
+                height={700}
+                className="rounded-xl"
+              />
+            </div>
           </div>
         </div>
       </div>

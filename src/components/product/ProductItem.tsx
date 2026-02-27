@@ -9,7 +9,7 @@ export function ProductItemCard({
   product,
   className,
   showCategory = true,
-  imageHeightClass = 'h-58',
+  imageHeightClass = 'h-40 md:h-58',
 }: ProductItemProps) {
   return (
     <div

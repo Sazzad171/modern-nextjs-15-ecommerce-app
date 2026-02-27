@@ -1,7 +1,7 @@
 import { PAGE_ROUTES } from '@/lib/constants/page-routes';
 import { topCategories } from '@/lib/data';
 import Link from 'next/link';
-import CategoryCardItem from '../../common/product-list/category-card-item';
+import CategoryCardItem from '../../common/category-card-item';
 
 export default function TopCategories() {
   return (

@@ -11,7 +11,17 @@ import {
 import { Input } from '@/components/ui/input';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { PAGE_ROUTES } from '@/lib/constants/page-routes';
-import { AlertTriangle, ChevronRight, Search, ShoppingCart, User, X } from 'lucide-react';
+import { menuCategories } from '@/lib/data';
+import {
+  AlertTriangle,
+  ChevronDown,
+  ChevronRight,
+  Menu,
+  Search,
+  ShoppingCart,
+  User,
+  X,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
@@ -45,6 +55,7 @@ const mockCartItems = [
 ];
 
 const Header = () => {
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [showMobileSearch, setShowMobileSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [showSearchResults, setShowSearchResults] = useState(false);
@@ -106,171 +117,435 @@ const Header = () => {
   const cartItemsCount = mockCartItems.reduce((total, item) => total + item.quantity, 0);
 
   return (
-    <header className="bg-black py-2">
-      {/* Top links */}
-      <div className="site-container max-md:hidden">
-        <div className="grid grid-cols-5 items-center gap-2">
-          <div className="col-span-1"></div>
-          <div className="align-center col-span-3 flex justify-center gap-2">
-            <div>
-              <CustomButton size={'sm'} href="/" className="border-2 bg-transparent">
-                Blog
-              </CustomButton>
+    <>
+      <header className="bg-black py-2">
+        {/* Top links */}
+        <div className="site-container max-md:hidden">
+          <div className="grid grid-cols-5 items-center gap-2">
+            <div className="col-span-1"></div>
+            <div className="align-center col-span-3 flex justify-center gap-2">
+              <div>
+                <CustomButton size={'sm'} href="/" className="border-2 bg-transparent">
+                  Blog
+                </CustomButton>
+              </div>
+              <div>
+                <CustomButton size={'sm'} href="/" className="border-2 bg-transparent">
+                  Payment
+                </CustomButton>
+              </div>
+              <div>
+                <CustomButton size={'sm'} href="/" className="border-2 bg-transparent">
+                  Photo Gallery
+                </CustomButton>
+              </div>
+              <div>
+                <CustomButton
+                  size={'sm'}
+                  href="/"
+                  icon={<AlertTriangle />}
+                  className="border-2 border-yellow-400 bg-yellow-400 text-black hover:bg-yellow-500 hover:text-white"
+                >
+                  Notice
+                </CustomButton>
+              </div>
             </div>
-            <div>
-              <CustomButton size={'sm'} href="/" className="border-2 bg-transparent">
-                Payment
-              </CustomButton>
+            <div className="col-span-1">
+              <p className="text-right text-sm text-white">
+                <Link href={'tel:01975700755'}>Helpline: +8801975700755</Link>
+              </p>
             </div>
-            <div>
-              <CustomButton size={'sm'} href="/" className="border-2 bg-transparent">
-                Photo Gallery
-              </CustomButton>
-            </div>
-            <div>
-              <CustomButton
-                size={'sm'}
-                href="/"
-                icon={<AlertTriangle />}
-                className="border-2 border-yellow-400 bg-yellow-400 text-black hover:bg-yellow-500 hover:text-white"
+          </div>
+        </div>
+
+        <div className="site-container flex items-center justify-between">
+          {/* Left burger category icon - Mobile */}
+          <div className="md:hidden">
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="text-white">
+                  <Menu className="h-5 w-5" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent
+                side="left"
+                className="h-screen w-[300px] overflow-y-auto border-gray-800 bg-gray-900 text-white"
               >
-                Notice
-              </CustomButton>
-            </div>
-          </div>
-          <div className="col-span-1">
-            <p className="text-right text-sm text-white">
-              <Link href={'tel:01975700755'}>Helpline: +8801975700755</Link>
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div className="site-container flex items-center justify-between">
-        {/* Left Column - Logo */}
-        <div className="flex items-center">
-          <div className="relative aspect-520/200 w-40">
-            <Link href={PAGE_ROUTES.HOME}>
-              <Image src={'/images/logo.png'} alt="Company Logo" fill className="object-contain" />
-            </Link>
-          </div>
-        </div>
-
-        {/* Middle Column - Search Box with Dropdown (Desktop) */}
-        <div className="mx-1 hidden max-w-xl flex-1 items-center gap-3 md:flex lg:mx-8">
-          <div>
-            <Link href={'/'}>
-              <Image
-                src={'/images/offer-icon.png'}
-                width={70}
-                height={60}
-                alt="offer icon"
-                className="object-contain"
-              />
-            </Link>
-          </div>
-          <div className="relative w-full" ref={searchRef}>
-            <Search className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-gray-400" />
-            <Input
-              ref={inputRef}
-              type="search"
-              value={searchQuery}
-              onChange={handleSearchChange}
-              onFocus={handleSearchFocus}
-              placeholder="Search for products, brands, and more..."
-              className="w-full rounded-full border-gray-700 bg-gray-900 py-2 pr-10 pl-10 text-white placeholder:text-gray-400 focus-visible:ring-1 focus-visible:ring-gray-600 focus-visible:ring-offset-0"
-            />
-
-            {/* Search Results Dropdown */}
-            {showSearchResults && isSearchFocused && (
-              <div className="absolute top-full right-0 left-0 z-50 mt-1 overflow-hidden rounded-lg border border-gray-800 bg-gray-900 shadow-xl">
-                <div className="max-h-[400px] overflow-y-auto">
-                  <div className="p-2">
-                    <div className="mb-2 px-2 py-1 text-xs font-semibold text-gray-400">
-                      {searchQuery ? 'Search Results' : 'Popular Products'}
-                    </div>
-
-                    {filteredResults.length > 0 ? (
-                      <div className="space-y-1">
-                        {filteredResults.map((result) => (
-                          <button
-                            key={result.id}
-                            onClick={() => handleResultClick(result)}
-                            className="flex w-full items-center justify-between rounded-md px-3 py-2 text-left hover:bg-gray-800 focus:bg-gray-800 focus:outline-none"
-                          >
-                            <div className="flex-1">
-                              <div className="flex items-center gap-2">
-                                <span className="text-sm font-medium text-white">
-                                  {result.title}
-                                </span>
-                                <span className="rounded-full bg-gray-800 px-2 py-0.5 text-xs text-gray-300">
-                                  {result.category}
-                                </span>
-                              </div>
-                              <div className="mt-1 flex items-center gap-2">
-                                <span className="text-sm font-semibold text-green-400">
-                                  {result.price}
-                                </span>
-                              </div>
-                            </div>
-                            <ChevronRight className="h-4 w-4 text-gray-500" />
-                          </button>
-                        ))}
-                      </div>
-                    ) : (
-                      <div className="py-8 text-center">
-                        <Search className="mx-auto h-8 w-8 text-gray-600" />
-                        <p className="mt-2 text-gray-400">No products found</p>
-                        <p className="text-sm text-gray-500">Try different keywords</p>
-                      </div>
-                    )}
-
-                    {/* View all results link */}
-                    {searchQuery && filteredResults.length > 0 && (
-                      <div className="mt-2 border-t border-gray-800 pt-2">
-                        <Link
-                          href={`/search?q=${encodeURIComponent(searchQuery)}`}
-                          className="flex items-center justify-center gap-1 rounded-md px-3 py-2 text-sm text-blue-400 hover:bg-gray-800"
+                <div className="mt-6">
+                  <h3 className="mb-4 px-2 text-lg font-semibold">Categories</h3>
+                  <div className="space-y-1">
+                    {menuCategories.map((category) => (
+                      <div key={category.id} className="border-b border-gray-800 last:border-b-0">
+                        <button
+                          onClick={() =>
+                            setActiveCategory(activeCategory === category.id ? null : category.id)
+                          }
+                          className="flex w-full items-center justify-between rounded-md px-2 py-3 hover:bg-gray-800"
                         >
-                          View all results for "{searchQuery}"
-                          <ChevronRight className="h-4 w-4" />
-                        </Link>
+                          <span>{category.name}</span>
+                          <ChevronDown
+                            className={`h-4 w-4 transition-transform ${activeCategory === category.id ? 'rotate-180' : ''}`}
+                          />
+                        </button>
+
+                        {activeCategory === category.id && (
+                          <div className="mt-1 mb-2 ml-4 space-y-1">
+                            {category.subcategories.map((subcategory) => (
+                              <Link
+                                key={subcategory.id}
+                                href={subcategory.href}
+                                className="block rounded-md px-2 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white"
+                              >
+                                {subcategory.name}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
                       </div>
-                    )}
+                    ))}
                   </div>
                 </div>
-              </div>
-            )}
+              </SheetContent>
+            </Sheet>
           </div>
-          <div>
-            <Link
-              href="/pc-builder"
-              className="bg-primary rounded-sm px-4 py-1 text-sm font-medium whitespace-nowrap text-white transition-all duration-200 hover:bg-gray-800"
+
+          {/* Left Column - Logo */}
+          <div className="flex items-center">
+            <div className="relative aspect-520/200 w-40">
+              <Link href={PAGE_ROUTES.HOME}>
+                <Image
+                  src={'/images/logo.png'}
+                  alt="Company Logo"
+                  fill
+                  className="object-contain"
+                />
+              </Link>
+            </div>
+          </div>
+
+          {/* Middle Column - Search Box with Dropdown (Desktop) */}
+          <div className="mx-1 hidden max-w-xl flex-1 items-center gap-3 md:flex lg:mx-8">
+            <div>
+              <Link href={'/'}>
+                <Image
+                  src={'/images/offer-icon.png'}
+                  width={70}
+                  height={60}
+                  alt="offer icon"
+                  className="object-contain"
+                />
+              </Link>
+            </div>
+            <div className="relative w-full" ref={searchRef}>
+              <Search className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-gray-400" />
+              <Input
+                ref={inputRef}
+                type="search"
+                value={searchQuery}
+                onChange={handleSearchChange}
+                onFocus={handleSearchFocus}
+                placeholder="Search for products, brands, and more..."
+                className="w-full rounded-full border-gray-700 bg-gray-900 py-2 pr-10 pl-10 text-white placeholder:text-gray-400 focus-visible:ring-1 focus-visible:ring-gray-600 focus-visible:ring-offset-0"
+              />
+
+              {/* Search Results Dropdown */}
+              {showSearchResults && isSearchFocused && (
+                <div className="absolute top-full right-0 left-0 z-50 mt-1 overflow-hidden rounded-lg border border-gray-800 bg-gray-900 shadow-xl">
+                  <div className="max-h-[400px] overflow-y-auto">
+                    <div className="p-2">
+                      <div className="mb-2 px-2 py-1 text-xs font-semibold text-gray-400">
+                        {searchQuery ? 'Search Results' : 'Popular Products'}
+                      </div>
+
+                      {filteredResults.length > 0 ? (
+                        <div className="space-y-1">
+                          {filteredResults.map((result) => (
+                            <button
+                              key={result.id}
+                              onClick={() => handleResultClick(result)}
+                              className="flex w-full items-center justify-between rounded-md px-3 py-2 text-left hover:bg-gray-800 focus:bg-gray-800 focus:outline-none"
+                            >
+                              <div className="flex-1">
+                                <div className="flex items-center gap-2">
+                                  <span className="text-sm font-medium text-white">
+                                    {result.title}
+                                  </span>
+                                  <span className="rounded-full bg-gray-800 px-2 py-0.5 text-xs text-gray-300">
+                                    {result.category}
+                                  </span>
+                                </div>
+                                <div className="mt-1 flex items-center gap-2">
+                                  <span className="text-sm font-semibold text-green-400">
+                                    {result.price}
+                                  </span>
+                                </div>
+                              </div>
+                              <ChevronRight className="h-4 w-4 text-gray-500" />
+                            </button>
+                          ))}
+                        </div>
+                      ) : (
+                        <div className="py-8 text-center">
+                          <Search className="mx-auto h-8 w-8 text-gray-600" />
+                          <p className="mt-2 text-gray-400">No products found</p>
+                          <p className="text-sm text-gray-500">Try different keywords</p>
+                        </div>
+                      )}
+
+                      {/* View all results link */}
+                      {searchQuery && filteredResults.length > 0 && (
+                        <div className="mt-2 border-t border-gray-800 pt-2">
+                          <Link
+                            href={`/search?q=${encodeURIComponent(searchQuery)}`}
+                            className="flex items-center justify-center gap-1 rounded-md px-3 py-2 text-sm text-blue-400 hover:bg-gray-800"
+                          >
+                            View all results for "{searchQuery}"
+                            <ChevronRight className="h-4 w-4" />
+                          </Link>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+            <div>
+              <Link
+                href="/pc-builder"
+                className="bg-primary rounded-sm px-4 py-1 text-sm font-medium whitespace-nowrap text-white transition-all duration-200 hover:bg-gray-800"
+              >
+                PC Builder
+              </Link>
+            </div>
+          </div>
+
+          {/* Right Column - Icons */}
+          <div className="flex items-center space-x-2 md:space-x-4">
+            {/* Mobile Search Toggle */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="rounded-full border border-gray-700 bg-transparent text-white hover:bg-gray-800 hover:text-white md:hidden"
+              onClick={() => setShowMobileSearch(!showMobileSearch)}
             >
-              PC Builder
-            </Link>
+              {showMobileSearch ? <X className="h-5 w-5" /> : <Search className="h-5 w-5" />}
+            </Button>
+
+            {/* Cart Icon with Sheet */}
+            <div className="hidden md:block">
+              <Sheet>
+                <SheetTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="relative cursor-pointer rounded-full border border-gray-700 bg-white"
+                  >
+                    <ShoppingCart className="h-5 w-5" />
+                    <span className="bg-primary absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full text-xs font-medium text-white">
+                      {cartItemsCount}
+                    </span>
+                  </Button>
+                </SheetTrigger>
+                <SheetContent className="flex h-full flex-col border-l-gray-800 bg-gray-900 p-4 text-white sm:max-w-md">
+                  <SheetHeader className="border-b border-gray-800 pb-4">
+                    <SheetTitle className="text-left text-xl font-bold text-white">
+                      Shopping Cart
+                    </SheetTitle>
+                    <div className="text-sm text-gray-400">
+                      {cartItemsCount} {cartItemsCount === 1 ? 'item' : 'items'}
+                    </div>
+                  </SheetHeader>
+
+                  {/* Cart Items */}
+                  <div className="flex-1 overflow-y-auto py-4">
+                    <div className="space-y-4">
+                      {mockCartItems.map((item) => (
+                        <div
+                          key={item.id}
+                          className="flex items-center gap-4 rounded-lg border border-gray-800 p-4"
+                        >
+                          <div className="relative h-16 w-16 shrink-0 rounded-md bg-gray-800">
+                            {/* use actual product image */}
+                          </div>
+                          <div className="flex-1">
+                            <h4 className="font-medium text-white">{item.name}</h4>
+                            <p className="text-sm text-gray-400">${item.price.toFixed(2)} each</p>
+                            <div className="mt-2 flex items-center justify-between">
+                              <div className="flex items-center gap-2">
+                                <Button
+                                  size="icon"
+                                  variant="outline"
+                                  className="h-6 w-6 rounded-full border-gray-700 bg-transparent text-white"
+                                >
+                                  -
+                                </Button>
+                                <span className="w-8 text-center">{item.quantity}</span>
+                                <Button
+                                  size="icon"
+                                  variant="outline"
+                                  className="h-6 w-6 rounded-full border-gray-700 bg-transparent text-white"
+                                >
+                                  +
+                                </Button>
+                              </div>
+                              <span className="font-semibold">
+                                ${(item.price * item.quantity).toFixed(2)}
+                              </span>
+                            </div>
+                          </div>
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            className="h-8 w-8 text-gray-400 hover:text-red-400"
+                          >
+                            <X className="h-4 w-4" />
+                          </Button>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Cart Summary */}
+                  <div className="border-t border-gray-800 pt-4">
+                    <div className="space-y-3">
+                      <div className="flex justify-between text-sm">
+                        <span className="text-gray-400">Subtotal</span>
+                        <span className="font-semibold">${cartTotal.toFixed(2)}</span>
+                      </div>
+                      <div className="flex justify-between text-sm">
+                        <span className="text-gray-400">Shipping</span>
+                        <span className="font-semibold text-green-400">Free</span>
+                      </div>
+                      <div className="flex justify-between text-lg font-bold">
+                        <span>Total</span>
+                        <span>${cartTotal.toFixed(2)}</span>
+                      </div>
+
+                      <div className="flex gap-3">
+                        <Link
+                          href="/cart"
+                          className="flex flex-1 items-center justify-center rounded-full border border-gray-700 bg-gray-800 px-4 py-2 text-white transition-colors hover:bg-gray-700"
+                        >
+                          View Cart
+                        </Link>
+
+                        <Link
+                          href="/checkout"
+                          className="bg-primary hover:bg-primary-hov flex flex-1 items-center justify-center rounded-full px-4 py-2 text-white transition-colors"
+                        >
+                          Checkout
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </SheetContent>
+              </Sheet>
+            </div>
+
+            {/* User Icon */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="hidden cursor-pointer rounded-full border border-gray-700 bg-white sm:inline-flex"
+                >
+                  <User className="h-5 w-5" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem asChild>
+                  <Link href={PAGE_ROUTES.PROFILE} className="cursor-pointer">
+                    Profile
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href={PAGE_ROUTES.LOGOUT} className="cursor-pointer">
+                    Logout
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         </div>
 
-        {/* Right Column - Icons */}
-        <div className="flex items-center space-x-2 md:space-x-4">
-          {/* Mobile Search Toggle */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="rounded-full border border-gray-700 bg-transparent text-white hover:bg-gray-800 hover:text-white md:hidden"
-            onClick={() => setShowMobileSearch(!showMobileSearch)}
-          >
-            {showMobileSearch ? <X className="h-5 w-5" /> : <Search className="h-5 w-5" />}
-          </Button>
+        {/* Mobile Search Bar (appears when toggled) */}
+        {showMobileSearch && (
+          <div className="border-t border-gray-800 bg-black p-4 md:hidden" ref={searchRef}>
+            <div className="relative">
+              <Search className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-gray-400" />
+              <Input
+                ref={inputRef}
+                type="search"
+                value={searchQuery}
+                onChange={handleSearchChange}
+                onFocus={handleSearchFocus}
+                placeholder="Search..."
+                className="w-full rounded-full border-gray-700 bg-gray-900 py-2 pr-10 pl-10 text-white placeholder:text-gray-400 focus-visible:ring-1 focus-visible:ring-gray-600 focus-visible:ring-offset-0"
+                autoFocus
+              />
 
-          {/* Cart Icon with Sheet */}
+              {/* Clear search button for mobile */}
+              {searchQuery && (
+                <button
+                  onClick={clearSearch}
+                  className="absolute top-1/2 right-3 -translate-y-1/2 text-gray-400 hover:text-gray-300"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              )}
+
+              {/* Mobile Search Results Dropdown */}
+              {showSearchResults && isSearchFocused && (
+                <div className="absolute top-full right-0 left-0 z-50 mt-1 overflow-hidden rounded-lg border border-gray-800 bg-gray-900 shadow-xl">
+                  <div className="max-h-[300px] overflow-y-auto">
+                    <div className="p-2">
+                      <div className="mb-2 px-2 py-1 text-xs font-semibold text-gray-400">
+                        {searchQuery ? 'Search Results' : 'Popular Products'}
+                      </div>
+
+                      {filteredResults.length > 0 ? (
+                        <div className="space-y-1">
+                          {filteredResults.slice(0, 4).map((result) => (
+                            <button
+                              key={result.id}
+                              onClick={() => handleResultClick(result)}
+                              className="flex w-full items-center justify-between rounded-md px-3 py-2 text-left hover:bg-gray-800"
+                            >
+                              <div className="flex-1">
+                                <div className="text-sm font-medium text-white">{result.title}</div>
+                                <div className="mt-1 flex items-center gap-2">
+                                  <span className="text-xs text-green-400">{result.price}</span>
+                                </div>
+                              </div>
+                              <ChevronRight className="h-4 w-4 text-gray-500" />
+                            </button>
+                          ))}
+                        </div>
+                      ) : (
+                        <div className="py-6 text-center">
+                          <p className="text-gray-400">No products found</p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+      </header>
+
+      {/* Bottom fixed bar - Mobile */}
+      <div className="fixed bottom-0 left-0 z-1000 w-full bg-black p-2">
+        <div className="flex items-center justify-around gap-2">
+          {/* cart */}
           <Sheet>
             <SheetTrigger asChild>
               <Button
                 variant="ghost"
                 size="icon"
-                className="relative cursor-pointer rounded-full border border-gray-700 bg-white"
+                className="relative cursor-pointer rounded-full border border-gray-700 bg-transparent text-white"
               >
                 <ShoppingCart className="h-5 w-5" />
                 <span className="bg-primary absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full text-xs font-medium text-white">
@@ -372,109 +647,17 @@ const Header = () => {
               </div>
             </SheetContent>
           </Sheet>
-
-          {/* User Icon */}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="hidden cursor-pointer rounded-full border border-gray-700 bg-white sm:inline-flex"
-              >
-                <User className="h-5 w-5" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuItem asChild>
-                <Link href={PAGE_ROUTES.PROFILE} className="cursor-pointer">
-                  Profile
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link href={PAGE_ROUTES.LOGOUT} className="cursor-pointer">
-                  Logout
-                </Link>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-
           {/* Mobile User Menu (simplified) */}
           <Button
             variant="ghost"
             size="icon"
-            className="rounded-full border border-gray-700 bg-transparent text-white hover:bg-gray-800 sm:hidden"
+            className="rounded-full border border-gray-700 bg-transparent text-white"
           >
             <User className="h-5 w-5" />
           </Button>
         </div>
       </div>
-
-      {/* Mobile Search Bar (appears when toggled) */}
-      {showMobileSearch && (
-        <div className="border-t border-gray-800 bg-black p-4 md:hidden" ref={searchRef}>
-          <div className="relative">
-            <Search className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-gray-400" />
-            <Input
-              ref={inputRef}
-              type="search"
-              value={searchQuery}
-              onChange={handleSearchChange}
-              onFocus={handleSearchFocus}
-              placeholder="Search..."
-              className="w-full rounded-full border-gray-700 bg-gray-900 py-2 pr-10 pl-10 text-white placeholder:text-gray-400 focus-visible:ring-1 focus-visible:ring-gray-600 focus-visible:ring-offset-0"
-              autoFocus
-            />
-
-            {/* Clear search button for mobile */}
-            {searchQuery && (
-              <button
-                onClick={clearSearch}
-                className="absolute top-1/2 right-3 -translate-y-1/2 text-gray-400 hover:text-gray-300"
-              >
-                <X className="h-4 w-4" />
-              </button>
-            )}
-
-            {/* Mobile Search Results Dropdown */}
-            {showSearchResults && isSearchFocused && (
-              <div className="absolute top-full right-0 left-0 z-50 mt-1 overflow-hidden rounded-lg border border-gray-800 bg-gray-900 shadow-xl">
-                <div className="max-h-[300px] overflow-y-auto">
-                  <div className="p-2">
-                    <div className="mb-2 px-2 py-1 text-xs font-semibold text-gray-400">
-                      {searchQuery ? 'Search Results' : 'Popular Products'}
-                    </div>
-
-                    {filteredResults.length > 0 ? (
-                      <div className="space-y-1">
-                        {filteredResults.slice(0, 4).map((result) => (
-                          <button
-                            key={result.id}
-                            onClick={() => handleResultClick(result)}
-                            className="flex w-full items-center justify-between rounded-md px-3 py-2 text-left hover:bg-gray-800"
-                          >
-                            <div className="flex-1">
-                              <div className="text-sm font-medium text-white">{result.title}</div>
-                              <div className="mt-1 flex items-center gap-2">
-                                <span className="text-xs text-green-400">{result.price}</span>
-                              </div>
-                            </div>
-                            <ChevronRight className="h-4 w-4 text-gray-500" />
-                          </button>
-                        ))}
-                      </div>
-                    ) : (
-                      <div className="py-6 text-center">
-                        <p className="text-gray-400">No products found</p>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
-    </header>
+    </>
   );
 };
 

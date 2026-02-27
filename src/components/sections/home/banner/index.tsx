@@ -7,7 +7,10 @@ export default function Banner() {
       <div className="site-container">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
           {bannerImages?.slice(0, 2)?.map((bannerItem, index) => (
-            <div key={index} className="group relative h-80 w-full overflow-hidden rounded-md">
+            <div
+              key={index}
+              className="group relative h-40 w-full overflow-hidden rounded-md md:h-80"
+            >
               <Image
                 src={bannerItem}
                 alt="banner image"

@@ -3,17 +3,24 @@ import { PAGE_ROUTES } from '@/lib/constants/page-routes';
 import { productsData } from '@/lib/data';
 import Link from 'next/link';
 
-export default function ProductList() {
+interface ProductListProps {
+  title: string;
+}
+
+export default function ProductList({ title }: ProductListProps) {
   return (
     <section className="section-gap">
       <div className="site-container">
-        <div className="mb-4 flex items-baseline justify-between gap-3">
+        <div className="mb-4 flex items-end justify-between gap-3">
           <div>
-            <h2 className="text-center text-2xl font-bold">Featured Products</h2>
+            <h2 className="text-2xl font-bold">{title}</h2>
           </div>
           <div>
             <p>
-              <Link href={PAGE_ROUTES.PRODUCTS} className="border-primary border-b-2 pb-1">
+              <Link
+                href={PAGE_ROUTES.PRODUCTS}
+                className="border-primary border-b-2 pb-1 whitespace-nowrap"
+              >
                 View More
               </Link>
             </p>
@@ -21,7 +28,7 @@ export default function ProductList() {
         </div>
 
         {/* Grid Layout */}
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-2 md:gap-4 lg:grid-cols-5">
           {productsData?.slice(3, 8)?.map((product) => (
             <ProductItemCard product={product} key={product.id} />
           ))}

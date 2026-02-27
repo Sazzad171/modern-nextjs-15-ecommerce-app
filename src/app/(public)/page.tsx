@@ -54,13 +54,13 @@ export default function Home() {
       </section> */}
 
       {/* Product list */}
-      <ProductList />
+      <ProductList title={'Most Popular Products'} />
 
       {/* Top categories */}
       <TopCategories />
 
       {/* Product list */}
-      <ProductList />
+      <ProductList title={'Featured Products'} />
 
       {/* Hot deals card */}
       <HotDeals />
@@ -69,7 +69,7 @@ export default function Home() {
       <Banner />
 
       {/* Product list */}
-      <ProductList />
+      <ProductList title={'New Arrival'} />
 
       {/* Features & top categories */}
       <FeaturesCategories />
@@ -81,7 +81,7 @@ export default function Home() {
       <OfferBanner />
 
       {/* Product list */}
-      <ProductList />
+      <ProductList title={'All Products'} />
 
       {/* Our brands */}
       <OurBrands />

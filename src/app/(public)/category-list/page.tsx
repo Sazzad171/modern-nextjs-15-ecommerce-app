@@ -1,4 +1,4 @@
-import CategoryCardItem from '@/components/sections/common/product-list/category-card-item';
+import CategoryCardItem from '@/components/sections/common/category-card-item';
 import { topCategories } from '@/lib/data';
 
 function CategoryList() {
