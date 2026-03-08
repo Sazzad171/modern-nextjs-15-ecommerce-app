@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 import { Geist } from 'next/font/google';
 import { Toaster } from 'sonner';
 import './globals.css';
+import NextTopLoader from 'nextjs-toploader';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -28,6 +29,7 @@ export default function RootLayout({
         <CategoryNav />
         <main>{children}</main>
         <Footer />
+        <NextTopLoader color="text-primary" />
         <Toaster position="top-right" />
       </body>
     </html>
